@@ -28,8 +28,6 @@ class ViewController: UIViewController {
     @IBAction func reset(_ sender: UIButton) {
         updateCounter(0)
     }
-    @IBAction func innnn(_ sender: Any) {
-    }
     
     @IBAction func increment(_ sender: UIButton) {
         let value = (progressBar.progress * 100) + 1
