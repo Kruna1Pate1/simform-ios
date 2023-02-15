@@ -18,7 +18,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateCounter(50)
+        let initialVal = Bundle.main.infoDictionary?["InitialProgress"] as? Int
+        updateCounter(initialVal ?? 50)
         
         let label = UILabel()
         view.addSubview(label)
@@ -37,6 +38,7 @@ class ViewController: UIViewController {
     
     @IBAction func decrement(_ sender: UIButton) {
         let value = (progressBar.progress * 100) - 1
+        print(value + 1000)
         if(value < 0) { return }
         updateCounter(Int(value))
     }
