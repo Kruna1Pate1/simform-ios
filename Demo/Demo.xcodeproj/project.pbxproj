@@ -16,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E8AD4C46299E30F800DA99DE /* photograph_signature.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = photograph_signature.ttf; path = ../../../../../../Downloads/photograph_signature.ttf; sourceTree = "<group>"; };
 		E8DA41B8299B5C520054C3D1 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8DA41BB299B5C520054C3D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8DA41BD299B5C520054C3D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +38,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E8AD4C45299E30D000DA99DE /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E8AD4C46299E30F800DA99DE /* photograph_signature.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		E8DA41AF299B5C520054C3D1 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +65,7 @@
 		E8DA41BA299B5C520054C3D1 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				E8AD4C45299E30D000DA99DE /* fonts */,
 				E8DA41BB299B5C520054C3D1 /* AppDelegate.swift */,
 				E8DA41BD299B5C520054C3D1 /* SceneDelegate.swift */,
 				E8DA41BF299B5C520054C3D1 /* ViewController.swift */,
