@@ -122,6 +122,9 @@ if let firstNumber = Int("4"), let secondNumber = Int("42"), firstNumber < secon
  */
 let emptyArr: [Int] = []
 let arr: Any? = ["a", "b", 3, false]
+var rArr = Array(repeating: 0, count: 10)
+rArr[rArr.count - 1] = 3
+print(emptyArr + rArr)
 
 /**
  Dictionary
@@ -132,6 +135,19 @@ let dic = [
     "Secound": [5, 25, 19, 5]
 ]
 print(dic["Secound"])
+
+
+/**
+Sets
+ */
+var s = Set<Character>()
+s.insert("A")
+s.insert("B")
+s.remove("B")
+s.insert("C")
+s.removeFirst()
+print(s)
+
 
 /**
  Loops
@@ -144,6 +160,10 @@ for (key, numArr) in dic {
     for n in numArr {
         print(key, n, separator: " -> ")
     }
+}
+
+for (index, e) in rArr.enumerated() {
+    print("\(index): \(e)")
 }
 
 var count = 0
@@ -191,3 +211,25 @@ case (0, let y):
 case let (x, y):
     print("somewhere else at (\(x), \(y))")
 }
+
+
+/**
+ String Indices & Sub String
+ */
+var str = "abcdefgh"
+print(str[str.startIndex])
+print(str[str.index(before: str.endIndex)])
+let index = str.index(str.startIndex, offsetBy: 3)
+print(str[index])
+
+for i in str.indices {
+    if(i >= str.index(str.startIndex, offsetBy: 3)) {
+        break
+    }
+    print(str[i], terminator: "")
+}
+str.insert("i", at: str.endIndex)
+str.insert(contentsOf: "jklm", at: str.endIndex)
+str.removeFirst(2)
+print(str)
+
