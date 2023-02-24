@@ -148,6 +148,81 @@ print(str)
 
 print("".isEmpty ? "empty" : "not empty")
 
+
+/**
+ Array
+ */
+
+// Write a Swift program to check whether the first element and the last element of a given array of integers are equal. The array length must be 1 or more.
+let arr1 = ["a", "b", "c", "a"]
+if !arr1.isEmpty {
+    print(arr1.first == arr1.last )
+}
+
+// Write a Swift program to create a new array with double the length of a given array of integers and its last element is the same as the given array. The given array will be length 1 or more. By default, a new integer array contains all 0's.
+let arr21 = [1, 2, 3, 4]
+var arr22 = Array(repeating: 0, count: arr21.count * 2)
+arr22[arr22.count - 1] = arr21.last!
+print(arr22)
+
+// Write a Swift program to create a new array, taking first two elements from a given array of integers. If the length of the given array is less than 2 use the single element of the given array
+let arr31 = [0, 1, 2]
+let arr32 = arr31.prefix(2)
+print(arr32)
+
+// Write a Swift program to take one array and find out maximum number from that array
+let arr4 = [0, 50, 100, 250, 80, 150]
+var max4 = 0
+arr4.forEach { i in
+    if i > max4 {
+        max4 = i
+    }
+}
+//max4 = arr4.max() ?? 0
+print(max4)
+
+// Write a Swift program to take one array and sort it in descending order.
+var arr5 = [0,5,6,2,10]
+arr5.sort(by: { i, j in
+    i > j
+})
+print(arr5)
+
+// Print all the numbers from listOfNumbers that are divisible by at least one number from divisors
+var listOfNumbers = [1, 2, 3, 10, 100]
+var divisors = [2, 5]
+
+let arr6 = listOfNumbers.filter( { n in
+    var flag = false
+    for div in divisors {
+        if (n%div == 0) {
+            flag = true
+            break
+        }
+    }
+    return flag
+})
+
+print(arr6)
+
+// Try all Array methods: new
+
+var arr7 = [1, 2, 3, 4, 5]
+
+arr7.append(6)
+arr7.remove(at: 3)
+arr7.removeAll(where: { i in
+    i%2==0
+})
+
+print(arr7.contains([1, 3, 5]))
+
+let arr72 = ["a", "b", "c", "d"]
+for (index, val) in arr72.enumerated() {
+    print("\(index): \(val)")
+}
+
+
 /**
  Control Flow
  */
@@ -210,3 +285,199 @@ for i in 2...Int(sqrt(27)) {
 
 print("\(N5) is \(flag ? "prime" : "not prime")")
 
+
+/**
+ Dictionary
+ */
+
+// You are given a dictionary code of type [String:String] which has values for all lowercase letters. The codedictionary represents a way to encode a message. For example if code["a"] = "z" and code["b"] = "x" the encoded version if "ababa" will be "zxzxz". You are also given a encodedMessage which contains only lowercase letters and spaces. Use the codedictionary to decode the message and print it. Write a Swift program to decode the message and print final output string
+
+var code = [
+"a" : "b",
+"b" : "c",
+"c" : "d",
+"d" : "e",
+"e" : "f",
+"f" : "g",
+"g" : "h",
+"h" : "i",
+"i" : "j",
+"j" : "k",
+"k" : "l",
+"l" : "m",
+"m" : "n",
+"n" : "o",
+"o" : "p",
+"p" : "q",
+"q" : "r",
+"r" : "s",
+"s" : "t",
+"t" : "u",
+"u" : "v",
+"v" : "w",
+"w" : "x",
+"x" : "y",
+"y" : "z",
+"z" : "a"
+]
+var encodedMsg = "uijt nfttbhf jt ibse up sfbe"
+var decodedMsg = encodedMsg.map({ ch in
+    code.first(where: {String(ch) == $0.value})?.key ?? " "
+}).joined()
+
+print("Decoded msg:", decodedMsg)
+
+// You are given an array of dictionaries. Each dictionary in the array contains exactly 2 keys “firstName” and “lastName”. Create an array of strings called firstNames that contains only the values for “firstName” from each dictionary.
+
+var people: [[String:String]] = [
+    [
+        "firstName": "Calvin",
+        "lastName": "Newton"
+    ],
+    [
+        "firstName": "Garry",
+        "lastName": "Mckenzie"
+    ],
+    [
+        "firstName": "Leah",
+        "lastName": "Rivera"
+    ],
+    [
+        "firstName": "Sonja",
+        "lastName": "Moreno"
+    ],
+    [
+        "firstName": "Noel",
+        "lastName": "Bowen"
+    ]
+]
+let firstName: [String] = people.map { $0["firstName"]! }
+print(firstName)
+
+
+// You are given an array of dictionaries. Each dictionary in the array contains exactly 2 keys “firstName” and “lastName”. Create an array of strings called fullNames that contains the values for “firstName” and “lastName” from the dictionary separated by a space.
+
+let fullName2 = people.map { p in
+    p["firstName"]! + " " + p["lastName"]!
+}
+print(fullName2)
+
+// You are given an array of dictionaries. Each dictionary in the array describes the score of a person. Find the person with the lowest score and print his full name.
+var people2: [[String:Any]] = [
+    
+    [
+        "firstName": "Calvin",
+        "lastName": "Newton",
+        "score": 13
+    ],
+    [
+        "firstName": "Garry",
+        "lastName": "Mckenzie",
+        "score": 12
+    ],
+    [
+        "firstName": "Leah",
+        "lastName": "Rivera",
+        "score": 10
+    ],
+    [
+        "firstName": "Sonja",
+        "lastName": "Moreno",
+        "score": 3
+    ],
+    [
+        "firstName": "Noel",
+        "lastName": "Bowen",
+        "score": 16
+    ]
+]
+
+let fName = people2.min { p1, p2 in
+    (p1["score"] as! Int) < (p2["score"] as! Int)
+}!
+print("\(fName["firstName"]!) \(fName["lastName"]!)")
+
+// You are given an array of dictionaries. Each dictionary in the array describes the score of a person. Print the leaderboard in the following format:
+
+people2.enumerated().forEach { i, p in
+    print("\(i + 1). \(p["firstName"]!) \(p["lastName"]!) - \(p["score"]!)")
+}
+
+// You are given an array of integers. Find out the frequency of each one.The frequency of a number is the number of times it appears in the array.Print the numbers in ascending order followed by their frequency.
+var numbers = [1, 2, 3, 2, 3, 5, 2, 1, 3, 4, 2, 2, 2]
+var freq: [Int: Int] = [:]
+numbers.forEach { n in
+    if let f = freq[n] {
+        freq[n] = f + 1
+    } else {
+        freq[n] = 1
+    }
+}
+
+freq.sorted() {
+    $0.key < $1.key
+}.forEach {
+    print("\($0) \($1)")
+}
+
+
+/**
+ Optionals
+ */
+
+// Create an example of demonstrating How to declare optionals in swift
+var opNum: Int?
+
+// What is force unwrapping in optionals show usage in example.
+
+// print(opNum!) Fatal error: Unexpectedly found nil while unwrapping an Optional value
+opNum = 7
+print(opNum)
+
+// Create one example of show usage of optional binding
+if var opNum {
+    opNum = 10
+    print(opNum)
+}
+print(opNum)
+
+var opNum2: Int?
+if let opNum, let opNum2 {
+    print(opNum + opNum2)
+} else if let opNum {
+    print(opNum)
+} else {
+    print("No number exist!")
+}
+
+opNum2 = 3
+while let num = opNum2 {
+    opNum2 = num + 1
+    print(num)
+    if(num > 5) {
+        opNum2 = nil
+    }
+}
+
+// Create one example using guard-let
+
+func sum(_ num1: Int? = nil, _ num2: Int? = nil) {
+    guard let num1 = num1 else {
+        print("Num1 is nil") // error: 'guard' body must not fall through, consider using a 'return' or 'throw' to exit the scope
+        return
+    }
+
+    guard let num2 else {
+        print("Num2 is nil")
+        return
+    }
+
+    print("\(num1) + \(num2) = \(num1+num2)")
+}
+
+sum(5, 10)
+
+
+// Create one example using nil colloison operator
+var nilName: String?
+print(nilName ?? "unknown")
