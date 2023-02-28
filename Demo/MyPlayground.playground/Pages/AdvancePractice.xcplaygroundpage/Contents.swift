@@ -292,3 +292,380 @@ print("name:", wiz.name.fName, wiz.name.lName)
 print("age:", wiz.age)
 print("school:", wiz.school)
 print("house:", wiz.house!, wiz.house!.rawValue)
+
+
+// Identity Operator
+let wiz2 = wiz
+print(wiz === wiz2)
+
+
+/**
+ Higher Order Function
+ */
+
+var numArr = [10, 23, 9, -6, 0, 23, 7]
+
+// Sort
+var aNumArr = numArr.sorted(by: < )
+print("ascending:", aNumArr)
+var dNumArr = numArr.sorted { $0 > $1 }
+print("descending:", dNumArr)
+
+// For-each
+numArr.forEach { n in
+    print(n%2 == 0 ? "even" : "odd", terminator: ", ")
+}
+print()
+
+let printer = { e in
+    print(e, terminator: ", ")
+}
+numArr.forEach(printer)
+print()
+
+// Filter
+var oddArr = numArr.filter { $0%2 != 0 }
+print("odd:", oddArr)
+
+// Map
+func toString(_ e: Int) -> String {
+    String(e)
+}
+let strNumArr = numArr.map(toString)
+print("string num:", strNumArr)
+
+// Compact map
+let mixArr: [Any?] = ["1", 2, true, "Hello", 5, 1, 2, nil, 4, 7]
+let iArr = mixArr.compactMap { $0 as? Int }
+print(iArr)
+
+// Flat map
+let tdArr = [
+    [2, 4, 6, 8],
+    [1, 3, 5, 7]
+]
+let newTdArr = tdArr.flatMap { arr in
+    arr.filter { $0 > 3 }
+}
+print(newTdArr)
+
+// Reduce
+let total = strNumArr.reduce(0, { (res, e) in
+    res + (Int(e) ?? 0)
+})
+print("total:", total)
+
+
+// Chain
+mixArr
+    .compactMap { $0 as? Int }
+    .filter { $0%2 == 0}
+    .map { $0 * 10}
+    .forEach(printer)
+print()
+
+
+/**
+ Properties
+ */
+
+// Stored properties
+
+struct Book1 {
+    let name: String
+    var genre: [Genre] = []
+    var author: String?
+}
+
+var book1 = Book1(name: "Harry Potter and the philosopher's stone", genre: [.fiction, .fantasy])
+
+let book2 = book1
+//book2.genre.append(.thriller) error: cannot use mutating member on immutable value
+
+book1.author = "J. K. Rowling"
+
+print(book1)
+print(book2)
+
+
+// Lazy properties
+struct Book2 {
+    let name: String
+    var genre: [Genre] = []
+    var author: String?
+    lazy var rating: Int = {
+        print("rating initialized")
+        return 0
+    }()
+}
+
+var book21 = Book2(name: book1.name)
+print(book21.name)
+book21.rating
+
+// Calculated properties
+struct Book3 {
+    let name: String
+    var genre: [Genre] = []
+    var author: String?
+    var rating: Int = 0
+    var read: Int {
+        get {
+            return rating + 1
+        }
+//        set(val) {
+//            rating = val * 10
+//        }
+        set {
+            rating = newValue * 10
+        }
+    }
+}
+
+var book31 = Book3(name: book1.name)
+print(book31.read)
+book31.read = 5
+print(book31.read)
+
+// Read-Only Computed Properties
+struct Book4 {
+    let name: String
+    var length: Int {
+        name.count
+    }
+}
+var book41 = Book4(name: "123456")
+print(book41.length)
+//book41.length = 10 error: cannot assign to property: 'length' is a get-only property
+
+
+class Book5 {
+    var name: String = "" {
+        willSet {
+            print("[willSet] newValue:", newValue)
+        }
+        didSet {
+            print("[didSet] oldValue:", oldValue)
+        }
+    }
+}
+let book51 = Book5()
+book51.name = book1.name
+print(book51)
+
+func change(_ e: inout String) {
+    e = "Changed value"
+}
+change(&book51.name)
+
+
+/**
+ Propertt wrapper
+ */
+
+@propertyWrapper
+struct EvenOnly {
+    private var num = 0
+    var wrappedValue: Int {
+        get { num }
+        set {
+            if(newValue%2 != 0) {
+                print("can't use odd numbers")
+                return
+            }
+            num = newValue
+        }
+    }
+}
+
+class Lift {
+    @EvenOnly var floors: Int
+}
+
+let lift = Lift()
+lift.floors = 6
+lift.floors = 5
+print(lift.floors)
+
+/**
+@propertyWrapper
+class PathFilter {
+    private let illigleChars: Set<Character> = ["\\", "/", ":", "*", "?", "\"", "<", ">", "|"]
+    private var name: String
+    
+    var wrappedValue: String {
+        get { return name }
+        set {
+            newValue.forEach {
+                if illigleChars.contains($0) {
+                    print("invalid file name!")
+                    return
+                }
+            }
+            name = newValue
+        }
+    }
+    
+    init() {
+        name = ""
+    }
+    
+    init(wrappedValue: String) {
+        wrappedValue.forEach { //'self' captured by a closure before all members were initialized
+            if illigleChars.contains($0) {
+                print("invalid file name!")
+                return
+            }
+        }
+        name = wrappedValue
+    }
+}
+
+struct FileProvider {
+    @PathFilter var name: String = ""
+}
+var fp = FileProvider(name: "hello")
+print(fp.name)
+*/
+
+class Counter {
+    var count: Int
+    
+    init() {
+        count = 0
+    }
+    
+    init(initial: Int) {
+        count = initial
+    }
+    
+    func inc(by: Int = 1) {
+        count += by
+    }
+    
+    func dec(by: Int = 1) {
+        count -= by
+    }
+}
+
+let counter = Counter(initial: 5)
+counter.inc()
+counter.dec(by: 3)
+print(counter.count)
+
+
+/**
+ Mutating
+ */
+
+struct Counter2 {
+    var count = 0
+    
+    mutating func inc(by: Int = 1) {
+        count += by
+    }
+    
+    mutating func dec(by: Int = 1) {
+        count -= by
+    }
+    
+    mutating func reset() {
+        self = Counter2()
+    }
+}
+
+var counter2 = Counter2()
+counter2.inc(by: 50)
+print(counter2.count)
+counter2.reset()
+print(counter2.count)
+
+enum Signal: String {
+    case green, yellow, red
+    
+    mutating func next() -> Signal {
+        switch self {
+        case .green:
+            self = .yellow
+        case .yellow:
+            self = .red
+        case .red:
+            self = .green
+        }
+        return self
+    }
+}
+var signal = Signal(rawValue: "green")
+print(signal!.rawValue)
+print(signal!.next().rawValue)
+print(signal!.next().rawValue)
+print(signal!.next().rawValue)
+
+// Type method
+class Formatter {
+    static var seprator: String = " "
+    class func format(_ e: String...) -> String {
+        e.joined(separator: seprator)
+    }
+}
+print(Formatter.format("Hello", "World", "!", "!"))
+
+struct FormatterS {
+    static func format(_ e: String...) -> String {
+        e.joined(separator: " ")
+    }
+}
+print(FormatterS.format("Hello", "World", "!", "!"))
+
+
+/**
+ Subscripts
+ */
+
+struct Table {
+    var multiplier: Int
+    
+    subscript(index: Int) -> Int {
+        multiplier * index
+    }
+}
+let table = Table(multiplier: 5)
+print(table[10])
+
+struct MyDictionary<T: Hashable, V> {
+    var d: [T: V] = [:]
+    
+    subscript(index: T) -> V {
+        get {
+            d[index]!
+        }
+        set {
+            d[index] = newValue
+        }
+    }
+}
+
+var md = MyDictionary<String, String>()
+md["krunal"] = "Welcome"
+md["test"] = "Not"
+
+print(md["test"])
+
+
+/**
+ Initialization & Deinitialization
+ */
+
+class Demo {
+    var name = "Name"
+ 
+    init() {
+        print("Initialized")
+    }
+ 
+    deinit {
+        print("Deinitialized")
+    }
+}
+
+let demo = Demo()
