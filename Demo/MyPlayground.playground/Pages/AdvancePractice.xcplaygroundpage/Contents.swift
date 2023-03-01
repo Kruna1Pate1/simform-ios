@@ -1,3 +1,5 @@
+import Foundation
+
 // Advance Practice
 
 
@@ -665,12 +667,382 @@ class Demo {
     var name = "Name"
  
     init() {
-        print("Initialized")
+        print("Initialized", String(describing: self))
     }
  
     deinit {
-        print("Deinitialized")
+        print("Deinitialized", String(describing: self))
     }
 }
 
 let demo = Demo()
+
+struct DemoS {
+    let name: String
+    
+    init() {
+        name = "Hello"
+        print("Initializing", String(describing: self))
+    }
+    
+    init(_ name: String? = nil) {
+        self.name = name ?? "nil"
+        print("Initializing", String(describing: self))
+    }
+    
+    init(fname: String, lname: String) {
+        let name = fname + " " + lname
+        self.init(name)
+        print("Initializing", String(describing: self))
+    }
+}
+let demoS1 = DemoS()
+let demoS2 = DemoS("Krunal")
+let demoS3 = DemoS(nil)
+let demoS4 = DemoS(fname: "Nobita", lname: "Nobi")
+
+// Convenience & Designated intializers
+
+class ConvenienceAndDesignated {
+    let name: String
+    
+    init(_ name: String? = nil) {
+        self.name = name ?? "nil"
+        print("Initializing", #function)
+    }
+    
+    convenience init() {
+        let name = "Hello"
+//        print("Initializing", String(describing: self)) error: 'self' used before 'self.init' call or assignment to 'self'
+        self.init(fname: name, lname: "")
+        print("Initializing", #function)
+    }
+    
+    convenience init(fname: String, lname: String) {
+        let name = fname + " " + lname
+        self.init(name)
+        print("Initializing", #function)
+    }
+}
+
+let demoCAD1 = ConvenienceAndDesignated()
+let demoCAD2 = ConvenienceAndDesignated("Krunal")
+let demoCAD3 = ConvenienceAndDesignated(nil)
+let demoCAD4 = ConvenienceAndDesignated(fname: "Nobita", lname: "Nobi")
+
+
+// Failable init
+class Positive {
+    var num: Int
+    
+    init?(num: Int) {
+        if(num < 0) { return nil }
+        self.num = num
+    }
+}
+
+print(Positive(num: 5))
+print(Positive(num: -5))
+
+enum WeekDay {
+    case monday, tuesday, wednesday, thursday, friday, saturday, sunday
+    
+    init?(day: Int) {
+        switch (day % 7) {
+        case 0:
+            self = .sunday
+        case 1:
+            self = .monday
+        case 2:
+            self = .tuesday
+        case 3:
+            self = .wednesday
+        case 4:
+            self = .thursday
+        case 5:
+            self = .friday
+        case 6:
+            self = .saturday
+        default:
+            return nil
+        }
+    }
+}
+
+print(WeekDay(day: 5))
+print(WeekDay(day: -5))
+
+
+/**
+ Replace dictionary keys to values without iterating
+ */
+var d = ["krunal": "pass", "h": "fail"]
+d = Dictionary(uniqueKeysWithValues: zip(d.values, d.keys))
+print(d)
+//d = NSDictionary(objects: d.values, forKeys: d.keys)
+//print(d)
+
+/**
+ Optional chaining
+ */
+
+class OptionalChaining {
+    var colors: [String]? = ["white", "black", "pink", "red", "green"]
+    
+    init?(_ color: String) {
+        guard var colors else {
+            return nil
+        }
+        
+        if colors.contains(color) { return nil }
+        colors.append(color) // does not change self.colors
+    }
+}
+
+print(OptionalChaining("white")?.colors?.contains("black"))
+print(OptionalChaining("orange")?.colors?.contains("orange"))
+
+
+/**
+ Inheritance
+ */
+
+class Animal {
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    func speak() {
+        print("Hello")
+    }
+    
+//    func canKeepHome() -> Bool {
+//        return self is Domanstic
+//    }
+    final var canKeepHome: Bool {
+        self is Domanstic
+    }
+}
+
+protocol Domanstic {
+}
+
+class Dog: Animal, Domanstic {
+    
+    var protcting = false
+    
+    override init(name: String) {
+        super.init(name: name)
+    }
+    
+    convenience init() {
+        self.init(name: "Dog")
+    }
+    
+    override func speak() {
+        print("bark")
+    }
+    
+    func protact() {
+        print("guard mode on")
+        protcting = true
+    }
+    
+    func sleep() {
+        print("sleeping...")
+        protcting = false
+    }
+}
+
+
+class Lion : Animal {
+    
+    override func speak() {
+        print("roar")
+    }
+}
+
+var animal: Animal = Dog()
+animal.speak()
+print(animal.canKeepHome)
+
+animal = Lion(name: "King")
+animal.speak()
+print(animal.canKeepHome)
+
+
+/**
+ Nested type
+ */
+
+class Wizard2 {
+    var details: Details
+    var knownSpells: [String] = []
+    
+    init(name: Details.Name, spells: String...) {
+        self.details = Details(name: name, house: Details.House.allCases.randomElement() ?? Details.House.Gryffinder)
+    }
+    
+    struct Details {
+        var name: Name
+        var house: House
+        
+        struct Name {
+            var fName: String
+            var mName: String?
+            var lName: String
+        }
+        
+        enum House: CaseIterable {
+            case Gryffinder, Ravenclaw, Hufflepuff, Slytherin
+        }
+    }
+}
+
+let wizard = Wizard2(name: Wizard2.Details.Name(fName: "Harry", lName: "Potter"), spells: "Expecto patronum", "Crucio", "Lumos charm", "Nox")
+print(wizard)
+
+/**
+ Error handling
+ */
+print("\n\n")
+
+enum LoginError: Error {
+    case invalidUsername
+    case invalidPassword(attemptLeft: Int)
+    case rateLimitReached(secretKey: Int)
+    case invalidSecretKey
+}
+
+enum ServerError: Int, Error {
+    case notFound = 404
+    case unreachable = 501
+}
+
+class Login {
+    private let maxAttempts = 3
+    var attempts = 0
+    var attemptLeft: Int {
+        maxAttempts - attempts
+    }
+    private let credantials = Credentials()
+    
+    func login(username user: String, password pass: String) throws -> UUID {
+        if attemptLeft == 0 {
+            throw LoginError.rateLimitReached(secretKey: credantials.secretKey)
+        } else if user != credantials.username {
+            attempts += 1
+            throw LoginError.invalidUsername
+        } else if pass != credantials.pass {
+            attempts += 1
+            throw LoginError.invalidPassword(attemptLeft: attemptLeft)
+        } else {
+            print("Login successfull")
+            return UUID()
+        }
+    }
+    
+    func resetAttempts(secretKey: Int) throws {
+        if secretKey != credantials.secretKey {
+            throw LoginError.invalidSecretKey
+        }
+        attempts = 0
+    }
+    
+    private struct Credentials {
+        let username: String = "Kruna1Pate1"
+        let pass: String = "P455"
+        var secretKey: Int
+        
+        init() {
+            self.secretKey = Int.random(in: 1000...9999)
+        }
+    }
+}
+
+let repo = Login()
+print("attempts left: ", repo.attemptLeft)
+
+
+login: while true {
+    defer {
+        print("Cleaning up...\n")
+    }
+    do {
+        print("Login with wrong cred...")
+        try repo.login(username: "Kruna1Pate1", password: "P4SS")
+        break login
+    } catch LoginError.invalidUsername {
+        print("Invalid username")
+    } catch LoginError.invalidPassword(let attemptLef) {
+        print("Invalid password, \(attemptLef) attempts left")
+    } catch LoginError.rateLimitReached(let secretKey) {
+        print("rate limit reached, reseting using \(secretKey)")
+        
+        do {
+            try repo.resetAttempts(secretKey: secretKey)
+            print("reset success")
+            let uuid = try repo.login(username: "Kruna1Pate1", password: "P455")
+            print("session id:", uuid)
+            break login
+        } catch LoginError.invalidSecretKey where repo.attemptLeft <= 0 {
+            print("Invalid key")
+        }
+    } catch is ServerError {
+        print("Server error")
+    }  catch {
+        print("Unexpected error: \(error).")
+    }
+    defer {
+        print("Cleaning up 2...\n")
+    }
+}
+
+// Converting Errors to Optional Values
+var uuid = try? repo.login(username: "KrunalPatel", password: "P455")
+if var uuid {
+    print("Your uuid is:", uuid)
+} else {
+    
+    // Disabling Error Propagation
+    let uuid = try! repo.login(username: "Kruna1Pate1", password: "P455")
+    print("Your uuid is:", uuid)
+}
+
+/**
+ Type casting and Checking
+ */
+class LivingObject {
+//    final init() { error: 'final' modifier cannot be applied to this declaration
+    init() {
+        print("Living Object")
+    }
+}
+
+class Human: LivingObject {
+    override init() {
+        print("Human")
+    }
+}
+
+class NonLivingObject {
+    init() {
+        print("NonLivingObject")
+    }
+}
+
+var human = Human()
+var stale = NonLivingObject()
+print("human is LivingObject:", human is LivingObject)
+print("human is NonLivingObject:", human is NonLivingObject)
+print("stale is Human:", stale is Human)
+print(stale as? Human)
+print(human as LivingObject) // can upcast without ? or !
+print(human as? NonLivingObject)
+do {
+    try print(human as! NonLivingObject)
+} catch {
+    print("Catch")
+}
