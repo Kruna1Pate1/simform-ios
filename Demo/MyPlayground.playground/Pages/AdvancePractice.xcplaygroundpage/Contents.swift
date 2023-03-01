@@ -291,7 +291,12 @@ wiz.house = House.Gryffinder
 print("name:", wiz.name.fName, wiz.name.lName)
 print("age:", wiz.age)
 print("school:", wiz.school)
-print("house:", wiz.house!, wiz.house!.rawValue)
+if let house = wiz.house {
+    print("house:", house, house.rawValue)
+} else {
+    print("no house")
+}
+
 
 
 // Identity Operator
@@ -596,10 +601,10 @@ enum Signal: String {
     }
 }
 var signal = Signal(rawValue: "green")
-print(signal!.rawValue)
-print(signal!.next().rawValue)
-print(signal!.next().rawValue)
-print(signal!.next().rawValue)
+print(signal?.rawValue ?? "unknown")
+print(signal?.next().rawValue ?? "unknown")
+print(signal?.next().rawValue ?? "unknown")
+print(signal?.next().rawValue ?? "unknown")
 
 // Type method
 class Formatter {
@@ -635,9 +640,9 @@ print(table[10])
 struct MyDictionary<T: Hashable, V> {
     var d: [T: V] = [:]
     
-    subscript(index: T) -> V {
+    subscript(index: T) -> V? {
         get {
-            d[index]!
+            d[index]
         }
         set {
             d[index] = newValue
@@ -649,7 +654,7 @@ var md = MyDictionary<String, String>()
 md["krunal"] = "Welcome"
 md["test"] = "Not"
 
-print(md["test"])
+print(md["test"] ?? "unknown")
 
 
 /**
