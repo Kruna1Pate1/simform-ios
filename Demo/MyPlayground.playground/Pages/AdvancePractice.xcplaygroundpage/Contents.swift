@@ -995,7 +995,7 @@ login: while true {
     }  catch {
         print("Unexpected error: \(error).")
     }
-    defer {
+    do {
         print("Cleaning up 2...\n")
     }
 }
@@ -1041,8 +1041,354 @@ print("stale is Human:", stale is Human)
 print(stale as? Human)
 print(human as LivingObject) // can upcast without ? or !
 print(human as? NonLivingObject)
-do {
-    try print(human as! NonLivingObject)
-} catch {
-    print("Catch")
+//do {
+//    try human as? NonLivingObject
+//    try [1, 2][3]
+//} catch {
+//    print("Catch")
+//}
+//print("Out")
+//#error("this is compile time error")
+
+/**
+ Protocols
+ */
+
+protocol Concat {
+    var freq: Int { get }
+    func concat(_ e: String...) -> String
+    
+    init(freq: Int)
 }
+
+class SpaceConcat: Concat {
+    var freq: Int
+    
+    func concat(_ e: String...) -> String {
+        let space = String(repeating: " ", count: freq)
+        return e.reduce("", {r, e in r + space + e})
+    }
+    
+    required init(freq: Int) {
+        self.freq = freq
+    }
+    
+}
+let sc = SpaceConcat(freq: 2)
+print(sc.concat("a", "b", "c", "d"))
+
+protocol LargeOnly {
+    var minLen: Int { get set }
+    
+    mutating func halfLen()
+    func isAccepted(_ str: String) -> Bool
+}
+
+struct LargeString: LargeOnly {
+    var minLen: Int
+    
+    mutating func halfLen() {
+        minLen /= 2
+    }
+    
+    func isAccepted(_ str: String) -> Bool {
+        str.count >= minLen
+    }
+}
+
+let ls = LargeString(minLen: 3)
+print("ab accepted:", ls.isAccepted("ab"))
+print("abc accepted:", ls.isAccepted("abc"))
+
+class CommaConcat: SpaceConcat, LargeOnly {
+    var minLen: Int = 6
+    
+    func halfLen() {
+        minLen /= 2
+    }
+    
+    func isAccepted(_ str: String) -> Bool {
+        str.count >= minLen
+    }
+    
+    override func concat(_ e: String...) -> String {
+        if !isAccepted(e.joined()) { return "xD" }
+        let comma = String(repeating: ",", count: freq)
+        return e.reduce("", { $0 + comma + $1})
+    }
+    
+    required init(freq: Int) { //'override' is implied when overriding a required initializer
+        super.init(freq: freq)
+    }
+    
+    convenience init() {
+        self.init(minLen: 3)
+    }
+    
+    convenience init(minLen: Int) {
+        self.init(freq: minLen)
+        self.minLen = minLen
+    }
+}
+
+let cc = CommaConcat(freq: 4)
+print(cc.concat("a", "b", "c", "d"))
+cc.halfLen()
+print(cc.concat("a", "b", "c", "d"))
+
+// Protocol as type
+
+let concator = { (concat: Concat, e: String...) in
+//    concat.concat(e) error: Cannot pass array of type 'String...' as variadic arguments of type 'String'
+    concat.concat("1", "2", "3", "4")
+}
+
+print(concator(CommaConcat(), "1", "2", "3", "4"))
+
+
+/**
+ Extension
+ */
+
+protocol Calculate {
+    func calculate(a: Int, b: Int, cal: (Int, Int) -> Int) -> Int
+}
+
+class Calculator : Calculate {
+    
+    func calculate(a: Int, b: Int, cal: (Int, Int) -> Int) -> Int {
+        cal(a, b)
+    }
+    
+    func add(a: Int, b: Int) -> Int {
+        a + b
+    }
+    
+    enum Symbol: Character {
+        case add = "+"
+    }
+}
+
+protocol CompleteCalculate {
+    func add(a: Int, b: Int) -> Int
+    func sub(a: Int, b: Int) -> Int
+}
+
+extension Calculator: CompleteCalculate {
+    func sub(a: Int, b: Int) -> Int {
+        a - b
+    }
+    
+//    override func add(a: Int, b: Int) { Invalid redeclaration of 'add(a:b:)'
+//        a % b
+//    }
+    
+    enum AllSymbol: String {
+        case add = "+"
+        case sub = "-"
+        case mul = "*"
+        case div = "\\"
+    }
+}
+
+extension CompleteCalculate {
+    func mul(a: Int, b: Int) -> Int {
+        a * b
+    }
+    
+    func div(a: Int, b: Int) -> Int {
+        a / b
+    }
+}
+
+let cal = Calculator()
+print("a % b:", cal.calculate(a: 15, b: 2, cal: {a, b in a % b}))
+print("a + b:", cal.add(a: 5, b: 5))
+print("a / b:", cal.div(a: 10, b: 5))
+
+
+/**
+ Optional chaining with nil-coalescing
+ */
+
+class Chaining {
+    var str: Str? = Str()
+    
+    init?(_ flag: Bool) {
+        if !flag { return nil }
+    }
+    
+    struct Str {
+        var arr: [Int]? = [1, 2, 3]
+    }
+    
+}
+print(Chaining(false)?.str?.arr?.last ?? 1)
+let chain = Chaining(false)
+print((Chaining(false) ?? chain)?.str?.arr?.last ?? "hi")
+//let v = ((Chaining(false) ?? chain)?.str?.arr?.last ?? "hi")
+
+
+/**
+ Strong, weak & unowned  refrence
+ */
+
+// Strong refrence
+
+func refrenceCount(_ obj: AnyObject?) {
+    guard let obj else {
+        print("it's nil")
+        return
+    }
+
+    let objName = String(describing: obj)
+    let name = objName[(objName.index(after: objName.lastIndex(of: ".") ?? objName.startIndex))...]
+    print("[\(name)] -> current count:", CFGetRetainCount(obj))
+}
+
+class A {
+    let aStr = "A class"
+    
+    init() {
+        print("A init")
+    }
+    
+    deinit {
+        print("A deinit")
+    }
+}
+
+
+var a1: A? = A()
+var b1 = a1
+a1 = nil
+print("a set to nil")
+//refrenceCount(b1)
+b1 = nil
+print("b set to nil")
+
+
+// Weak refrence
+class WeakA {
+    weak var a: A?
+    
+    init(a: A?) {
+        self.a = a
+    }
+}
+
+var a3: A? = A()
+var weakA = WeakA(a: a3)
+print("[WeakA]: weakA", String(describing: weakA.a))
+a3 = nil
+print("a3 set to nil")
+print("[WeakA]: weakA", String(describing: weakA.a))
+
+
+// Unowned refrence
+class UnownedA {
+    unowned var a: A
+    
+    init(a: A) {
+        self.a = a
+    }
+}
+
+
+var a4: A? = A()
+var ua = UnownedA(a: a4!)
+print("[WeakA]: weakA", String(describing: ua.a))
+a4 = nil
+print("a4 set to nil")
+// Fatal error: Attempted to read an unowned reference but object 0x600000384600 was already deallocated
+//print("[WeakA]: weakA", String(describing: ua.a))
+
+
+/**
+ Reference cycle
+ */
+
+class CycleA {
+    var b: CycleB?
+    
+    init() {
+        print("CycleA init")
+    }
+    
+    func set(b: CycleB?) {
+        self.b = b
+    }
+    
+    deinit {
+        print("CycleA deinit")
+    }
+}
+
+class CycleB {
+    var a: CycleA?
+    
+    init() {
+        print("CycleB init")
+    }
+    
+    func set(a: CycleA?) {
+        self.a = a
+    }
+    
+    deinit {
+        print("CycleB deinit")
+    }
+}
+
+var ca1: CycleA? = CycleA()
+// ca1 = nil
+var cb1: CycleB? = CycleB()
+
+ca1?.set(b: cb1)
+cb1?.set(a: ca1)
+cb1 = nil
+ca1 = nil
+
+
+// Breaking strong reference cycle with weak/unowned
+class CycleA2 {
+    weak var b: CycleB2?
+//    unowned var b: CycleB2?
+    
+    init() {
+        print("CycleA2 init")
+    }
+    
+    func set(b: CycleB2?) {
+        self.b = b
+    }
+    
+    deinit {
+        print("CycleA2 deinit")
+    }
+}
+
+class CycleB2 {
+    var a: CycleA2?
+    
+    init() {
+        print("CycleB2 init")
+    }
+    
+    func set(a: CycleA2?) {
+        self.a = a
+    }
+    
+    deinit {
+        print("CycleB2 deinit")
+    }
+}
+
+var ca2: CycleA2? = CycleA2()
+// ca1 = nil
+var cb2: CycleB2? = CycleB2()
+
+ca2?.set(b: cb2)
+cb2?.set(a: ca2)
+cb2 = nil
+ca2 = nil
