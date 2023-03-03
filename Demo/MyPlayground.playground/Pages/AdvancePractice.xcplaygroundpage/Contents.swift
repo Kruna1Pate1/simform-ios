@@ -1392,3 +1392,173 @@ ca2?.set(b: cb2)
 cb2?.set(a: ca2)
 cb2 = nil
 ca2 = nil
+
+
+/**
+ Protocol & Delegate
+ */
+
+// Optional Protocol Requirements
+@objc
+protocol OptionalProtocol {
+    func compReq1 () -> Void
+    @objc optional func optReq () -> ()
+}
+
+class OPClass: OptionalProtocol {
+    func compReq1() {
+        print("Comp 1")
+    }
+}
+
+let opClass: OptionalProtocol = OPClass()
+opClass.compReq1()
+(opClass.optReq ?? { print("Not available") })()
+opClass.optReq?()
+
+protocol OptionalProtocol2 {
+    func compReq1 () -> Void
+    func optReq () -> ()
+    
+    init(str: String)
+}
+
+class OPClass2: OptionalProtocol2 {
+    func compReq1() {
+        print("Comp 1")
+    }
+}
+
+extension OptionalProtocol2 {
+    func optReq() {
+        print("Opt 2")
+    }
+    
+    init(str: String) {
+        print(str)
+        self.init(str: str)
+    }
+}
+
+let opClass2: OptionalProtocol2 = OPClass2()
+opClass2.compReq1()
+opClass2.optReq()
+
+
+// Protocol on enum
+
+//@objc
+protocol Iterable {
+    mutating func next() -> NewSignal
+//    @objc optional func prev() -> NewSignal
+}
+
+enum NewSignal: Int, Iterable {
+    case green, yellow, red
+    
+    mutating func next() -> NewSignal {
+        switch self {
+        case .green:
+            self = .yellow
+        case .yellow:
+            self = .red
+        case .red:
+            self = .green
+        }
+        return self
+    }
+}
+var signal2 = Signal(rawValue: "green")
+print(signal2?.rawValue ?? "unknown")
+print(signal2?.next().rawValue ?? "unknown")
+print(signal2?.next().rawValue ?? "unknown")
+print(signal2?.next().rawValue ?? "unknown")
+
+// Protocol Composition
+protocol Fname {
+    var fname: String { get set }
+}
+
+protocol Lname: AnyObject {
+    var lname: String { get }
+}
+
+let printFull = { (str: Fname & Lname) in
+    print(str.fname + " " + str.lname)
+}
+
+//Non-class type 'FullNameStruct' cannot conform to class protocol 'Lname'
+//struct FullNameStruct: Fname, Lname {}
+
+class FullNameClass: Fname, Lname {
+    var fname: String = "Hello"
+    
+    var lname: String = "World"
+    
+    
+}
+printFull(FullNameClass())
+
+
+// Protocol delegate
+class MediaPlayer {
+    var volume = 0
+    var volumeStr: String {
+        String(volume) + " \u{1F50A}"
+    }
+    
+    var brightness = 0
+    var brightnessStr: String {
+        String(brightness) + " \u{1F506}"
+    }
+    
+    let bound = Point(x: 1000, y: 1000)
+    var delegate: TouchGestureDelegate?
+    
+    func swap(start: Point, end: Point) {
+        if start.x > (bound.x / 2) {
+            delegate?.didRightScreenSwap(player: self, distance: -(end.y - start.y))
+        } else {
+            delegate?.didLeftScreenSwap(player: self, distance: -(end.y - start.y))
+        }
+    }
+    
+    struct Point {
+        var x = 0
+        var y = 0
+    }
+}
+
+protocol TouchGestureDelegate {
+    func didLeftScreenSwap(player: MediaPlayer, distance: Int)
+    func didRightScreenSwap(player: MediaPlayer, distance: Int)
+}
+
+class GestureController: TouchGestureDelegate {
+    func didLeftScreenSwap(player: MediaPlayer, distance: Int) {
+        if distance > 0 {
+            print("Increasing brightness...")
+        } else {
+            print("Decreasing brightness...")
+        }
+        player.brightness += distance
+        print(player.brightnessStr)
+    }
+    
+    func didRightScreenSwap(player: MediaPlayer, distance: Int) {
+        if distance > 0 {
+            print("Increasing volume...")
+        } else {
+            print("Decreasing volume...")
+        }
+        player.volume += distance
+        print(player.volumeStr)
+    }
+}
+
+let player = MediaPlayer()
+player.delegate = GestureController()
+player.swap(start: MediaPlayer.Point(x: 40, y: 400), end: MediaPlayer.Point(x: 40, y: 100))
+player.swap(start: MediaPlayer.Point(x: 800, y: 900), end: MediaPlayer.Point(x: 800, y: 100))
+player.swap(start: MediaPlayer.Point(x: 400, y: 800), end: MediaPlayer.Point(x: 400, y: 1000))
+player.swap(start: MediaPlayer.Point(x: 800, y: 900), end: MediaPlayer.Point(x: 800, y: 100))
