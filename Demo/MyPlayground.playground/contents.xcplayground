@@ -4,5 +4,6 @@
         <page name='Practice'/>
         <page name='Exercise'/>
         <page name='AdvancePractice'/>
+        <page name='AdvanceExercise'/>
     </pages>
 </playground>
