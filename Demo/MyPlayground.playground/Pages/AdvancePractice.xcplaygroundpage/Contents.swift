@@ -1900,3 +1900,77 @@ var num2 = Num(value: 6)
 //print(num1 != --num2)
 print(num1 == --num2)
 
+
+// Make non-escaping optional
+func calculate(_ n1: Int, _ n2: Int, fun: ((Int, Int) -> Int)?) {
+    guard let fun else { return }
+    print("n1:", n1, "n2:", n2, "=", fun(n1, n2))
+}
+
+calculate(5, 10) { $0 * $1 }
+
+// Property observer when initializing
+class PropDemo {
+    var a = 5 {
+        willSet {
+            print("willSet a")
+        }
+        didSet {
+            print("didSet a")
+        }
+    }
+    
+    var b: Int {
+        willSet {
+            print("willSet a")
+        }
+        didSet {
+            print("didSet a")
+        }
+    }
+    
+    init(b: Int = 10) {
+        self.b = b
+    }
+}
+
+let propDemo = PropDemo(b: 11)
+print("chaning manually...")
+propDemo.a = 9
+propDemo.b = 9
+
+
+// Capture list
+class Calc2 {
+    var arr = [1, 2, 3, 4]
+    var sum: (() -> Int)?
+}
+
+class CaptureList {
+    var calc2 = Calc2()
+
+    init() {
+        calc2.sum = { [weak calc2] in
+            guard let calc2 else {
+                print("arr is nil")
+                return 0
+            }
+            return calc2.arr.reduce(0, { $0 + $1 })
+        }
+    }
+}
+
+let captureList = CaptureList()
+print("sum:", captureList.calc2.sum?() ?? 0)
+
+
+// if-case accessing assosiated value
+enum  Nums {
+    case num(Int)
+}
+
+let nEnum = Nums.num(10)
+
+if case .num(let val) = nEnum {
+    print("num:", val)
+}
