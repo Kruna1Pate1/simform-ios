@@ -72,8 +72,8 @@ print(yourGrade > avg ? "above average" : "below average")
 
 
 // 5. Tipping
-var mealCost:Double = 3.5
-let tip:Int = 20
+var mealCost: Double = 3.5
+let tip: Int = 20
 let tipCost = mealCost * (Double(tip) / 100)
 print(mealCost + tipCost)
 
