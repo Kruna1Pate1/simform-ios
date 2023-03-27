@@ -1,3 +1,5 @@
+import Foundation
+
 // Advance Practice
 
 
@@ -418,6 +420,7 @@ struct Book3 {
         get {
             return rating + 1
         }
+        // Normal way to use setter
 //        set(val) {
 //            rating = val * 10
 //        }
@@ -491,47 +494,6 @@ let lift = Lift()
 lift.floors = 6
 lift.floors = 5
 print(lift.floors)
-
-/**
-@propertyWrapper
-class PathFilter {
-    private let illigleChars: Set<Character> = ["\\", "/", ":", "*", "?", "\"", "<", ">", "|"]
-    private var name: String
-    
-    var wrappedValue: String {
-        get { return name }
-        set {
-            newValue.forEach {
-                if illigleChars.contains($0) {
-                    print("invalid file name!")
-                    return
-                }
-            }
-            name = newValue
-        }
-    }
-    
-    init() {
-        name = ""
-    }
-    
-    init(wrappedValue: String) {
-        wrappedValue.forEach { //'self' captured by a closure before all members were initialized
-            if illigleChars.contains($0) {
-                print("invalid file name!")
-                return
-            }
-        }
-        name = wrappedValue
-    }
-}
-
-struct FileProvider {
-    @PathFilter var name: String = ""
-}
-var fp = FileProvider(name: "hello")
-print(fp.name)
-*/
 
 class Counter {
     var count: Int
@@ -665,12 +627,898 @@ class Demo {
     var name = "Name"
  
     init() {
-        print("Initialized")
+        print("Initialized", String(describing: self))
     }
  
     deinit {
-        print("Deinitialized")
+        print("Deinitialized", String(describing: self))
     }
 }
 
 let demo = Demo()
+
+struct DemoS {
+    let name: String
+    
+    init() {
+        name = "Hello"
+        print("Initializing", String(describing: self))
+    }
+    
+    init(_ name: String? = nil) {
+        self.name = name ?? "nil"
+        print("Initializing", String(describing: self))
+    }
+    
+    init(fname: String, lname: String) {
+        let name = fname + " " + lname
+        self.init(name)
+        print("Initializing", String(describing: self))
+    }
+}
+let demoS1 = DemoS()
+let demoS2 = DemoS("Krunal")
+let demoS3 = DemoS(nil)
+let demoS4 = DemoS(fname: "Nobita", lname: "Nobi")
+
+// Convenience & Designated intializers
+
+class ConvenienceAndDesignated {
+    let name: String
+    
+    init(_ name: String? = nil) {
+        self.name = name ?? "nil"
+        print("Initializing", #function)
+    }
+    
+    convenience init() {
+        let name = "Hello"
+//        print("Initializing", String(describing: self)) error: 'self' used before 'self.init' call or assignment to 'self'
+        self.init(fname: name, lname: "")
+        print("Initializing", #function)
+    }
+    
+    convenience init(fname: String, lname: String) {
+        let name = fname + " " + lname
+        self.init(name)
+        print("Initializing", #function)
+    }
+}
+
+let demoCAD1 = ConvenienceAndDesignated()
+let demoCAD2 = ConvenienceAndDesignated("Krunal")
+let demoCAD3 = ConvenienceAndDesignated(nil)
+let demoCAD4 = ConvenienceAndDesignated(fname: "Nobita", lname: "Nobi")
+
+
+// Failable init
+class Positive {
+    var num: Int
+    
+    init?(num: Int) {
+        if(num < 0) { return nil }
+        self.num = num
+    }
+}
+
+print(Positive(num: 5))
+print(Positive(num: -5))
+
+enum WeekDay {
+    case monday, tuesday, wednesday, thursday, friday, saturday, sunday
+    
+    init?(day: Int) {
+        switch (day % 7) {
+        case 0:
+            self = .sunday
+        case 1:
+            self = .monday
+        case 2:
+            self = .tuesday
+        case 3:
+            self = .wednesday
+        case 4:
+            self = .thursday
+        case 5:
+            self = .friday
+        case 6:
+            self = .saturday
+        default:
+            return nil
+        }
+    }
+}
+
+print(WeekDay(day: 5))
+print(WeekDay(day: -5))
+
+
+/**
+ Replace dictionary keys to values without iterating
+ */
+var d = ["krunal": "pass", "h": "fail"]
+d = Dictionary(uniqueKeysWithValues: zip(d.values, d.keys))
+print(d)
+//d = NSDictionary(objects: d.values, forKeys: d.keys)
+//print(d)
+
+/**
+ Optional chaining
+ */
+
+class OptionalChaining {
+    var colors: [String]? = ["white", "black", "pink", "red", "green"]
+    
+    init?(_ color: String) {
+        guard var colors else {
+            return nil
+        }
+        
+        if colors.contains(color) { return nil }
+        colors.append(color) // does not change self.colors
+    }
+}
+
+print(OptionalChaining("white")?.colors?.contains("black"))
+print(OptionalChaining("orange")?.colors?.contains("orange"))
+
+
+/**
+ Inheritance
+ */
+
+class Animal {
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    func speak() {
+        print("Hello")
+    }
+    
+//    func canKeepHome() -> Bool {
+//        return self is Domanstic
+//    }
+    final var canKeepHome: Bool {
+        self is Domanstic
+    }
+}
+
+protocol Domanstic {
+}
+
+class Dog: Animal, Domanstic {
+    
+    var protcting = false
+    
+    override init(name: String) {
+        super.init(name: name)
+    }
+    
+    convenience init() {
+        self.init(name: "Dog")
+    }
+    
+    override func speak() {
+        print("bark")
+    }
+    
+    func protact() {
+        print("guard mode on")
+        protcting = true
+    }
+    
+    func sleep() {
+        print("sleeping...")
+        protcting = false
+    }
+}
+
+
+class Lion : Animal {
+    
+    override func speak() {
+        print("roar")
+    }
+}
+
+var animal: Animal = Dog()
+animal.speak()
+print(animal.canKeepHome)
+
+animal = Lion(name: "King")
+animal.speak()
+print(animal.canKeepHome)
+
+
+/**
+ Nested type
+ */
+
+class Wizard2 {
+    var details: Details
+    var knownSpells: [String] = []
+    
+    init(name: Details.Name, spells: String...) {
+        self.details = Details(name: name, house: Details.House.allCases.randomElement() ?? Details.House.Gryffinder)
+    }
+    
+    struct Details {
+        var name: Name
+        var house: House
+        
+        struct Name {
+            var fName: String
+            var mName: String?
+            var lName: String
+        }
+        
+        enum House: CaseIterable {
+            case Gryffinder, Ravenclaw, Hufflepuff, Slytherin
+        }
+    }
+}
+
+let wizard = Wizard2(name: Wizard2.Details.Name(fName: "Harry", lName: "Potter"), spells: "Expecto patronum", "Crucio", "Lumos charm", "Nox")
+print(wizard)
+
+/**
+ Error handling
+ */
+print("\n\n")
+
+enum LoginError: Error {
+    case invalidUsername
+    case invalidPassword(attemptLeft: Int)
+    case rateLimitReached(secretKey: Int)
+    case invalidSecretKey
+}
+
+enum ServerError: Int, Error {
+    case notFound = 404
+    case unreachable = 501
+}
+
+class Login {
+    private let maxAttempts = 3
+    var attempts = 0
+    var attemptLeft: Int {
+        maxAttempts - attempts
+    }
+    private let credantials = Credentials()
+    
+    func login(username user: String, password pass: String) throws -> UUID {
+        if attemptLeft == 0 {
+            throw LoginError.rateLimitReached(secretKey: credantials.secretKey)
+        } else if user != credantials.username {
+            attempts += 1
+            throw LoginError.invalidUsername
+        } else if pass != credantials.pass {
+            attempts += 1
+            throw LoginError.invalidPassword(attemptLeft: attemptLeft)
+        } else {
+            print("Login successfull")
+            return UUID()
+        }
+    }
+    
+    func resetAttempts(secretKey: Int) throws {
+        if secretKey != credantials.secretKey {
+            throw LoginError.invalidSecretKey
+        }
+        attempts = 0
+    }
+    
+    private struct Credentials {
+        let username: String = "Kruna1Pate1"
+        let pass: String = "P455"
+        var secretKey: Int
+        
+        init() {
+            self.secretKey = Int.random(in: 1000...9999)
+        }
+    }
+}
+
+let repo = Login()
+print("attempts left: ", repo.attemptLeft)
+
+
+login: while true {
+    defer {
+        print("Cleaning up...\n")
+    }
+    do {
+        print("Login with wrong cred...")
+        try repo.login(username: "Kruna1Pate1", password: "P4SS")
+        break login
+    } catch LoginError.invalidUsername {
+        print("Invalid username")
+    } catch LoginError.invalidPassword(let attemptLef) {
+        print("Invalid password, \(attemptLef) attempts left")
+    } catch LoginError.rateLimitReached(let secretKey) {
+        print("rate limit reached, reseting using \(secretKey)")
+        
+        do {
+            try repo.resetAttempts(secretKey: secretKey)
+            print("reset success")
+            let uuid = try repo.login(username: "Kruna1Pate1", password: "P455")
+            print("session id:", uuid)
+            break login
+        } catch LoginError.invalidSecretKey where repo.attemptLeft <= 0 {
+            print("Invalid key")
+        }
+    } catch is ServerError {
+        print("Server error")
+    }  catch {
+        print("Unexpected error: \(error).")
+    }
+    do {
+        print("Cleaning up 2...\n")
+    }
+}
+
+// Converting Errors to Optional Values
+var uuid = try? repo.login(username: "KrunalPatel", password: "P455")
+if var uuid {
+    print("Your uuid is:", uuid)
+} else {
+    
+    // Disabling Error Propagation
+    let uuid = try! repo.login(username: "Kruna1Pate1", password: "P455")
+    print("Your uuid is:", uuid)
+}
+
+/**
+ Type casting and Checking
+ */
+class LivingObject {
+//    final init() { error: 'final' modifier cannot be applied to this declaration
+    init() {
+        print("Living Object")
+    }
+}
+
+class Human: LivingObject {
+    override init() {
+        print("Human")
+    }
+}
+
+class NonLivingObject {
+    init() {
+        print("NonLivingObject")
+    }
+}
+
+var human = Human()
+var stale = NonLivingObject()
+print("human is LivingObject:", human is LivingObject)
+print("human is NonLivingObject:", human is NonLivingObject)
+print("stale is Human:", stale is Human)
+print(stale as? Human)
+print(human as LivingObject) // can upcast without ? or !
+print(human as? NonLivingObject)
+//do {
+//    try human as? NonLivingObject
+//    try [1, 2][3]
+//} catch {
+//    print("Catch")
+//}
+//print("Out")
+// error("this is compile time error")
+
+/**
+ Protocols
+ */
+
+protocol Concat {
+    var freq: Int { get }
+    func concat(_ e: String...) -> String
+    
+    init(freq: Int)
+}
+
+class SpaceConcat: Concat {
+    var freq: Int
+    
+    func concat(_ e: String...) -> String {
+        let space = String(repeating: " ", count: freq)
+        return e.reduce("", {r, e in r + space + e})
+    }
+    
+    required init(freq: Int) {
+        self.freq = freq
+    }
+    
+}
+let sc = SpaceConcat(freq: 2)
+print(sc.concat("a", "b", "c", "d"))
+
+protocol LargeOnly {
+    var minLen: Int { get set }
+    
+    mutating func halfLen()
+    func isAccepted(_ str: String) -> Bool
+}
+
+struct LargeString: LargeOnly {
+    var minLen: Int
+    
+    mutating func halfLen() {
+        minLen /= 2
+    }
+    
+    func isAccepted(_ str: String) -> Bool {
+        str.count >= minLen
+    }
+}
+
+let ls = LargeString(minLen: 3)
+print("ab accepted:", ls.isAccepted("ab"))
+print("abc accepted:", ls.isAccepted("abc"))
+
+class CommaConcat: SpaceConcat, LargeOnly {
+    var minLen: Int = 6
+    
+    func halfLen() {
+        minLen /= 2
+    }
+    
+    func isAccepted(_ str: String) -> Bool {
+        str.count >= minLen
+    }
+    
+    override func concat(_ e: String...) -> String {
+        if !isAccepted(e.joined()) { return "xD" }
+        let comma = String(repeating: ",", count: freq)
+        return e.reduce("", { $0 + comma + $1})
+    }
+    
+    required init(freq: Int) { //'override' is implied when overriding a required initializer
+        super.init(freq: freq)
+    }
+    
+    convenience init() {
+        self.init(minLen: 3)
+    }
+    
+    convenience init(minLen: Int) {
+        self.init(freq: minLen)
+        self.minLen = minLen
+    }
+}
+
+let cc = CommaConcat(freq: 4)
+print(cc.concat("a", "b", "c", "d"))
+cc.halfLen()
+print(cc.concat("a", "b", "c", "d"))
+
+// Protocol as type
+
+let concator = { (concat: Concat, e: String...) in
+//    concat.concat(e) error: Cannot pass array of type 'String...' as variadic arguments of type 'String'
+    concat.concat("1", "2", "3", "4")
+}
+
+print(concator(CommaConcat(), "1", "2", "3", "4"))
+
+
+/**
+ Extension
+ */
+
+protocol Calculate {
+    func calculate(a: Int, b: Int, cal: (Int, Int) -> Int) -> Int
+}
+
+class Calculator : Calculate {
+    
+    func calculate(a: Int, b: Int, cal: (Int, Int) -> Int) -> Int {
+        cal(a, b)
+    }
+    
+    func add(a: Int, b: Int) -> Int {
+        a + b
+    }
+    
+    enum Symbol: Character {
+        case add = "+"
+    }
+}
+
+protocol CompleteCalculate {
+    func add(a: Int, b: Int) -> Int
+    func sub(a: Int, b: Int) -> Int
+}
+
+extension Calculator: CompleteCalculate {
+    func sub(a: Int, b: Int) -> Int {
+        a - b
+    }
+    
+//    override func add(a: Int, b: Int) { Error: Invalid redeclaration of 'add(a:b:)'
+//        a % b
+//    }
+    
+    enum AllSymbol: String {
+        case add = "+"
+        case sub = "-"
+        case mul = "*"
+        case div = "\\"
+    }
+}
+
+extension CompleteCalculate {
+    func mul(a: Int, b: Int) -> Int {
+        a * b
+    }
+    
+    func div(a: Int, b: Int) -> Int {
+        a / b
+    }
+}
+
+let cal = Calculator()
+print("a % b:", cal.calculate(a: 15, b: 2, cal: {a, b in a % b}))
+print("a + b:", cal.add(a: 5, b: 5))
+print("a / b:", cal.div(a: 10, b: 5))
+
+
+/**
+ Optional chaining with nil-coalescing
+ */
+
+class Chaining {
+    var str: Str? = Str()
+    
+    init?(_ flag: Bool) {
+        if !flag { return nil }
+    }
+    
+    struct Str {
+        var arr: [Int]? = [1, 2, 3]
+    }
+    
+}
+print(Chaining(false)?.str?.arr?.last ?? 1)
+let chain = Chaining(false)
+print((Chaining(false) ?? chain)?.str?.arr?.last ?? "hi")
+//let v = ((Chaining(false) ?? chain)?.str?.arr?.last ?? "hi")
+
+
+/**
+ Strong, weak & unowned  refrence
+ */
+
+// Strong refrence
+
+func refrenceCount(_ obj: AnyObject?) {
+    guard let obj else {
+        print("it's nil")
+        return
+    }
+
+    let objName = String(describing: obj)
+    let name = objName[(objName.index(after: objName.lastIndex(of: ".") ?? objName.startIndex))...]
+    print("[\(name)] -> current count:", CFGetRetainCount(obj))
+}
+
+class A {
+    let aStr = "A class"
+    
+    init() {
+        print("A init")
+    }
+    
+    deinit {
+        print("A deinit")
+    }
+}
+
+
+var a1: A? = A()
+var b1 = a1
+a1 = nil
+print("a set to nil")
+//refrenceCount(b1)
+b1 = nil
+print("b set to nil")
+
+
+// Weak refrence
+class WeakA {
+    weak var a: A?
+    
+    init(a: A?) {
+        self.a = a
+    }
+}
+
+var a3: A? = A()
+var weakA = WeakA(a: a3)
+print("[WeakA]: weakA", String(describing: weakA.a))
+a3 = nil
+print("a3 set to nil")
+print("[WeakA]: weakA", String(describing: weakA.a))
+
+
+// Unowned refrence
+class UnownedA {
+    unowned var a: A
+    
+    init(a: A) {
+        self.a = a
+    }
+}
+
+
+var a4: A? = A()
+var ua = UnownedA(a: a4!)
+print("[WeakA]: weakA", String(describing: ua.a))
+a4 = nil
+print("a4 set to nil")
+// Fatal error: Attempted to read an unowned reference but object 0x600000384600 was already deallocated
+//print("[WeakA]: weakA", String(describing: ua.a))
+
+
+/**
+ Reference cycle
+ */
+
+class CycleA {
+    var b: CycleB?
+    
+    init() {
+        print("CycleA init")
+    }
+    
+    func set(b: CycleB?) {
+        self.b = b
+    }
+    
+    deinit {
+        print("CycleA deinit")
+    }
+}
+
+class CycleB {
+    var a: CycleA?
+    
+    init() {
+        print("CycleB init")
+    }
+    
+    func set(a: CycleA?) {
+        self.a = a
+    }
+    
+    deinit {
+        print("CycleB deinit")
+    }
+}
+
+var ca1: CycleA? = CycleA()
+var cb1: CycleB? = CycleB()
+
+ca1?.set(b: cb1)
+cb1?.set(a: ca1)
+cb1 = nil
+ca1 = nil
+
+
+// Breaking strong reference cycle with weak/unowned
+class CycleA2 {
+    weak var b: CycleB2?
+    // unowned can be used instead of weak when we are sure it wont be nil.
+//    unowned var b: CycleB2?
+    
+    init() {
+        print("CycleA2 init")
+    }
+    
+    func set(b: CycleB2?) {
+        self.b = b
+    }
+    
+    deinit {
+        print("CycleA2 deinit")
+    }
+}
+
+class CycleB2 {
+    var a: CycleA2?
+    
+    init() {
+        print("CycleB2 init")
+    }
+    
+    func set(a: CycleA2?) {
+        self.a = a
+    }
+    
+    deinit {
+        print("CycleB2 deinit")
+    }
+}
+
+var ca2: CycleA2? = CycleA2()
+// ca1 = nil
+var cb2: CycleB2? = CycleB2()
+
+ca2?.set(b: cb2)
+cb2?.set(a: ca2)
+cb2 = nil
+ca2 = nil
+
+
+/**
+ Protocol & Delegate
+ */
+
+// Optional Protocol Requirements
+@objc
+protocol OptionalProtocol {
+    func compReq1 () -> Void
+    @objc optional func optReq () -> ()
+}
+
+class OPClass: OptionalProtocol {
+    func compReq1() {
+        print("Comp 1")
+    }
+}
+
+let opClass: OptionalProtocol = OPClass()
+opClass.compReq1()
+(opClass.optReq ?? { print("Not available") })()
+opClass.optReq?()
+
+protocol OptionalProtocol2 {
+    func compReq1 () -> Void
+    func optReq () -> ()
+    
+    init(str: String)
+}
+
+class OPClass2: OptionalProtocol2 {
+    func compReq1() {
+        print("Comp 1")
+    }
+}
+
+extension OptionalProtocol2 {
+    func optReq() {
+        print("Opt 2")
+    }
+    
+    init(str: String) {
+        print(str)
+        self.init(str: str)
+    }
+}
+
+let opClass2: OptionalProtocol2 = OPClass2()
+opClass2.compReq1()
+opClass2.optReq()
+
+
+// Protocol on enum
+
+//@objc
+protocol Iterable {
+    mutating func next() -> NewSignal
+//    @objc optional func prev() -> NewSignal
+}
+
+enum NewSignal: Int, Iterable {
+    case green, yellow, red
+    
+    mutating func next() -> NewSignal {
+        switch self {
+        case .green:
+            self = .yellow
+        case .yellow:
+            self = .red
+        case .red:
+            self = .green
+        }
+        return self
+    }
+}
+var signal2 = Signal(rawValue: "green")
+print(signal2?.rawValue ?? "unknown")
+print(signal2?.next().rawValue ?? "unknown")
+print(signal2?.next().rawValue ?? "unknown")
+print(signal2?.next().rawValue ?? "unknown")
+
+// Protocol Composition
+protocol Fname {
+    var fname: String { get set }
+}
+
+protocol Lname: AnyObject {
+    var lname: String { get }
+}
+
+let printFull = { (str: Fname & Lname) in
+    print(str.fname + " " + str.lname)
+}
+
+//Non-class type 'FullNameStruct' cannot conform to class protocol 'Lname'
+//struct FullNameStruct: Fname, Lname {}
+
+class FullNameClass: Fname, Lname {
+    var fname: String = "Hello"
+    
+    var lname: String = "World"
+    
+    
+}
+printFull(FullNameClass())
+
+
+// Protocol delegate
+class MediaPlayer {
+    var volume = 0
+    var volumeStr: String {
+        String(volume) + " \u{1F50A}"
+    }
+    
+    var brightness = 0
+    var brightnessStr: String {
+        String(brightness) + " \u{1F506}"
+    }
+    
+    let bound = Point(x: 1000, y: 1000)
+    var delegate: TouchGestureDelegate?
+    
+    func swap(start: Point, end: Point) {
+        if start.x > (bound.x / 2) {
+            delegate?.didRightScreenSwap(player: self, distance: -(end.y - start.y))
+        } else {
+            delegate?.didLeftScreenSwap(player: self, distance: -(end.y - start.y))
+        }
+    }
+    
+    struct Point {
+        var x = 0
+        var y = 0
+    }
+}
+
+protocol TouchGestureDelegate {
+    func didLeftScreenSwap(player: MediaPlayer, distance: Int)
+    func didRightScreenSwap(player: MediaPlayer, distance: Int)
+}
+
+class GestureController: TouchGestureDelegate {
+    func didLeftScreenSwap(player: MediaPlayer, distance: Int) {
+        if distance > 0 {
+            print("Increasing brightness...")
+        } else {
+            print("Decreasing brightness...")
+        }
+        player.brightness += distance
+        print(player.brightnessStr)
+    }
+    
+    func didRightScreenSwap(player: MediaPlayer, distance: Int) {
+        if distance > 0 {
+            print("Increasing volume...")
+        } else {
+            print("Decreasing volume...")
+        }
+        player.volume += distance
+        print(player.volumeStr)
+    }
+}
+
+let player = MediaPlayer()
+player.delegate = GestureController()
+player.swap(start: MediaPlayer.Point(x: 40, y: 400), end: MediaPlayer.Point(x: 40, y: 100))
+player.swap(start: MediaPlayer.Point(x: 800, y: 900), end: MediaPlayer.Point(x: 800, y: 100))
+player.swap(start: MediaPlayer.Point(x: 400, y: 800), end: MediaPlayer.Point(x: 400, y: 1000))
+player.swap(start: MediaPlayer.Point(x: 800, y: 900), end: MediaPlayer.Point(x: 800, y: 100))
