@@ -142,6 +142,7 @@ fileprivate class FilePrivateClass {
     
     init() {
         internalClass.filePrivateFunc()
+//        Non accessible property
 //        internalClass.privateFunc()
     }
 }

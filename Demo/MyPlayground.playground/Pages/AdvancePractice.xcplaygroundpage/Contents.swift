@@ -420,6 +420,7 @@ struct Book3 {
         get {
             return rating + 1
         }
+        // Normal way to use setter
 //        set(val) {
 //            rating = val * 10
 //        }
@@ -493,47 +494,6 @@ let lift = Lift()
 lift.floors = 6
 lift.floors = 5
 print(lift.floors)
-
-/**
-@propertyWrapper
-class PathFilter {
-    private let illigleChars: Set<Character> = ["\\", "/", ":", "*", "?", "\"", "<", ">", "|"]
-    private var name: String
-    
-    var wrappedValue: String {
-        get { return name }
-        set {
-            newValue.forEach {
-                if illigleChars.contains($0) {
-                    print("invalid file name!")
-                    return
-                }
-            }
-            name = newValue
-        }
-    }
-    
-    init() {
-        name = ""
-    }
-    
-    init(wrappedValue: String) {
-        wrappedValue.forEach { //'self' captured by a closure before all members were initialized
-            if illigleChars.contains($0) {
-                print("invalid file name!")
-                return
-            }
-        }
-        name = wrappedValue
-    }
-}
-
-struct FileProvider {
-    @PathFilter var name: String = ""
-}
-var fp = FileProvider(name: "hello")
-print(fp.name)
-*/
 
 class Counter {
     var count: Int
@@ -1048,7 +1008,7 @@ print(human as? NonLivingObject)
 //    print("Catch")
 //}
 //print("Out")
-//#error("this is compile time error")
+// error("this is compile time error")
 
 /**
  Protocols
@@ -1179,7 +1139,7 @@ extension Calculator: CompleteCalculate {
         a - b
     }
     
-//    override func add(a: Int, b: Int) { Invalid redeclaration of 'add(a:b:)'
+//    override func add(a: Int, b: Int) { Error: Invalid redeclaration of 'add(a:b:)'
 //        a % b
 //    }
     
@@ -1341,7 +1301,6 @@ class CycleB {
 }
 
 var ca1: CycleA? = CycleA()
-// ca1 = nil
 var cb1: CycleB? = CycleB()
 
 ca1?.set(b: cb1)
@@ -1353,6 +1312,7 @@ ca1 = nil
 // Breaking strong reference cycle with weak/unowned
 class CycleA2 {
     weak var b: CycleB2?
+    // unowned can be used instead of weak when we are sure it wont be nil.
 //    unowned var b: CycleB2?
     
     init() {

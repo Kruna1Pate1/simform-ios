@@ -12,6 +12,7 @@ class AccessDemo2 {
     var openClass = OpenClass()
     var publicClass = PublicClass()
     var internalClass = InternalClass()
+//    Not accessible properties
 //    let fpClass = fileprivateFunc()
 //    let pvtClass = PrivateClass()
     

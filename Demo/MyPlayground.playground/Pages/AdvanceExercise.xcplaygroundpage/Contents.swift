@@ -434,7 +434,7 @@ let childB = ChildB(name: "A")
 childB.name = "B"
 
 let stA = StA(name: "A")
-//stA.name = "B"
+//stA.name = "B" Error: Cannot assign to property: 'stA' is a 'let' constant
 
 /**
  Enumerations
