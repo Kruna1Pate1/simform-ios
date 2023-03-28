@@ -143,7 +143,6 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8TK-nt-noh"/>
-                                            <action selector="reset:" destination="TpI-IY-Ovx" eventType="touchUpInside" id="JYJ-Sl-GEG"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -176,7 +175,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="increment:" destination="TpI-IY-Ovx" eventType="touchUpInside" id="2hU-7p-eDx"/>
-                                    <action selector="increment:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F7K-i9-RAr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TgL-X5-piJ" userLabel="Decrement">
@@ -198,7 +196,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="decrement:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0u7-eu-Gzo"/>
-                                    <action selector="decrement:" destination="TpI-IY-Ovx" eventType="touchUpInside" id="ybZ-cr-o77"/>
                                 </connections>
                             </button>
                         </subviews>
