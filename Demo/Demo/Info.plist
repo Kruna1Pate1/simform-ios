@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIMainStoryboardFile</key>
-	<string>AutoLayout</string>
 	<key>InitialProgress</key>
 	<integer>45</integer>
 	<key>UIAppFonts</key>
