@@ -20,10 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
-        self.window = UIWindow(windowScene: windowScene)
-        self.window!.rootViewController = storyboard.instantiateViewController(withIdentifier: "MyStoryboard")
-        self.window!.makeKeyAndVisible()
+//        
+//        self.window = UIWindow(windowScene: windowScene)
+//        self.window!.rootViewController = storyboard.instantiateViewController(withIdentifier: "MyStoryboard")
+//        self.window!.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

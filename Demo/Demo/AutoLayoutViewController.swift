@@ -17,15 +17,13 @@ class AutoLayoutViewController: UIViewController {
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override public var traitCollection: UITraitCollection {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            if UIDevice.current.orientation.isPortrait {
+                return UITraitCollection(traitsFrom: [UITraitCollection(horizontalSizeClass: .compact), UITraitCollection(verticalSizeClass: .regular)])
+            }
+            return UITraitCollection(traitsFrom: [UITraitCollection(horizontalSizeClass: .regular), UITraitCollection(verticalSizeClass: .compact)])
+        }
+        return super.traitCollection
     }
-    */
-
 }
