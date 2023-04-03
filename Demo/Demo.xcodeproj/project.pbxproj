@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E8980CCE29DACC2300EF6999 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8980CCD29DACC2300EF6999 /* MyButton.swift */; };
 		E8A01AF729D1545700879A53 /* AutoLayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8A01AF629D1545700879A53 /* AutoLayout.storyboard */; };
 		E8A01AF929D154B100879A53 /* AutoLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A01AF829D154B100879A53 /* AutoLayoutViewController.swift */; };
+		E8A7C95729DAE8C000C91F5B /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A7C95629DAE8C000C91F5B /* ContainerView.swift */; };
+		E8A7C95A29DAEA5B00C91F5B /* BackgroundColorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A7C95929DAEA5B00C91F5B /* BackgroundColorDelegate.swift */; };
 		E8DA41BC299B5C520054C3D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DA41BB299B5C520054C3D1 /* AppDelegate.swift */; };
 		E8DA41BE299B5C520054C3D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DA41BD299B5C520054C3D1 /* SceneDelegate.swift */; };
 		E8DA41C0299B5C520054C3D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DA41BF299B5C520054C3D1 /* ViewController.swift */; };
@@ -20,8 +23,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E8980CCD29DACC2300EF6999 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		E8A01AF629D1545700879A53 /* AutoLayout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AutoLayout.storyboard; sourceTree = "<group>"; };
 		E8A01AF829D154B100879A53 /* AutoLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutViewController.swift; sourceTree = "<group>"; };
+		E8A7C95629DAE8C000C91F5B /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
+		E8A7C95929DAEA5B00C91F5B /* BackgroundColorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorDelegate.swift; sourceTree = "<group>"; };
 		E8AD4C46299E30F800DA99DE /* photograph_signature.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = photograph_signature.ttf; path = ../../../../../../Downloads/photograph_signature.ttf; sourceTree = "<group>"; };
 		E8DA41B8299B5C520054C3D1 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8DA41BB299B5C520054C3D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +52,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E8A7C95829DAE99400C91F5B /* UIControlls */ = {
+			isa = PBXGroup;
+			children = (
+				E8A7C95629DAE8C000C91F5B /* ContainerView.swift */,
+				E8980CCD29DACC2300EF6999 /* MyButton.swift */,
+				E8A7C95929DAEA5B00C91F5B /* BackgroundColorDelegate.swift */,
+			);
+			path = UIControlls;
+			sourceTree = "<group>";
+		};
 		E8AD4C45299E30D000DA99DE /* fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +99,7 @@
 				E8DA41C6299B5C540054C3D1 /* LaunchScreen.storyboard */,
 				E8DA41C9299B5C540054C3D1 /* Info.plist */,
 				E8A01AF629D1545700879A53 /* AutoLayout.storyboard */,
+				E8A7C95829DAE99400C91F5B /* UIControlls */,
 				E8A01AF829D154B100879A53 /* AutoLayoutViewController.swift */,
 			);
 			path = Demo;
@@ -173,6 +190,9 @@
 				E8DA41BC299B5C520054C3D1 /* AppDelegate.swift in Sources */,
 				E8FD9A7229B1B5A400E2F879 /* AccessDemo2.swift in Sources */,
 				E8FD9A7029B0CDBD00E2F879 /* AccessDemo.swift in Sources */,
+				E8A7C95729DAE8C000C91F5B /* ContainerView.swift in Sources */,
+				E8980CCE29DACC2300EF6999 /* MyButton.swift in Sources */,
+				E8A7C95A29DAEA5B00C91F5B /* BackgroundColorDelegate.swift in Sources */,
 				E8DA41BE299B5C520054C3D1 /* SceneDelegate.swift in Sources */,
 				E8A01AF929D154B100879A53 /* AutoLayoutViewController.swift in Sources */,
 			);
