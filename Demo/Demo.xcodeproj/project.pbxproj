@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E80DBD1729DD54C60020BB55 /* UIControls.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E80DBD1629DD54C60020BB55 /* UIControls.storyboard */; };
+		E80DBD1929DD55360020BB55 /* StepperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DBD1829DD55360020BB55 /* StepperViewController.swift */; };
+		E80DBD1B29DD6F240020BB55 /* SegmentedControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DBD1A29DD6F240020BB55 /* SegmentedControlViewController.swift */; };
+		E80DBD1D29DD8BE10020BB55 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DBD1C29DD8BE10020BB55 /* CollectionViewController.swift */; };
+		E847605529DD8E6600031325 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E847605429DD8E6600031325 /* CollectionViewCell.swift */; };
 		E8980CCE29DACC2300EF6999 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8980CCD29DACC2300EF6999 /* MyButton.swift */; };
 		E8A01AF729D1545700879A53 /* AutoLayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8A01AF629D1545700879A53 /* AutoLayout.storyboard */; };
 		E8A01AF929D154B100879A53 /* AutoLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A01AF829D154B100879A53 /* AutoLayoutViewController.swift */; };
@@ -23,6 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E80DBD1629DD54C60020BB55 /* UIControls.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UIControls.storyboard; sourceTree = "<group>"; };
+		E80DBD1829DD55360020BB55 /* StepperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperViewController.swift; sourceTree = "<group>"; };
+		E80DBD1A29DD6F240020BB55 /* SegmentedControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlViewController.swift; sourceTree = "<group>"; };
+		E80DBD1C29DD8BE10020BB55 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		E847605429DD8E6600031325 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		E8980CCD29DACC2300EF6999 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		E8A01AF629D1545700879A53 /* AutoLayout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AutoLayout.storyboard; sourceTree = "<group>"; };
 		E8A01AF829D154B100879A53 /* AutoLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutViewController.swift; sourceTree = "<group>"; };
@@ -52,14 +62,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E8A7C95829DAE99400C91F5B /* UIControlls */ = {
+		E8A7C95829DAE99400C91F5B /* UIControls */ = {
 			isa = PBXGroup;
 			children = (
 				E8A7C95629DAE8C000C91F5B /* ContainerView.swift */,
 				E8980CCD29DACC2300EF6999 /* MyButton.swift */,
+				E80DBD1C29DD8BE10020BB55 /* CollectionViewController.swift */,
 				E8A7C95929DAEA5B00C91F5B /* BackgroundColorDelegate.swift */,
+				E80DBD1629DD54C60020BB55 /* UIControls.storyboard */,
+				E847605429DD8E6600031325 /* CollectionViewCell.swift */,
+				E80DBD1829DD55360020BB55 /* StepperViewController.swift */,
+				E80DBD1A29DD6F240020BB55 /* SegmentedControlViewController.swift */,
 			);
-			path = UIControlls;
+			path = UIControls;
 			sourceTree = "<group>";
 		};
 		E8AD4C45299E30D000DA99DE /* fonts */ = {
@@ -99,7 +114,7 @@
 				E8DA41C6299B5C540054C3D1 /* LaunchScreen.storyboard */,
 				E8DA41C9299B5C540054C3D1 /* Info.plist */,
 				E8A01AF629D1545700879A53 /* AutoLayout.storyboard */,
-				E8A7C95829DAE99400C91F5B /* UIControlls */,
+				E8A7C95829DAE99400C91F5B /* UIControls */,
 				E8A01AF829D154B100879A53 /* AutoLayoutViewController.swift */,
 			);
 			path = Demo;
@@ -172,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E80DBD1729DD54C60020BB55 /* UIControls.storyboard in Resources */,
 				E8DA41C8299B5C540054C3D1 /* LaunchScreen.storyboard in Resources */,
 				E8DA41C5299B5C540054C3D1 /* Assets.xcassets in Resources */,
 				E8DA41C3299B5C520054C3D1 /* Main.storyboard in Resources */,
@@ -186,12 +202,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E80DBD1D29DD8BE10020BB55 /* CollectionViewController.swift in Sources */,
+				E80DBD1929DD55360020BB55 /* StepperViewController.swift in Sources */,
 				E8DA41C0299B5C520054C3D1 /* ViewController.swift in Sources */,
 				E8DA41BC299B5C520054C3D1 /* AppDelegate.swift in Sources */,
 				E8FD9A7229B1B5A400E2F879 /* AccessDemo2.swift in Sources */,
 				E8FD9A7029B0CDBD00E2F879 /* AccessDemo.swift in Sources */,
 				E8A7C95729DAE8C000C91F5B /* ContainerView.swift in Sources */,
 				E8980CCE29DACC2300EF6999 /* MyButton.swift in Sources */,
+				E847605529DD8E6600031325 /* CollectionViewCell.swift in Sources */,
+				E80DBD1B29DD6F240020BB55 /* SegmentedControlViewController.swift in Sources */,
 				E8A7C95A29DAEA5B00C91F5B /* BackgroundColorDelegate.swift in Sources */,
 				E8DA41BE299B5C520054C3D1 /* SceneDelegate.swift in Sources */,
 				E8A01AF929D154B100879A53 /* AutoLayoutViewController.swift in Sources */,
@@ -346,7 +366,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = AutoLayout;
+				INFOPLIST_KEY_UIMainStoryboardFile = UIControls;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -374,7 +394,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = AutoLayout;
+				INFOPLIST_KEY_UIMainStoryboardFile = UIControls;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -1049,8 +1049,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" toolTip="Make history editable" title="History Edit" preferredStyle="sliding" translatesAutoresizingMaskIntoConstraints="NO" id="2pC-wu-4bR">
-                                <rect key="frame" x="271" y="270" width="51" height="31"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" toolTip="Make history editable" title="History Edit" preferredStyle="sliding" translatesAutoresizingMaskIntoConstraints="NO" id="2pC-wu-4bR">
+                                <rect key="frame" x="275" y="270.33333333333331" width="51" height="31"/>
                             </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sSl-iQ-hhG"/>
@@ -1097,61 +1097,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YUV-2A-mOY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7970.2325581395344" y="25.751072961373392"/>
-        </scene>
-        <!--Auto Layout View Controller-->
-        <scene sceneID="0TV-Ra-dG9">
-            <objects>
-                <viewController id="Eel-3V-oTd" customClass="AutoLayoutViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="T9C-CS-Oqz">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLu-nM-EMj">
-                                <rect key="frame" x="187.33333333333334" y="154" width="55.666666666666657" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="One"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNh-Oi-Nc5">
-                                <rect key="frame" x="187" y="246" width="56" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Two"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rf-yM-e0i">
-                                <rect key="frame" x="180.66666666666666" y="340" width="69" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Three"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GpT-mw-nfn">
-                                <rect key="frame" x="185.66666666666666" y="461" width="59" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Four"/>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="xkb-eR-ePK"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="HLu-nM-EMj" firstAttribute="centerX" secondItem="T9C-CS-Oqz" secondAttribute="centerX" id="3FA-9k-pnU"/>
-                            <constraint firstItem="vNh-Oi-Nc5" firstAttribute="top" secondItem="HLu-nM-EMj" secondAttribute="bottom" constant="57" id="8z1-BT-aaj"/>
-                            <constraint firstItem="GpT-mw-nfn" firstAttribute="top" secondItem="9rf-yM-e0i" secondAttribute="bottom" constant="86" id="Abr-XI-5En"/>
-                            <constraint firstItem="GpT-mw-nfn" firstAttribute="centerX" secondItem="xkb-eR-ePK" secondAttribute="centerX" id="C4W-IR-lbW"/>
-                            <constraint firstItem="vNh-Oi-Nc5" firstAttribute="centerX" secondItem="xkb-eR-ePK" secondAttribute="centerX" id="Qvy-WQ-vND"/>
-                            <constraint firstItem="HLu-nM-EMj" firstAttribute="top" secondItem="xkb-eR-ePK" secondAttribute="top" constant="95" id="qxP-2X-FPa"/>
-                            <constraint firstItem="9rf-yM-e0i" firstAttribute="centerX" secondItem="xkb-eR-ePK" secondAttribute="centerX" id="rD1-fo-NKX"/>
-                            <constraint firstItem="9rf-yM-e0i" firstAttribute="top" secondItem="vNh-Oi-Nc5" secondAttribute="bottom" constant="59" id="tdi-mU-qTp"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outletCollection property="a" destination="HLu-nM-EMj" collectionClass="NSMutableArray" id="7Tk-78-kWv"/>
-                        <outletCollection property="starButtons" destination="vNh-Oi-Nc5" collectionClass="NSMutableArray" id="tJw-Wt-plY"/>
-                        <outletCollection property="starButtons" destination="HLu-nM-EMj" collectionClass="NSMutableArray" id="uii-6O-7cc"/>
-                        <outletCollection property="starButtons" destination="9rf-yM-e0i" collectionClass="NSMutableArray" id="BIh-Fv-WLl"/>
-                        <outletCollection property="starButtons" destination="9rf-yM-e0i" collectionClass="NSMutableArray" id="cky-3d-vdP"/>
-                        <outletCollection property="starButtons" destination="GpT-mw-nfn" collectionClass="NSMutableArray" id="VkB-XI-QAb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wmc-n3-a8W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="8820" y="8"/>
         </scene>
     </scenes>
     <designables>
