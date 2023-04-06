@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yjf-NH-Yib">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bUF-R3-vwf">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -80,14 +80,14 @@
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="mWB-1R-qKl">
-                                <rect key="frame" x="120" y="484.66666666666669" width="94" height="32.000000000000057"/>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" maximumValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="mWB-1R-qKl">
+                                <rect key="frame" x="125" y="484.66666666666669" width="94" height="32.000000000000057"/>
                                 <connections>
-                                    <action selector="changeFont:" destination="Y6W-OH-hqX" eventType="valueChanged" id="nEo-GQ-xpN"/>
+                                    <action selector="rotate:" destination="Y6W-OH-hqX" eventType="valueChanged" id="xRI-t4-gG9"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rotate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kc-9v-lta">
-                                <rect key="frame" x="30" y="490" width="50" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rotate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kc-9v-lta">
+                                <rect key="frame" x="30" y="490" width="55" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -124,8 +124,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="fontSizeStepper" destination="mWB-1R-qKl" id="KpI-84-mln"/>
-                        <outlet property="rotationStepper" destination="mWB-1R-qKl" id="fse-0S-sx3"/>
+                        <outlet property="fontSizeStepper" destination="v1W-fW-T63" id="JvQ-09-ycW"/>
+                        <outlet property="rotationStepper" destination="mWB-1R-qKl" id="Dnv-oR-OC9"/>
                         <outlet property="welcomeLabel" destination="cSk-LI-mSB" id="zVW-IU-wGB"/>
                         <outletCollection property="colorSteppers" destination="7aq-BY-W7V" collectionClass="NSMutableArray" id="5KK-Qk-Wny"/>
                         <outletCollection property="colorSteppers" destination="jp9-oZ-qnX" collectionClass="NSMutableArray" id="kLO-vd-SkN"/>
@@ -144,7 +144,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rSu-10-4Nk">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rSu-10-4Nk" customClass="MySegmentedControl" customModule="Demo" customModuleProvider="target">
                                 <rect key="frame" x="20" y="79" width="353" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="lD5-OB-gcS"/>
@@ -159,13 +159,16 @@
                                     <action selector="changeNumber:" destination="yjf-NH-Yib" eventType="valueChanged" id="wCh-0H-OX3"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="owe-oV-bwb">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="owe-oV-bwb" customClass="MySegmentedControl" customModule="Demo" customModuleProvider="target">
                                 <rect key="frame" x="272" y="134" width="101" height="32"/>
                                 <segments>
                                     <segment title="Light"/>
                                     <segment title="Dark"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" red="0.1382222474" green="0.55033034089999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="changeTheme:" destination="yjf-NH-Yib" eventType="valueChanged" id="SiC-Aq-7QP"/>
                                 </connections>
@@ -176,22 +179,50 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="T8l-4K-WN3" customClass="MySegmentedControl" customModule="Demo" customModuleProvider="target">
+                                <rect key="frame" x="10" y="744" width="373" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="y7m-TJ-gQk"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Home"/>
+                                    <segment title="Location"/>
+                                    <segment title="Profile"/>
+                                    <segment title="Setting"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" systemColor="systemGreenColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="bottomNavigate:" destination="yjf-NH-Yib" eventType="valueChanged" id="Gkc-I6-HyN"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2wF-Nz-jMX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="rSu-10-4Nk" firstAttribute="leading" secondItem="2wF-Nz-jMX" secondAttribute="leading" constant="20" id="I6Q-5r-LCG"/>
+                            <constraint firstItem="T8l-4K-WN3" firstAttribute="leading" secondItem="2wF-Nz-jMX" secondAttribute="leading" constant="10" id="LKD-w0-X51"/>
                             <constraint firstItem="DoP-zh-hEa" firstAttribute="top" secondItem="owe-oV-bwb" secondAttribute="bottom" constant="42" id="LXF-sZ-97S"/>
                             <constraint firstItem="2wF-Nz-jMX" firstAttribute="trailing" secondItem="rSu-10-4Nk" secondAttribute="trailing" constant="20" id="RgE-yv-1qk"/>
+                            <constraint firstItem="2wF-Nz-jMX" firstAttribute="trailing" secondItem="T8l-4K-WN3" secondAttribute="trailing" constant="10" id="Sh1-s9-8jg"/>
                             <constraint firstItem="owe-oV-bwb" firstAttribute="top" secondItem="rSu-10-4Nk" secondAttribute="bottom" constant="19" id="VUy-Ks-vRN"/>
                             <constraint firstItem="DoP-zh-hEa" firstAttribute="leading" secondItem="rSu-10-4Nk" secondAttribute="leading" id="XPv-wh-DFJ"/>
+                            <constraint firstItem="2wF-Nz-jMX" firstAttribute="bottom" secondItem="T8l-4K-WN3" secondAttribute="bottom" constant="10" id="Yyc-Gr-QoH"/>
+                            <constraint firstItem="T8l-4K-WN3" firstAttribute="centerX" secondItem="1B3-ea-A7W" secondAttribute="centerX" id="Zxy-zA-V6r"/>
                             <constraint firstItem="owe-oV-bwb" firstAttribute="trailing" secondItem="rSu-10-4Nk" secondAttribute="trailing" id="zEZ-ot-mhh"/>
                             <constraint firstItem="rSu-10-4Nk" firstAttribute="top" secondItem="2wF-Nz-jMX" secondAttribute="top" constant="20" id="zOS-DQ-4u7"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomSegment" destination="T8l-4K-WN3" id="zOS-UD-Ms1"/>
                         <outlet property="numbersLabel" destination="DoP-zh-hEa" id="XCh-QO-pbz"/>
                         <outlet property="oddEvenSegment" destination="rSu-10-4Nk" id="325-qL-IOl"/>
+                        <outlet property="themeSegment" destination="owe-oV-bwb" id="Vr1-s3-u7G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RkM-bX-FFy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -266,7 +297,70 @@
             </objects>
             <point key="canvasLocation" x="1652.6717557251907" y="-35.211267605633807"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="Do8-9i-WbB">
+            <objects>
+                <viewController title="Table View Controller" id="bUF-R3-vwf" customClass="TableViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ITi-AM-zId">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tableView" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fQf-yN-aX7">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" systemColor="tintColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="1MN-ma-DOD">
+                                        <rect key="frame" x="0.0" y="55.333332061767578" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1MN-ma-DOD" id="rsQ-C1-diy">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="bUF-R3-vwf" id="Hwp-xb-1tq"/>
+                                    <outlet property="delegate" destination="bUF-R3-vwf" id="S3W-AP-KJz"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qDV-ou-ldz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qDV-ou-ldz" firstAttribute="bottom" secondItem="fQf-yN-aX7" secondAttribute="bottom" id="3bL-Zk-nee"/>
+                            <constraint firstItem="qDV-ou-ldz" firstAttribute="trailing" secondItem="fQf-yN-aX7" secondAttribute="trailing" id="4bZ-Jh-c6h"/>
+                            <constraint firstItem="fQf-yN-aX7" firstAttribute="leading" secondItem="qDV-ou-ldz" secondAttribute="leading" id="EYt-HR-hWH"/>
+                            <constraint firstItem="fQf-yN-aX7" firstAttribute="top" secondItem="qDV-ou-ldz" secondAttribute="top" id="qQo-qy-Y5S"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="fQf-yN-aX7" id="SKq-jZ-vET"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6hn-63-KBJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="EnW-Ag-PrR">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <viewLayoutGuide key="safeArea" id="sln-bR-00Z"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="2392" y="-35"/>
+        </scene>
     </scenes>
+    <designables>
+        <designable name="T8l-4K-WN3">
+            <size key="intrinsicContentSize" width="291" height="31"/>
+        </designable>
+        <designable name="owe-oV-bwb">
+            <size key="intrinsicContentSize" width="101" height="31"/>
+        </designable>
+        <designable name="rSu-10-4Nk">
+            <size key="intrinsicContentSize" width="146" height="31"/>
+        </designable>
+    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -282,6 +376,9 @@
         </systemColor>
         <systemColor name="tertiarySystemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

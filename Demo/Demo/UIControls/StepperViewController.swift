@@ -24,6 +24,10 @@ class StepperViewController: UIViewController {
                 stepper.value = rgbColors[index]
             }
         }
+        
+        rotationStepper.tintColor = .black
+        rotationStepper.setDecrementImage(UIImage(named: "rotate_left")?.resizedImage(to: 20), for: .normal)
+        rotationStepper.setIncrementImage(UIImage(named: "rotate_right")?.resizedImage(to: 20), for: .normal)
     }
     
     @IBAction func changeFont(_ sender: UIStepper) {
@@ -47,5 +51,20 @@ class StepperViewController: UIViewController {
         default:
             break
         }
+    }
+    
+    @IBAction func rotate(_ sender: UIStepper) {
+        print(sender.value * 90)
+        welcomeLabel.rotate(degrees: sender.value * 90)
+    }
+}
+
+extension UIView {
+    func rotate(degrees: CGFloat) {
+        rotate(radians: CGFloat.pi * degrees / 180.0)
+    }
+
+    func rotate(radians: CGFloat) {
+        self.transform = CGAffineTransform(rotationAngle: radians)
     }
 }
