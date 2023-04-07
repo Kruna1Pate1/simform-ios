@@ -58,7 +58,7 @@ class StepperViewController: UIViewController {
         welcomeLabel.rotate(degrees: sender.value * 90)
     }
 }
-
+        
 extension UIView {
     func rotate(degrees: CGFloat) {
         rotate(radians: CGFloat.pi * degrees / 180.0)

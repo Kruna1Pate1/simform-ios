@@ -13,7 +13,10 @@
 		E80DBD1B29DD6F240020BB55 /* SegmentedControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DBD1A29DD6F240020BB55 /* SegmentedControlViewController.swift */; };
 		E80DBD1D29DD8BE10020BB55 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DBD1C29DD8BE10020BB55 /* CollectionViewController.swift */; };
 		E814A31D29DE81E800C772C3 /* UIImage+extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = E814A31C29DE81E700C772C3 /* UIImage+extention.swift */; };
-		E847605529DD8E6600031325 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E847605429DD8E6600031325 /* CollectionViewCell.swift */; };
+		E847605529DD8E6600031325 /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E847605429DD8E6600031325 /* SongCell.swift */; };
+		E880850C29DFE647008254DC /* LanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E880850B29DFE647008254DC /* LanguageModel.swift */; };
+		E880850F29DFE9B8008254DC /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E880850D29DFE9B8008254DC /* LanguageCell.swift */; };
+		E880851029DFE9B8008254DC /* LanguageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E880850E29DFE9B8008254DC /* LanguageCell.xib */; };
 		E8980CCE29DACC2300EF6999 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8980CCD29DACC2300EF6999 /* MyButton.swift */; };
 		E8A01AF729D1545700879A53 /* AutoLayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8A01AF629D1545700879A53 /* AutoLayout.storyboard */; };
 		E8A01AF929D154B100879A53 /* AutoLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A01AF829D154B100879A53 /* AutoLayoutViewController.swift */; };
@@ -25,6 +28,8 @@
 		E8BDBE1429DEE65E0094CF21 /* SwitchSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BDBE1229DEE65E0094CF21 /* SwitchSettingCell.swift */; };
 		E8BDBE1529DEE65E0094CF21 /* SwitchSettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8BDBE1329DEE65E0094CF21 /* SwitchSettingCell.xib */; };
 		E8BDBE1729DEE6F50094CF21 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BDBE1629DEE6F50094CF21 /* SettingModel.swift */; };
+		E8C9A0B429E030AF00F2376C /* GenreHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C9A0B329E030AF00F2376C /* GenreHeaderView.swift */; };
+		E8C9A0B629E0420500F2376C /* SongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C9A0B529E0420500F2376C /* SongModel.swift */; };
 		E8DA41BC299B5C520054C3D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DA41BB299B5C520054C3D1 /* AppDelegate.swift */; };
 		E8DA41BE299B5C520054C3D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DA41BD299B5C520054C3D1 /* SceneDelegate.swift */; };
 		E8DA41C0299B5C520054C3D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DA41BF299B5C520054C3D1 /* ViewController.swift */; };
@@ -42,7 +47,10 @@
 		E80DBD1A29DD6F240020BB55 /* SegmentedControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlViewController.swift; sourceTree = "<group>"; };
 		E80DBD1C29DD8BE10020BB55 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		E814A31C29DE81E700C772C3 /* UIImage+extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extention.swift"; sourceTree = "<group>"; };
-		E847605429DD8E6600031325 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		E847605429DD8E6600031325 /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
+		E880850B29DFE647008254DC /* LanguageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageModel.swift; sourceTree = "<group>"; };
+		E880850D29DFE9B8008254DC /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
+		E880850E29DFE9B8008254DC /* LanguageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageCell.xib; sourceTree = "<group>"; };
 		E8980CCD29DACC2300EF6999 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		E8A01AF629D1545700879A53 /* AutoLayout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AutoLayout.storyboard; sourceTree = "<group>"; };
 		E8A01AF829D154B100879A53 /* AutoLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +63,8 @@
 		E8BDBE1229DEE65E0094CF21 /* SwitchSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchSettingCell.swift; sourceTree = "<group>"; };
 		E8BDBE1329DEE65E0094CF21 /* SwitchSettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchSettingCell.xib; sourceTree = "<group>"; };
 		E8BDBE1629DEE6F50094CF21 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
+		E8C9A0B329E030AF00F2376C /* GenreHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreHeaderView.swift; sourceTree = "<group>"; };
+		E8C9A0B529E0420500F2376C /* SongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SongModel.swift; path = Demo/UIControls/Models/SongModel.swift; sourceTree = SOURCE_ROOT; };
 		E8DA41B8299B5C520054C3D1 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8DA41BB299B5C520054C3D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8DA41BD299B5C520054C3D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,21 +96,38 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
+		E880850929DFE4FC008254DC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E80DBD1C29DD8BE10020BB55 /* CollectionViewController.swift */,
+				E8C9A0B529E0420500F2376C /* SongModel.swift */,
+				E80DBD1829DD55360020BB55 /* StepperViewController.swift */,
+				E80DBD1A29DD6F240020BB55 /* SegmentedControlViewController.swift */,
+				E8BDBE0B29DEBCA70094CF21 /* TableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E880850A29DFE635008254DC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E8BDBE1629DEE6F50094CF21 /* SettingModel.swift */,
+				E880850B29DFE647008254DC /* LanguageModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E8A7C95829DAE99400C91F5B /* UIControls */ = {
 			isa = PBXGroup;
 			children = (
 				E8BDBE0D29DEC4D10094CF21 /* Cells */,
 				E8A7C95629DAE8C000C91F5B /* ContainerView.swift */,
 				E8980CCD29DACC2300EF6999 /* MyButton.swift */,
-				E80DBD1C29DD8BE10020BB55 /* CollectionViewController.swift */,
+				E880850929DFE4FC008254DC /* ViewControllers */,
 				E8A7C95929DAEA5B00C91F5B /* BackgroundColorDelegate.swift */,
 				E80DBD1629DD54C60020BB55 /* UIControls.storyboard */,
-				E847605429DD8E6600031325 /* CollectionViewCell.swift */,
-				E80DBD1829DD55360020BB55 /* StepperViewController.swift */,
-				E80DBD1A29DD6F240020BB55 /* SegmentedControlViewController.swift */,
 				E8022EA029DE8FA300A7BC9B /* MySegmentedControl.swift */,
-				E8BDBE0B29DEBCA70094CF21 /* TableViewController.swift */,
-				E8BDBE1629DEE6F50094CF21 /* SettingModel.swift */,
+				E880850A29DFE635008254DC /* Models */,
 			);
 			path = UIControls;
 			sourceTree = "<group>";
@@ -117,9 +144,13 @@
 			isa = PBXGroup;
 			children = (
 				E8BDBE0E29DEC51B0094CF21 /* TableViewCell.swift */,
+				E847605429DD8E6600031325 /* SongCell.swift */,
 				E8BDBE0F29DEC51B0094CF21 /* TableViewCell.xib */,
 				E8BDBE1229DEE65E0094CF21 /* SwitchSettingCell.swift */,
 				E8BDBE1329DEE65E0094CF21 /* SwitchSettingCell.xib */,
+				E880850D29DFE9B8008254DC /* LanguageCell.swift */,
+				E880850E29DFE9B8008254DC /* LanguageCell.xib */,
+				E8C9A0B329E030AF00F2376C /* GenreHeaderView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -232,6 +263,7 @@
 				E8BDBE1529DEE65E0094CF21 /* SwitchSettingCell.xib in Resources */,
 				E8DA41C8299B5C540054C3D1 /* LaunchScreen.storyboard in Resources */,
 				E8DA41C5299B5C540054C3D1 /* Assets.xcassets in Resources */,
+				E880851029DFE9B8008254DC /* LanguageCell.xib in Resources */,
 				E8DA41C3299B5C520054C3D1 /* Main.storyboard in Resources */,
 				E8A01AF729D1545700879A53 /* AutoLayout.storyboard in Resources */,
 			);
@@ -245,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E80DBD1D29DD8BE10020BB55 /* CollectionViewController.swift in Sources */,
+				E8C9A0B429E030AF00F2376C /* GenreHeaderView.swift in Sources */,
 				E80DBD1929DD55360020BB55 /* StepperViewController.swift in Sources */,
 				E8DA41C0299B5C520054C3D1 /* ViewController.swift in Sources */,
 				E8DA41BC299B5C520054C3D1 /* AppDelegate.swift in Sources */,
@@ -254,15 +287,18 @@
 				E8980CCE29DACC2300EF6999 /* MyButton.swift in Sources */,
 				E8BDBE1729DEE6F50094CF21 /* SettingModel.swift in Sources */,
 				E8BDBE1429DEE65E0094CF21 /* SwitchSettingCell.swift in Sources */,
-				E847605529DD8E6600031325 /* CollectionViewCell.swift in Sources */,
+				E847605529DD8E6600031325 /* SongCell.swift in Sources */,
 				E8022EA129DE8FA300A7BC9B /* MySegmentedControl.swift in Sources */,
+				E880850F29DFE9B8008254DC /* LanguageCell.swift in Sources */,
 				E80DBD1B29DD6F240020BB55 /* SegmentedControlViewController.swift in Sources */,
 				E8BDBE0C29DEBCA70094CF21 /* TableViewController.swift in Sources */,
+				E8C9A0B629E0420500F2376C /* SongModel.swift in Sources */,
 				E814A31D29DE81E800C772C3 /* UIImage+extention.swift in Sources */,
 				E8A7C95A29DAEA5B00C91F5B /* BackgroundColorDelegate.swift in Sources */,
 				E8BDBE1029DEC51B0094CF21 /* TableViewCell.swift in Sources */,
 				E8DA41BE299B5C520054C3D1 /* SceneDelegate.swift in Sources */,
 				E8A01AF929D154B100879A53 /* AutoLayoutViewController.swift in Sources */,
+				E880850C29DFE647008254DC /* LanguageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

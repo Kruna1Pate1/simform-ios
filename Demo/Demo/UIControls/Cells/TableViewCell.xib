@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tableCell" id="KGk-i7-Jjw" customClass="TableViewCell" customModule="Demo" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TableViewCell" id="KGk-i7-Jjw" customClass="TableViewCell" customModule="Demo" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -17,21 +17,22 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5tC-NT-frk">
-                        <rect key="frame" x="5" y="2.3333333333333321" width="39.666666666666664" height="39.333333333333343"/>
+                        <rect key="frame" x="20" y="10" width="24" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="5tC-NT-frk" secondAttribute="height" multiplier="1:1" id="iVg-JW-BBr"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EnR-WF-dHj">
-                        <rect key="frame" x="70.666666666666671" y="11.666666666666664" width="42" height="21"/>
+                        <rect key="frame" x="70" y="11.666666666666664" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="5tC-NT-frk" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.9" id="BUw-n7-YdP"/>
-                    <constraint firstItem="5tC-NT-frk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="DzZ-AL-hNX"/>
+                    <constraint firstAttribute="bottom" secondItem="5tC-NT-frk" secondAttribute="bottom" constant="10" id="3DP-oZ-axM"/>
+                    <constraint firstItem="5tC-NT-frk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="DzZ-AL-hNX"/>
+                    <constraint firstItem="5tC-NT-frk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="pIm-yg-18l"/>
                     <constraint firstItem="EnR-WF-dHj" firstAttribute="leading" secondItem="5tC-NT-frk" secondAttribute="trailing" constant="26" id="xCO-id-QVc"/>
                     <constraint firstItem="5tC-NT-frk" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yuQ-qj-mFH"/>
                     <constraint firstItem="EnR-WF-dHj" firstAttribute="centerY" secondItem="5tC-NT-frk" secondAttribute="centerY" id="zHy-qj-FPN"/>
@@ -40,9 +41,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="imgIcon" destination="5tC-NT-frk" id="wbs-SK-cFr"/>
-                <outlet property="lblTitle" destination="EnR-WF-dHj" id="QO6-fd-ZwG"/>
+                <outlet property="lblTitle" destination="EnR-WF-dHj" id="dJz-Pm-b6R"/>
             </connections>
-            <point key="canvasLocation" x="-3" y="-32"/>
+            <point key="canvasLocation" x="-3.0534351145038165" y="-32.394366197183103"/>
         </tableViewCell>
     </objects>
 </document>
