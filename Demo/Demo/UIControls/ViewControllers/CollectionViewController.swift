@@ -10,22 +10,50 @@ import UIKit
 class CollectionViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
-    var songs: [SongModel] = SongModel.dummySongs()
+    var songs: [SongModel.SongGenre: [SongModel]] = Dictionary(grouping: SongModel.dummySongs(), by: { $0.genre })
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupUI()
+    }
+    
+    private func setupUI() {
+        collectionView.dragInteractionEnabled = true
+        setupRefresh()
+        
+        searchBar.barTintColor = .lightGray
+    }
+    
+    private func setupRefresh() {
+        let refreshController = UIRefreshControl()
+        refreshController.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        refreshController.attributedTitle = NSAttributedString(string: "loading", attributes: [
+            .foregroundColor: UIColor.green
+        ])
+        refreshController.tintColor = .systemGreen
+        self.collectionView.refreshControl = refreshController
+    }
+    
+    @objc func handleRefresh() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.songs = Dictionary(grouping: SongModel.dummySongs(), by: { $0.genre })
+            self.collectionView.reloadData()
+            self.collectionView.refreshControl?.endRefreshing()
+        }
     }
 }
 
 extension CollectionViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 5
+        return songs.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        4 * section
+        return songs[section].value.count
     }
     
     
@@ -34,7 +62,9 @@ extension CollectionViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as? SongCell else {
             return UICollectionViewCell()
         }
-        cell.song = songs[indexPath.item]
+//        print(indexPath)
+        
+        cell.song = songs[indexPath.section].value[indexPath.item]
         return cell
     }
     
@@ -43,9 +73,10 @@ extension CollectionViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        headerView.lblTitle.text = "Album: \(indexPath)"
+        headerView.lblTitle.text = songs[indexPath.section].key.rawValue.capitalized
         return headerView
     }
+    
 }
 
 extension CollectionViewController: UICollectionViewDelegate {
@@ -56,8 +87,16 @@ extension CollectionViewController: UICollectionViewDelegate {
 
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width
-        return CGSize(width: width / 2 - 10, height: width / 2 - 10)
+        
+        var width = collectionView.bounds.width
+        
+        if songs[indexPath.section].value.count > 8 {
+            width = (width / 3) - 10
+        } else {
+            width = (width / 2) - 10
+        }
+        
+        return CGSize(width: width, height: width)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -67,6 +106,34 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         0
     }
-    
 }
 
+extension CollectionViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        print("prefetching \(indexPaths)")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+        print("canceling prefetch \(indexPaths)")
+    }
+}
+
+extension CollectionViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        if searchText.isEmpty {
+            songs = Dictionary(grouping: SongModel.dummySongs(), by: { $0.genre })
+        } else {
+            songs = Dictionary(grouping: SongModel.dummySongs().filter { $0.title.contains(searchText)}, by: { $0.genre })
+        }
+        collectionView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        songs.count != 0
+    }
+}

@@ -110,6 +110,32 @@ extension TableViewController: UITableViewDataSource {
             }
         }
     }
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Delete"
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let bellAction = UIContextualAction(style: .normal, title: "notify") { (action, view, completion) in
+            completion(true)
+        }
+        bellAction.image = UIImage(systemName: "bell.slash")
+        bellAction.backgroundColor = UIColor.brown
+        if isLanguage(at: indexPath) {
+            let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
+                print("deleting \(indexPath)")
+                self.languages.remove(at: indexPath.row - 1)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                
+                completion(true)
+            }
+            deleteAction.image = UIImage(systemName: "trash.fill")
+            deleteAction.backgroundColor = UIColor.systemRed
+            
+            return UISwipeActionsConfiguration(actions: [deleteAction, bellAction])
+        }
+        return UISwipeActionsConfiguration(actions: [bellAction])
+    }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return dynamic height
@@ -136,6 +162,14 @@ extension TableViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 1 {
+            let header = UIView(frame: CGRect(x: 0, y: 0, width: Int(tableView.frame.width - 20), height: 60))
+            header.backgroundColor = .cyan
+            let headerTitle = UILabel(frame: CGRect(x: 20, y: 0, width: Int(header.frame.width - 20), height: Int(header.frame.height)))
+            headerTitle.text = settings[section].key
+            header.addSubview(headerTitle)
+            return header
+        }
         return nil
     }
     
@@ -183,12 +217,6 @@ extension TableViewController: UITableViewDelegate {
             return indexPath
         }
         return nil
-    }
-}
-
-private extension Dictionary {
-    subscript(i: Int) -> (key: Key, value: Value) {
-        return self[index(startIndex, offsetBy: i)]
     }
 }
 
