@@ -7,6 +7,11 @@
 
 extension Dictionary {
     subscript(i: Int) -> (key: Key, value: Value) {
-        return self[index(startIndex, offsetBy: i)]
+        get {
+            return self[index(startIndex, offsetBy: i)]
+        }
+        set {
+            self.updateValue(newValue.value, forKey: newValue.key)
+        }
     }
 }

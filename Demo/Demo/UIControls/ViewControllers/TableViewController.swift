@@ -12,12 +12,13 @@ class TableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     
-    let settings: [String: [Setting]] = [
+    var settings: [String: [Setting]] = [
         "Network": Setting.dummySettings(for: "Network"),
         "Accessibility": Setting.dummySettings(for: "Accessibility"),
         "Security": Setting.dummySettings(for: "Security"),
         "Developer options": Setting.dummySettings(for: "Developer options"),
         "Language": Setting.dummySettings(for: "Language"),
+        "Device info": []
     ]
     var languages: [LanguageModel] = LanguageModel.dummyLanguages()
     
@@ -27,6 +28,7 @@ class TableViewController: UIViewController {
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
         tableView.register(UINib(nibName: "SwitchSettingCell", bundle: nil), forCellReuseIdentifier: "SwitchSettingCell")
         tableView.register(UINib(nibName: "LanguageCell", bundle: nil), forCellReuseIdentifier: "LanguageCell")
+        tableView.register(UINib(nibName: "DescriptionCell", bundle: nil), forCellReuseIdentifier: "DescriptionCell")
         
         tableView.rowHeight = 10
         
@@ -62,15 +64,32 @@ extension TableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if settings[section].key == "Language" {
+        if section == settings.count - 1 {
+            return 1
+        }
+        
+        let setting = settings[section]
+        
+        if setting.value.first?.expanded == false {
+            return 1
+        }
+        
+        if setting.key == "Language" {
             return languages.count + 1
         }
-        return settings[section].value.count
+        return setting.value.count
     }
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("\(indexPath.section), \(indexPath.row)")
+        
+        if indexPath.section == settings.count - 1 {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath) as? DescriptionCell {
+                cell.lblDescription.text = "Name: iPhone\n iOS Version 16.2\n Model Name: iPhone 14 Pro\n Model Number: A2650"
+                return cell
+            }
+        }
 
         if isLanguage(at: indexPath) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LanguageCell", for: indexPath) as! LanguageCell
@@ -140,6 +159,9 @@ extension TableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return dynamic height
 //        return UITableView.automaticDimension
+        if indexPath.section == settings.count {
+            return UITableView.automaticDimension
+        }
         return 60
     }
     
@@ -215,6 +237,10 @@ extension TableViewController: UITableViewDelegate {
                 cell.btnSelection.isSelected = true
             }
             return indexPath
+        }
+        if let expanded = settings[indexPath.section].value.first?.expanded {
+            settings[indexPath.section].value[0].expanded = !expanded
+            tableView.reloadData()
         }
         return nil
     }

@@ -15,6 +15,8 @@ class SongCell: UICollectionViewCell {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var singers: UILabel!
     
+    var onLike: ((_ isLiked: Bool) -> Void)?
+    
     var song: SongModel? {
         didSet {
             guard let song else { return }
@@ -36,7 +38,9 @@ class SongCell: UICollectionViewCell {
     }
     
     @IBAction func onLike(_ sender: UIButton) {
+        print("like: \(sender.isSelected)")
         song?.isLiked = sender.isSelected
+        onLike?(sender.isSelected)
     }
 }
 

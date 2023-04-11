@@ -13,6 +13,7 @@ struct Setting {
     var isSwitched: Bool = false
     var isSwitchOn: Bool = false
     var description: String?
+    var expanded: Bool?
     
     static func dummySettings(for category: String) -> [Setting] {
         
@@ -48,12 +49,14 @@ struct Setting {
             ]
         case "Language":
             return [
-                Setting(icon: UIImage(named: "language"), title: "Select Language")
+                Setting(icon: UIImage(named: "language"), title: "Select Language", expanded: true)
             ]
         default:
             return []
         }
-        
     }
-    
+}
+
+protocol expandable {
+    var expandade: Bool { get set }
 }

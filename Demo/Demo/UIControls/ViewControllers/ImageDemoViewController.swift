@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 class ImageDemoViewController: UIViewController, UINavigationControllerDelegate {
 
@@ -19,15 +20,29 @@ class ImageDemoViewController: UIViewController, UINavigationControllerDelegate 
         conetentModeTable.register(UINib(nibName: "LanguageCell", bundle: nil), forCellReuseIdentifier: "LanguageCell")
         imageView.layer.borderWidth = 1
         imageView.layer.borderColor = UIColor.black.cgColor
+        
     }
 
     @IBAction func pickImage(_ sender: UIButton) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.allowsEditing = true
-        imagePicker.delegate = self
         
-        self.present(imagePicker, animated: true)
+        if #available(iOS 14, *) {
+            var configuaration = PHPickerConfiguration()
+            configuaration.filter = .images
+            configuaration.selectionLimit = 2
+            configuaration.selection = .ordered
+            
+            let picker = PHPickerViewController(configuration: configuaration)
+            picker.delegate = self
+            present(picker, animated: true)
+        } else {
+            let imagePicker = UIImagePickerController()
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = true
+            imagePicker.mediaTypes = ["public.video"]
+            imagePicker.delegate = self
+            
+            self.present(imagePicker, animated: true)
+        }
     }
 }
 
@@ -37,13 +52,31 @@ extension ImageDemoViewController: UIImagePickerControllerDelegate {
         print("picked \(info)")
         dismiss(animated: true)
         
-        guard let image = info[.editedImage] as? UIImage else { return }
+        guard let image = (info[.editedImage] ?? info[.originalImage]) as? UIImage else { return }
         imageView.image = image
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         print("canceled \(picker.title)")
         dismiss(animated: true)
+    }
+}
+
+extension ImageDemoViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        print("PPPicker: \(results)")
+        dismiss(animated: true)
+        
+        let itemProvider = results.randomElement()?.itemProvider
+        if let itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+                if let image = image as? UIImage {
+                DispatchQueue.main.async {                    
+                        self.imageView.image = image
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -25,6 +25,14 @@ class CollectionViewController: UIViewController {
         setupRefresh()
         
         searchBar.barTintColor = .lightGray
+        searchBar.searchTextField.leftView = UIImageView(image: UIImage(systemName: "line.3.horizontal.decrease.circle.fill"))
+        searchBar.searchTextField.tintColor = .white
+        
+        searchBar.searchTextField.rightView = UIImageView(image: UIImage(systemName: "trash"))
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        gesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(gesture)
     }
     
     private func setupRefresh() {
@@ -42,6 +50,20 @@ class CollectionViewController: UIViewController {
             self.songs = Dictionary(grouping: SongModel.dummySongs(), by: { $0.genre })
             self.collectionView.reloadData()
             self.collectionView.refreshControl?.endRefreshing()
+        }
+    }
+    
+    @objc func dismissKeyboard() {
+        print("dismiss")
+        self.view.endEditing(true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "songDetail" {
+            let destinationVC = segue.destination as? WebViewController
+            if let indexPath = collectionView.indexPathsForSelectedItems?.first {
+                destinationVC?.search = songs[indexPath.section].value[indexPath.item].title
+            }
         }
     }
 }
@@ -63,8 +85,10 @@ extension CollectionViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
 //        print(indexPath)
-        
         cell.song = songs[indexPath.section].value[indexPath.item]
+        cell.onLike = { isLiked in
+            self.songs[indexPath.section].value[indexPath.item].isLiked = isLiked
+        }
         return cell
     }
     
@@ -76,7 +100,6 @@ extension CollectionViewController: UICollectionViewDataSource {
         headerView.lblTitle.text = songs[indexPath.section].key.rawValue.capitalized
         return headerView
     }
-    
 }
 
 extension CollectionViewController: UICollectionViewDelegate {
@@ -135,5 +158,13 @@ extension CollectionViewController: UISearchBarDelegate {
     
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
         songs.count != 0
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("search button")
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        print("end")
     }
 }
