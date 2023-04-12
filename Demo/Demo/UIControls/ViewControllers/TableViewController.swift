@@ -18,7 +18,7 @@ class TableViewController: UIViewController {
         "Security": Setting.dummySettings(for: "Security"),
         "Developer options": Setting.dummySettings(for: "Developer options"),
         "Language": Setting.dummySettings(for: "Language"),
-        "Device info": []
+        "Device info": Setting.dummySettings(for: "Device info")
     ]
     var languages: [LanguageModel] = LanguageModel.dummyLanguages()
     
@@ -82,11 +82,15 @@ extension TableViewController: UITableViewDataSource {
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("\(indexPath.section), \(indexPath.row)")
         
-        if indexPath.section == settings.count - 1 {
+        if settings[indexPath.section].key == "Device info" {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell", for: indexPath) as? DescriptionCell {
-                cell.lblDescription.text = "Name: iPhone\n iOS Version 16.2\n Model Name: iPhone 14 Pro\n Model Number: A2650"
+                cell.lblDescription.text = settings[indexPath.section].value[indexPath.row].description
+                cell.expand = { isExpanded in
+                    print("reload \(indexPath) \(isExpanded)")
+//                    tableView.reloadRows(at: [indexPath], with: .automatic)
+                    tableView.reloadData()
+                }
                 return cell
             }
         }
@@ -159,7 +163,7 @@ extension TableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return dynamic height
 //        return UITableView.automaticDimension
-        if indexPath.section == settings.count {
+        if settings[indexPath.section].key == "Device info" {
             return UITableView.automaticDimension
         }
         return 60

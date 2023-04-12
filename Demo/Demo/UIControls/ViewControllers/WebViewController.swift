@@ -14,6 +14,9 @@ class WebViewController: UIViewController {
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var progressLoading: UIProgressView!
+    @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet var webToolbarItems: [UIBarButtonItem]!
+    
     let blacklistedDomains: [String] = [".pk", ".au", ".gov.in", ".gov."]
     var timer: Timer?
     
@@ -39,6 +42,7 @@ class WebViewController: UIViewController {
         progressLoading.layer.cornerRadius = 10
         searchBar.keyboardType = .webSearch
         
+        toolbar.tintColor = .orange
     }
     
     private func setupSearchBar() {
@@ -69,6 +73,29 @@ class WebViewController: UIViewController {
         }
     }
     
+    private func updateToolbar() {
+        webToolbarItems[0].isEnabled = webView.canGoBack
+        webToolbarItems[1].isEnabled = webView.canGoForward
+
+        webToolbarItems[2].image = UIImage(systemName: webView.isLoading ? "xmark" : "arrow.clockwise")
+    }
+    
+    @IBAction func goBack(_ sender: UIBarButtonItem) {
+        webView.goBack()
+    }
+    
+    @IBAction func goForward(_ sender: UIBarButtonItem) {
+        webView.goForward()
+    }
+    
+    @IBAction func refresh(_ sender: UIBarButtonItem) {
+        if webView.isLoading {
+            webView.stopLoading()
+        } else {
+            webView.reload()
+        }
+    }
+    
     @objc func keyboardWillShow(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             self.searchBar.frame.origin.y = (self.view.frame.height - self.searchBar.frame.height) - keyboardSize.height
@@ -85,13 +112,14 @@ extension WebViewController: WKNavigationDelegate {
         loadingIndicator.startAnimating()
         
         progressUpdate(start: true)
-        
+        updateToolbar()
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         loadingIndicator.stopAnimating()
         setupSearchBar()
         progressUpdate(start: false)
+        updateToolbar()
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
@@ -104,8 +132,6 @@ extension WebViewController: WKNavigationDelegate {
         }
         decisionHandler(.allow)
     }
-    
-    
 }
 
 extension WebViewController: UISearchBarDelegate {

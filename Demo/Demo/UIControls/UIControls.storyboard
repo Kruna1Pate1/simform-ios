@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bUF-R3-vwf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oxR-5w-EzX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -233,7 +233,7 @@
         <!--Table View Controller-->
         <scene sceneID="Do8-9i-WbB">
             <objects>
-                <viewController title="Table View Controller" id="bUF-R3-vwf" customClass="TableViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" title="Table View Controller" id="bUF-R3-vwf" customClass="TableViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ITi-AM-zId">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -284,6 +284,7 @@
                             <constraint firstItem="fQf-yN-aX7" firstAttribute="top" secondItem="qDV-ou-ldz" secondAttribute="top" id="qQo-qy-Y5S"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings_outlined" selectedImage="settings_filled" id="PuZ-JB-WNe" userLabel="Settings"/>
                     <connections>
                         <outlet property="tableView" destination="fQf-yN-aX7" id="SKq-jZ-vET"/>
                     </connections>
@@ -375,7 +376,7 @@
                                             <outlet property="singers" destination="coC-mA-8oB" id="Yvg-nO-tID"/>
                                             <outlet property="thumbnail" destination="pgr-d6-uRk" id="DWr-Mw-4kV"/>
                                             <outlet property="title" destination="EO6-ZT-zhp" id="QG2-BT-BUB"/>
-                                            <segue destination="oxR-5w-EzX" kind="show" id="DEB-7k-wZF"/>
+                                            <segue destination="oxR-5w-EzX" kind="presentation" identifier="songDetail" modalPresentationStyle="fullScreen" id="b6b-fL-lbX"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -544,23 +545,23 @@
             <objects>
                 <viewController title="Web View Controller" id="oxR-5w-EzX" customClass="WebViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XWJ-xR-c6e">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="4CN-yy-DPh">
-                                <rect key="frame" x="178" y="373" width="37" height="37"/>
-                                <color key="color" systemColor="systemPinkColor"/>
-                            </activityIndicatorView>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yqF-8B-hMO">
-                                <rect key="frame" x="0.0" y="59" width="393" height="674"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="665"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="4CN-yy-DPh">
+                                <rect key="frame" x="178" y="407.66666666666669" width="37" height="37"/>
+                                <color key="color" systemColor="systemPinkColor"/>
+                            </activityIndicatorView>
                             <searchBar contentMode="redraw" placeholder="Search on web" translatesAutoresizingMaskIntoConstraints="NO" id="kzZ-gf-NRz">
-                                <rect key="frame" x="0.0" y="733" width="393" height="50"/>
+                                <rect key="frame" x="0.0" y="768" width="393" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="QNl-gj-j8h"/>
                                 </constraints>
@@ -574,19 +575,42 @@
                                 </connections>
                             </searchBar>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OsJ-nP-9ba">
-                                <rect key="frame" x="19.666666666666657" y="738" width="353.66666666666674" height="40"/>
+                                <rect key="frame" x="0.0" y="773" width="393" height="40"/>
                                 <color key="progressTintColor" systemColor="systemMintColor"/>
                                 <color key="trackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </progressView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVA-o5-okh">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <items>
+                                    <barButtonItem image="chevron.backward" catalog="system" style="plain" id="St1-3b-J2h" userLabel="back">
+                                        <connections>
+                                            <action selector="goBack:" destination="oxR-5w-EzX" id="mUE-mh-EIq"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="chevron.forward" catalog="system" style="plain" id="Rh0-8Z-RNs" userLabel="forward">
+                                        <connections>
+                                            <action selector="goForward:" destination="oxR-5w-EzX" id="DHd-pC-l6K"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Tmw-L3-vlZ"/>
+                                    <barButtonItem image="xmark" catalog="system" style="plain" id="rE1-IC-Bgo" userLabel="reload">
+                                        <connections>
+                                            <action selector="refresh:" destination="oxR-5w-EzX" id="dc5-Za-Kli"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1Gx-Am-R6F"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="yqF-8B-hMO" firstAttribute="top" secondItem="1Gx-Am-R6F" secondAttribute="top" id="0yj-5B-7y8"/>
+                            <constraint firstItem="RVA-o5-okh" firstAttribute="trailing" secondItem="1Gx-Am-R6F" secondAttribute="trailing" id="AZb-zJ-Z2k"/>
+                            <constraint firstItem="RVA-o5-okh" firstAttribute="top" secondItem="1Gx-Am-R6F" secondAttribute="top" id="Hg5-LD-Nj7"/>
+                            <constraint firstItem="RVA-o5-okh" firstAttribute="leading" secondItem="1Gx-Am-R6F" secondAttribute="leading" id="Iy9-BB-Bdg"/>
                             <constraint firstItem="kzZ-gf-NRz" firstAttribute="top" secondItem="yqF-8B-hMO" secondAttribute="bottom" id="RSE-Gw-t5p"/>
                             <constraint firstItem="OsJ-nP-9ba" firstAttribute="centerX" secondItem="kzZ-gf-NRz" secondAttribute="centerX" id="S2X-wE-4l3"/>
                             <constraint firstItem="kzZ-gf-NRz" firstAttribute="bottom" secondItem="1Gx-Am-R6F" secondAttribute="bottom" id="YRX-E8-R3b"/>
-                            <constraint firstItem="OsJ-nP-9ba" firstAttribute="width" secondItem="kzZ-gf-NRz" secondAttribute="width" multiplier="0.9" id="bWb-aL-iW0"/>
+                            <constraint firstItem="OsJ-nP-9ba" firstAttribute="width" secondItem="kzZ-gf-NRz" secondAttribute="width" id="bWb-aL-iW0"/>
                             <constraint firstItem="OsJ-nP-9ba" firstAttribute="centerY" secondItem="kzZ-gf-NRz" secondAttribute="centerY" id="eZ0-jd-HZk"/>
                             <constraint firstItem="yqF-8B-hMO" firstAttribute="trailing" secondItem="1Gx-Am-R6F" secondAttribute="trailing" id="ele-e1-GCf"/>
                             <constraint firstItem="4CN-yy-DPh" firstAttribute="centerY" secondItem="XWJ-xR-c6e" secondAttribute="centerY" id="hlC-hZ-JUF"/>
@@ -595,14 +619,18 @@
                             <constraint firstItem="4CN-yy-DPh" firstAttribute="centerX" secondItem="XWJ-xR-c6e" secondAttribute="centerX" id="qD6-z3-RMQ"/>
                             <constraint firstItem="kzZ-gf-NRz" firstAttribute="leading" secondItem="1Gx-Am-R6F" secondAttribute="leading" id="uEw-Mc-NnP"/>
                             <constraint firstItem="OsJ-nP-9ba" firstAttribute="height" secondItem="kzZ-gf-NRz" secondAttribute="height" multiplier="0.8" id="vSc-db-L5R"/>
+                            <constraint firstItem="yqF-8B-hMO" firstAttribute="top" secondItem="RVA-o5-okh" secondAttribute="bottom" id="ws3-Jp-kOy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="1yb-8F-CGt"/>
                     <connections>
                         <outlet property="loadingIndicator" destination="4CN-yy-DPh" id="VhW-ae-l7r"/>
                         <outlet property="progressLoading" destination="OsJ-nP-9ba" id="RhF-Hq-SXV"/>
                         <outlet property="searchBar" destination="kzZ-gf-NRz" id="YIT-fP-Z1L"/>
+                        <outlet property="toolbar" destination="RVA-o5-okh" id="TcS-VN-YNY"/>
                         <outlet property="webView" destination="yqF-8B-hMO" id="KDT-fs-dfV"/>
+                        <outletCollection property="webToolbarItems" destination="St1-3b-J2h" collectionClass="NSMutableArray" id="RZp-yW-Enm"/>
+                        <outletCollection property="webToolbarItems" destination="Rh0-8Z-RNs" collectionClass="NSMutableArray" id="EtL-iK-EOk"/>
+                        <outletCollection property="webToolbarItems" destination="rE1-IC-Bgo" collectionClass="NSMutableArray" id="qYu-Dg-nue"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qbb-x6-eWs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -622,8 +650,13 @@
         </designable>
     </designables>
     <resources>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <image name="chevron.forward" catalog="system" width="97" height="128"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
+        <image name="settings_filled" width="32" height="32"/>
+        <image name="settings_outlined" width="32" height="32"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

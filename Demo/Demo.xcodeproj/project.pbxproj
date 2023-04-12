@@ -15,6 +15,9 @@
 		E814A31D29DE81E800C772C3 /* UIImage+extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = E814A31C29DE81E700C772C3 /* UIImage+extention.swift */; };
 		E82C8E2629E591D800424E0C /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82C8E2429E591D800424E0C /* DescriptionCell.swift */; };
 		E82C8E2729E591D800424E0C /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E82C8E2529E591D800424E0C /* DescriptionCell.xib */; };
+		E82C8E2929E67A5300424E0C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82C8E2829E67A5300424E0C /* TabBarViewController.swift */; };
+		E82C8E2B29E691DF00424E0C /* UIControls2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82C8E2A29E691DF00424E0C /* UIControls2.storyboard */; };
+		E82C8E2D29E6922400424E0C /* ToolBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82C8E2C29E6922400424E0C /* ToolBarViewController.swift */; };
 		E847605529DD8E6600031325 /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E847605429DD8E6600031325 /* SongCell.swift */; };
 		E84D2DCB29E3DC4200C4F59C /* Dictionary+byIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D2DCA29E3DC4200C4F59C /* Dictionary+byIndex.swift */; };
 		E84D2DCD29E41AA000C4F59C /* ImageDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D2DCC29E41AA000C4F59C /* ImageDemoViewController.swift */; };
@@ -57,6 +60,9 @@
 		E814A31C29DE81E700C772C3 /* UIImage+extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extention.swift"; sourceTree = "<group>"; };
 		E82C8E2429E591D800424E0C /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		E82C8E2529E591D800424E0C /* DescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
+		E82C8E2829E67A5300424E0C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		E82C8E2A29E691DF00424E0C /* UIControls2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UIControls2.storyboard; sourceTree = "<group>"; };
+		E82C8E2C29E6922400424E0C /* ToolBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarViewController.swift; sourceTree = "<group>"; };
 		E847605429DD8E6600031325 /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		E84D2DCA29E3DC4200C4F59C /* Dictionary+byIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+byIndex.swift"; sourceTree = "<group>"; };
 		E84D2DCC29E41AA000C4F59C /* ImageDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDemoViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +130,8 @@
 				E84D2DCC29E41AA000C4F59C /* ImageDemoViewController.swift */,
 				E8C4C6EB29E5376900B4FD58 /* ActivityIndicatorViewController.swift */,
 				E8C4C6ED29E53D4B00B4FD58 /* WebViewController.swift */,
+				E82C8E2829E67A5300424E0C /* TabBarViewController.swift */,
+				E82C8E2C29E6922400424E0C /* ToolBarViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -146,6 +154,7 @@
 				E880850929DFE4FC008254DC /* ViewControllers */,
 				E8A7C95929DAEA5B00C91F5B /* BackgroundColorDelegate.swift */,
 				E80DBD1629DD54C60020BB55 /* UIControls.storyboard */,
+				E82C8E2A29E691DF00424E0C /* UIControls2.storyboard */,
 				E8022EA029DE8FA300A7BC9B /* MySegmentedControl.swift */,
 				E880850A29DFE635008254DC /* Models */,
 			);
@@ -286,6 +295,7 @@
 				E8BDBE1129DEC51B0094CF21 /* TableViewCell.xib in Resources */,
 				E8BDBE1529DEE65E0094CF21 /* SwitchSettingCell.xib in Resources */,
 				E84D2DD129E432A700C4F59C /* ContentModeCell.xib in Resources */,
+				E82C8E2B29E691DF00424E0C /* UIControls2.storyboard in Resources */,
 				E8DA41C8299B5C540054C3D1 /* LaunchScreen.storyboard in Resources */,
 				E8DA41C5299B5C540054C3D1 /* Assets.xcassets in Resources */,
 				E82C8E2729E591D800424E0C /* DescriptionCell.xib in Resources */,
@@ -319,6 +329,7 @@
 				E847605529DD8E6600031325 /* SongCell.swift in Sources */,
 				E8022EA129DE8FA300A7BC9B /* MySegmentedControl.swift in Sources */,
 				E880850F29DFE9B8008254DC /* LanguageCell.swift in Sources */,
+				E82C8E2D29E6922400424E0C /* ToolBarViewController.swift in Sources */,
 				E80DBD1B29DD6F240020BB55 /* SegmentedControlViewController.swift in Sources */,
 				E84D2DCB29E3DC4200C4F59C /* Dictionary+byIndex.swift in Sources */,
 				E8BDBE0C29DEBCA70094CF21 /* TableViewController.swift in Sources */,
@@ -330,6 +341,7 @@
 				E8DA41BE299B5C520054C3D1 /* SceneDelegate.swift in Sources */,
 				E84D2DCD29E41AA000C4F59C /* ImageDemoViewController.swift in Sources */,
 				E8A01AF929D154B100879A53 /* AutoLayoutViewController.swift in Sources */,
+				E82C8E2929E67A5300424E0C /* TabBarViewController.swift in Sources */,
 				E880850C29DFE647008254DC /* LanguageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,7 +494,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = UIControls;
+				INFOPLIST_KEY_UIMainStoryboardFile = UIControls2;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -510,7 +522,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = UIControls;
+				INFOPLIST_KEY_UIMainStoryboardFile = UIControls2;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

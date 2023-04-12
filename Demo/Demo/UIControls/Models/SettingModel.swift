@@ -51,6 +51,10 @@ struct Setting {
             return [
                 Setting(icon: UIImage(named: "language"), title: "Select Language", expanded: true)
             ]
+        case "Device info":
+            return [
+                Setting(icon: nil, title: "Device info", description: "Name: iPhone\n iOS Version 16.2\n Model Name: iPhone 14 Pro\n Model Number: A2650", expanded: false)
+                ]
         default:
             return []
         }
