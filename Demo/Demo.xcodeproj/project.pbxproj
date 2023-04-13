@@ -13,6 +13,13 @@
 		E80DBD1B29DD6F240020BB55 /* SegmentedControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DBD1A29DD6F240020BB55 /* SegmentedControlViewController.swift */; };
 		E80DBD1D29DD8BE10020BB55 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DBD1C29DD8BE10020BB55 /* CollectionViewController.swift */; };
 		E814A31D29DE81E800C772C3 /* UIImage+extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = E814A31C29DE81E700C772C3 /* UIImage+extention.swift */; };
+		E822007F29E7C959008CB9A0 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822007E29E7C959008CB9A0 /* StackViewController.swift */; };
+		E822008129E7CBAC008CB9A0 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822008029E7CBAC008CB9A0 /* StoryCell.swift */; };
+		E822008329E7CBC2008CB9A0 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822008229E7CBC2008CB9A0 /* FeedCell.swift */; };
+		E822008529E805FB008CB9A0 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822008429E805FA008CB9A0 /* PickerViewController.swift */; };
+		E822008729E81076008CB9A0 /* indian_cities.json in Resources */ = {isa = PBXBuildFile; fileRef = E822008629E81076008CB9A0 /* indian_cities.json */; };
+		E822008929E812C2008CB9A0 /* StateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822008829E812C2008CB9A0 /* StateModel.swift */; };
+		E822008B29E8235A008CB9A0 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822008A29E8235A008CB9A0 /* DatePickerViewController.swift */; };
 		E82C8E2629E591D800424E0C /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82C8E2429E591D800424E0C /* DescriptionCell.swift */; };
 		E82C8E2729E591D800424E0C /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E82C8E2529E591D800424E0C /* DescriptionCell.xib */; };
 		E82C8E2929E67A5300424E0C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82C8E2829E67A5300424E0C /* TabBarViewController.swift */; };
@@ -58,6 +65,13 @@
 		E80DBD1A29DD6F240020BB55 /* SegmentedControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlViewController.swift; sourceTree = "<group>"; };
 		E80DBD1C29DD8BE10020BB55 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		E814A31C29DE81E700C772C3 /* UIImage+extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extention.swift"; sourceTree = "<group>"; };
+		E822007E29E7C959008CB9A0 /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
+		E822008029E7CBAC008CB9A0 /* StoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
+		E822008229E7CBC2008CB9A0 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		E822008429E805FA008CB9A0 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		E822008629E81076008CB9A0 /* indian_cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = indian_cities.json; path = ../../../../../../Downloads/indian_cities.json; sourceTree = "<group>"; };
+		E822008829E812C2008CB9A0 /* StateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateModel.swift; sourceTree = "<group>"; };
+		E822008A29E8235A008CB9A0 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		E82C8E2429E591D800424E0C /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		E82C8E2529E591D800424E0C /* DescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
 		E82C8E2829E67A5300424E0C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +127,7 @@
 		E814A31B29DE81C200C772C3 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				E822008629E81076008CB9A0 /* indian_cities.json */,
 				E814A31C29DE81E700C772C3 /* UIImage+extention.swift */,
 				E84D2DCA29E3DC4200C4F59C /* Dictionary+byIndex.swift */,
 			);
@@ -126,12 +141,15 @@
 				E8C9A0B529E0420500F2376C /* SongModel.swift */,
 				E80DBD1829DD55360020BB55 /* StepperViewController.swift */,
 				E80DBD1A29DD6F240020BB55 /* SegmentedControlViewController.swift */,
+				E822007E29E7C959008CB9A0 /* StackViewController.swift */,
 				E8BDBE0B29DEBCA70094CF21 /* TableViewController.swift */,
 				E84D2DCC29E41AA000C4F59C /* ImageDemoViewController.swift */,
 				E8C4C6EB29E5376900B4FD58 /* ActivityIndicatorViewController.swift */,
 				E8C4C6ED29E53D4B00B4FD58 /* WebViewController.swift */,
 				E82C8E2829E67A5300424E0C /* TabBarViewController.swift */,
 				E82C8E2C29E6922400424E0C /* ToolBarViewController.swift */,
+				E822008429E805FA008CB9A0 /* PickerViewController.swift */,
+				E822008A29E8235A008CB9A0 /* DatePickerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -141,6 +159,7 @@
 			children = (
 				E8BDBE1629DEE6F50094CF21 /* SettingModel.swift */,
 				E880850B29DFE647008254DC /* LanguageModel.swift */,
+				E822008829E812C2008CB9A0 /* StateModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -184,6 +203,8 @@
 				E84D2DCF29E432A700C4F59C /* ContentModeCell.xib */,
 				E82C8E2429E591D800424E0C /* DescriptionCell.swift */,
 				E82C8E2529E591D800424E0C /* DescriptionCell.xib */,
+				E822008029E7CBAC008CB9A0 /* StoryCell.swift */,
+				E822008229E7CBC2008CB9A0 /* FeedCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -300,6 +321,7 @@
 				E8DA41C5299B5C540054C3D1 /* Assets.xcassets in Resources */,
 				E82C8E2729E591D800424E0C /* DescriptionCell.xib in Resources */,
 				E880851029DFE9B8008254DC /* LanguageCell.xib in Resources */,
+				E822008729E81076008CB9A0 /* indian_cities.json in Resources */,
 				E8DA41C3299B5C520054C3D1 /* Main.storyboard in Resources */,
 				E8A01AF729D1545700879A53 /* AutoLayout.storyboard in Resources */,
 			);
@@ -317,12 +339,15 @@
 				E8C9A0B429E030AF00F2376C /* GenreHeaderView.swift in Sources */,
 				E80DBD1929DD55360020BB55 /* StepperViewController.swift in Sources */,
 				E8DA41C0299B5C520054C3D1 /* ViewController.swift in Sources */,
+				E822008529E805FB008CB9A0 /* PickerViewController.swift in Sources */,
 				E84D2DD029E432A700C4F59C /* ContentModeCell.swift in Sources */,
 				E8DA41BC299B5C520054C3D1 /* AppDelegate.swift in Sources */,
 				E8FD9A7229B1B5A400E2F879 /* AccessDemo2.swift in Sources */,
 				E8FD9A7029B0CDBD00E2F879 /* AccessDemo.swift in Sources */,
+				E822007F29E7C959008CB9A0 /* StackViewController.swift in Sources */,
 				E8A7C95729DAE8C000C91F5B /* ContainerView.swift in Sources */,
 				E8980CCE29DACC2300EF6999 /* MyButton.swift in Sources */,
+				E822008929E812C2008CB9A0 /* StateModel.swift in Sources */,
 				E8C4C6EE29E53D4B00B4FD58 /* WebViewController.swift in Sources */,
 				E8BDBE1729DEE6F50094CF21 /* SettingModel.swift in Sources */,
 				E8BDBE1429DEE65E0094CF21 /* SwitchSettingCell.swift in Sources */,
@@ -330,7 +355,10 @@
 				E8022EA129DE8FA300A7BC9B /* MySegmentedControl.swift in Sources */,
 				E880850F29DFE9B8008254DC /* LanguageCell.swift in Sources */,
 				E82C8E2D29E6922400424E0C /* ToolBarViewController.swift in Sources */,
+				E822008329E7CBC2008CB9A0 /* FeedCell.swift in Sources */,
 				E80DBD1B29DD6F240020BB55 /* SegmentedControlViewController.swift in Sources */,
+				E822008B29E8235A008CB9A0 /* DatePickerViewController.swift in Sources */,
+				E822008129E7CBAC008CB9A0 /* StoryCell.swift in Sources */,
 				E84D2DCB29E3DC4200C4F59C /* Dictionary+byIndex.swift in Sources */,
 				E8BDBE0C29DEBCA70094CF21 /* TableViewController.swift in Sources */,
 				E8C9A0B629E0420500F2376C /* SongModel.swift in Sources */,
