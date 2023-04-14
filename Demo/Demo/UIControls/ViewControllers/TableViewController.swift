@@ -166,7 +166,7 @@ extension TableViewController: UITableViewDataSource {
         if settings[indexPath.section].key == "Device info" {
             return UITableView.automaticDimension
         }
-        return 60
+        return 92
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

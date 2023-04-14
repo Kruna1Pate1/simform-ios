@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vW7-36-25X">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Cs-5f-urV">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -20,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9v-1x-MUS">
-                                <rect key="frame" x="0.0" y="769" width="393" height="49"/>
+                                <rect key="frame" x="0.0" y="774" width="393" height="44"/>
                                 <items>
                                     <barButtonItem title="Item" id="wds-9l-aqT"/>
                                 </items>
@@ -268,7 +269,9 @@
                             <constraint firstItem="L6Z-am-r7E" firstAttribute="leading" secondItem="OzZ-kJ-WaD" secondAttribute="leading" id="zYV-pF-mGr"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="home_outlined" selectedImage="home_filled" id="EiC-SJ-qrD"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home_outlined" id="EiC-SJ-qrD">
+                        <inset key="imageInsets" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="feedCollectionView" destination="OeV-aP-i2D" id="tig-84-ohE"/>
                         <outlet property="storiesCollectionView" destination="tpk-D5-Wrf" id="j7r-YR-HeK"/>
@@ -287,7 +290,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eaz-tW-WUd">
-                                <rect key="frame" x="10" y="331" width="373" height="216"/>
+                                <rect key="frame" x="10" y="330.66666666666669" width="373" height="216.00000000000006"/>
                                 <connections>
                                     <outlet property="dataSource" destination="FMN-fi-d5N" id="7vo-It-iuf"/>
                                     <outlet property="delegate" destination="FMN-fi-d5N" id="SUg-tV-JdF"/>
@@ -361,6 +364,74 @@
             </objects>
             <point key="canvasLocation" x="4362" y="79"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="Kij-IW-ORa">
+            <objects>
+                <viewController title="Map View Controller" id="2Cs-5f-urV" customClass="MapViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pSg-Cm-HUt">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HlR-um-ntq">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2Cs-5f-urV" id="fbN-lR-uSG"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OXq-8Y-s6D"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HlR-um-ntq" firstAttribute="top" secondItem="OXq-8Y-s6D" secondAttribute="top" id="9jM-IF-p4w"/>
+                            <constraint firstItem="OXq-8Y-s6D" firstAttribute="bottom" secondItem="HlR-um-ntq" secondAttribute="bottom" id="L61-qa-NbF"/>
+                            <constraint firstItem="HlR-um-ntq" firstAttribute="leading" secondItem="OXq-8Y-s6D" secondAttribute="leading" id="XCJ-gv-e9M"/>
+                            <constraint firstItem="OXq-8Y-s6D" firstAttribute="trailing" secondItem="HlR-um-ntq" secondAttribute="trailing" id="Zfd-Hr-tRj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="HlR-um-ntq" id="W8a-MZ-lQ3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oV1-ZB-RmV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="NZT-2T-Gm0" userLabel="ContactDetailView" customClass="ContactDetailView" customModule="Demo" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uND-ur-2Y3">
+                            <rect key="frame" x="73.333333333333314" y="33.666666666666657" width="93.666666666666686" height="61"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYx-qg-8L4">
+                                    <rect key="frame" x="0.0" y="0.0" width="93.666666666666671" height="20.333333333333332"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eR1-g8-ZPV">
+                                    <rect key="frame" x="0.0" y="20.333333333333336" width="93.666666666666671" height="20.333333333333336"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGR-5R-j0v">
+                                    <rect key="frame" x="0.0" y="40.666666666666664" width="93.666666666666671" height="20.333333333333336"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="a1C-21-ed8"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="uND-ur-2Y3" firstAttribute="centerX" secondItem="NZT-2T-Gm0" secondAttribute="centerX" id="QgK-dh-0VD"/>
+                        <constraint firstItem="uND-ur-2Y3" firstAttribute="centerY" secondItem="NZT-2T-Gm0" secondAttribute="centerY" id="lmB-59-EYc"/>
+                    </constraints>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="5185" y="79"/>
+        </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="dBx-Di-Iu9">
             <objects>
@@ -369,7 +440,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="fill" id="Ffa-9c-b7M">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="DarkBackground"/>
+                        <color key="barTintColor" name="DarkBackground"/>
                     </tabBar>
                     <connections>
                         <segue destination="0eZ-xe-XsF" kind="relationship" relationship="viewControllers" id="QID-15-eXg"/>
@@ -388,7 +460,6 @@
         <image name="arrowshape.turn.up.backward" catalog="system" width="128" height="104"/>
         <image name="bookmark" catalog="system" width="110" height="128"/>
         <image name="heart" catalog="system" width="128" height="107"/>
-        <image name="home_filled" width="32" height="32"/>
         <image name="home_outlined" width="32" height="32"/>
         <image name="launch_img" width="1482" height="1600"/>
         <image name="message" catalog="system" width="128" height="116"/>

@@ -27,14 +27,9 @@ class TabBarViewController: UITabBarController {
 
         // set color as selected background color
         let numberOfItems = CGFloat(tabBar.items?.count ?? 1)
-        let tabBarItemSize = CGSize(width: tabBar.frame.width / numberOfItems, height: tabBar.frame.height)
-        tabBar.selectionIndicatorImage = UIImage.imageWithColor(color: .cyan.withAlphaComponent(0.4), size: tabBarItemSize)
-
-        // remove default border
-        tabBar.frame.size.width = self.view.frame.width + 4
+        let tabBarItemSize = CGSize(width: tabBar.frame.width / numberOfItems - 20, height: 90)
+        tabBar.selectionIndicatorImage = UIImage(named: "cyan_bg")?.resizedImage(to: tabBarItemSize)
         
-        
-        tabBar.frame.origin.x = -2
     }
 }
 
@@ -44,20 +39,4 @@ extension TabBarViewController: UITabBarControllerDelegate {
         print("selecting: \(tabBarController.selectedIndex)")
         return true
     }
-}
-
-
-
-extension UIImage {
-
-    class func imageWithColor(color: UIColor, size: CGSize) -> UIImage {
-        let rect: CGRect = CGRectMake(0, 0, size.width, size.height)
-        UIGraphicsBeginImageContextWithOptions(size, false, 0)
-        color.setFill()
-        UIRectFill(rect)
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return image
-    }
-
 }

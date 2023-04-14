@@ -20,6 +20,7 @@
 		E822008729E81076008CB9A0 /* indian_cities.json in Resources */ = {isa = PBXBuildFile; fileRef = E822008629E81076008CB9A0 /* indian_cities.json */; };
 		E822008929E812C2008CB9A0 /* StateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822008829E812C2008CB9A0 /* StateModel.swift */; };
 		E822008B29E8235A008CB9A0 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822008A29E8235A008CB9A0 /* DatePickerViewController.swift */; };
+		E822008D29E90C32008CB9A0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822008C29E90C32008CB9A0 /* MapViewController.swift */; };
 		E82C8E2629E591D800424E0C /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82C8E2429E591D800424E0C /* DescriptionCell.swift */; };
 		E82C8E2729E591D800424E0C /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E82C8E2529E591D800424E0C /* DescriptionCell.xib */; };
 		E82C8E2929E67A5300424E0C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82C8E2829E67A5300424E0C /* TabBarViewController.swift */; };
@@ -44,6 +45,8 @@
 		E8BDBE1429DEE65E0094CF21 /* SwitchSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BDBE1229DEE65E0094CF21 /* SwitchSettingCell.swift */; };
 		E8BDBE1529DEE65E0094CF21 /* SwitchSettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8BDBE1329DEE65E0094CF21 /* SwitchSettingCell.xib */; };
 		E8BDBE1729DEE6F50094CF21 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BDBE1629DEE6F50094CF21 /* SettingModel.swift */; };
+		E8C210D329E967F100AC944E /* ContactDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C210D229E967F100AC944E /* ContactDetailView.swift */; };
+		E8C210D529E9811D00AC944E /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8C210D429E9811D00AC944E /* CustomView.xib */; };
 		E8C4C6EC29E5376900B4FD58 /* ActivityIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C4C6EB29E5376900B4FD58 /* ActivityIndicatorViewController.swift */; };
 		E8C4C6EE29E53D4B00B4FD58 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C4C6ED29E53D4B00B4FD58 /* WebViewController.swift */; };
 		E8C9A0B429E030AF00F2376C /* GenreHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C9A0B329E030AF00F2376C /* GenreHeaderView.swift */; };
@@ -72,6 +75,7 @@
 		E822008629E81076008CB9A0 /* indian_cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = indian_cities.json; path = ../../../../../../Downloads/indian_cities.json; sourceTree = "<group>"; };
 		E822008829E812C2008CB9A0 /* StateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateModel.swift; sourceTree = "<group>"; };
 		E822008A29E8235A008CB9A0 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		E822008C29E90C32008CB9A0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E82C8E2429E591D800424E0C /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		E82C8E2529E591D800424E0C /* DescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
 		E82C8E2829E67A5300424E0C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 		E8BDBE1229DEE65E0094CF21 /* SwitchSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchSettingCell.swift; sourceTree = "<group>"; };
 		E8BDBE1329DEE65E0094CF21 /* SwitchSettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchSettingCell.xib; sourceTree = "<group>"; };
 		E8BDBE1629DEE6F50094CF21 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
+		E8C210D229E967F100AC944E /* ContactDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailView.swift; sourceTree = "<group>"; };
+		E8C210D429E9811D00AC944E /* CustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
 		E8C4C6EB29E5376900B4FD58 /* ActivityIndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewController.swift; sourceTree = "<group>"; };
 		E8C4C6ED29E53D4B00B4FD58 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		E8C9A0B329E030AF00F2376C /* GenreHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreHeaderView.swift; sourceTree = "<group>"; };
@@ -150,6 +156,7 @@
 				E82C8E2C29E6922400424E0C /* ToolBarViewController.swift */,
 				E822008429E805FA008CB9A0 /* PickerViewController.swift */,
 				E822008A29E8235A008CB9A0 /* DatePickerViewController.swift */,
+				E822008C29E90C32008CB9A0 /* MapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -174,8 +181,10 @@
 				E8A7C95929DAEA5B00C91F5B /* BackgroundColorDelegate.swift */,
 				E80DBD1629DD54C60020BB55 /* UIControls.storyboard */,
 				E82C8E2A29E691DF00424E0C /* UIControls2.storyboard */,
+				E8C210D429E9811D00AC944E /* CustomView.xib */,
 				E8022EA029DE8FA300A7BC9B /* MySegmentedControl.swift */,
 				E880850A29DFE635008254DC /* Models */,
+				E8C210D229E967F100AC944E /* ContactDetailView.swift */,
 			);
 			path = UIControls;
 			sourceTree = "<group>";
@@ -316,6 +325,7 @@
 				E8BDBE1129DEC51B0094CF21 /* TableViewCell.xib in Resources */,
 				E8BDBE1529DEE65E0094CF21 /* SwitchSettingCell.xib in Resources */,
 				E84D2DD129E432A700C4F59C /* ContentModeCell.xib in Resources */,
+				E8C210D529E9811D00AC944E /* CustomView.xib in Resources */,
 				E82C8E2B29E691DF00424E0C /* UIControls2.storyboard in Resources */,
 				E8DA41C8299B5C540054C3D1 /* LaunchScreen.storyboard in Resources */,
 				E8DA41C5299B5C540054C3D1 /* Assets.xcassets in Resources */,
@@ -341,6 +351,7 @@
 				E8DA41C0299B5C520054C3D1 /* ViewController.swift in Sources */,
 				E822008529E805FB008CB9A0 /* PickerViewController.swift in Sources */,
 				E84D2DD029E432A700C4F59C /* ContentModeCell.swift in Sources */,
+				E822008D29E90C32008CB9A0 /* MapViewController.swift in Sources */,
 				E8DA41BC299B5C520054C3D1 /* AppDelegate.swift in Sources */,
 				E8FD9A7229B1B5A400E2F879 /* AccessDemo2.swift in Sources */,
 				E8FD9A7029B0CDBD00E2F879 /* AccessDemo.swift in Sources */,
@@ -351,6 +362,7 @@
 				E8C4C6EE29E53D4B00B4FD58 /* WebViewController.swift in Sources */,
 				E8BDBE1729DEE6F50094CF21 /* SettingModel.swift in Sources */,
 				E8BDBE1429DEE65E0094CF21 /* SwitchSettingCell.swift in Sources */,
+				E8C210D329E967F100AC944E /* ContactDetailView.swift in Sources */,
 				E847605529DD8E6600031325 /* SongCell.swift in Sources */,
 				E8022EA129DE8FA300A7BC9B /* MySegmentedControl.swift in Sources */,
 				E880850F29DFE9B8008254DC /* LanguageCell.swift in Sources */,
@@ -520,6 +532,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Demo/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To show your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = UIControls2;
@@ -548,6 +561,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Demo/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To show your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = UIControls2;
