@@ -26,6 +26,9 @@
 		E82C8E2929E67A5300424E0C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82C8E2829E67A5300424E0C /* TabBarViewController.swift */; };
 		E82C8E2B29E691DF00424E0C /* UIControls2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82C8E2A29E691DF00424E0C /* UIControls2.storyboard */; };
 		E82C8E2D29E6922400424E0C /* ToolBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82C8E2C29E6922400424E0C /* ToolBarViewController.swift */; };
+		E82E479029ED37800066BDAA /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E478F29ED37800066BDAA /* ImageCell.swift */; };
+		E830152E29ED25BD00A75CE9 /* OfferCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E830152C29ED25BD00A75CE9 /* OfferCell.swift */; };
+		E830152F29ED25BD00A75CE9 /* OfferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E830152D29ED25BD00A75CE9 /* OfferCell.xib */; };
 		E847605529DD8E6600031325 /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E847605429DD8E6600031325 /* SongCell.swift */; };
 		E84D2DCB29E3DC4200C4F59C /* Dictionary+byIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D2DCA29E3DC4200C4F59C /* Dictionary+byIndex.swift */; };
 		E84D2DCD29E41AA000C4F59C /* ImageDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D2DCC29E41AA000C4F59C /* ImageDemoViewController.swift */; };
@@ -47,10 +50,14 @@
 		E8BDBE1729DEE6F50094CF21 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BDBE1629DEE6F50094CF21 /* SettingModel.swift */; };
 		E8C210D329E967F100AC944E /* ContactDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C210D229E967F100AC944E /* ContactDetailView.swift */; };
 		E8C210D529E9811D00AC944E /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8C210D429E9811D00AC944E /* CustomView.xib */; };
+		E8C210D829ED021000AC944E /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8C210D729ED021000AC944E /* Product.storyboard */; };
+		E8C210DC29ED03C600AC944E /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C210DB29ED03C600AC944E /* ProductViewController.swift */; };
 		E8C4C6EC29E5376900B4FD58 /* ActivityIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C4C6EB29E5376900B4FD58 /* ActivityIndicatorViewController.swift */; };
 		E8C4C6EE29E53D4B00B4FD58 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C4C6ED29E53D4B00B4FD58 /* WebViewController.swift */; };
 		E8C9A0B429E030AF00F2376C /* GenreHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C9A0B329E030AF00F2376C /* GenreHeaderView.swift */; };
 		E8C9A0B629E0420500F2376C /* SongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C9A0B529E0420500F2376C /* SongModel.swift */; };
+		E8CACEE429ED5204000427D9 /* SizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CACEE329ED5204000427D9 /* SizeCell.swift */; };
+		E8CACEE629ED58FE000427D9 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CACEE529ED58FE000427D9 /* ProductModel.swift */; };
 		E8DA41BC299B5C520054C3D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DA41BB299B5C520054C3D1 /* AppDelegate.swift */; };
 		E8DA41BE299B5C520054C3D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DA41BD299B5C520054C3D1 /* SceneDelegate.swift */; };
 		E8DA41C0299B5C520054C3D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DA41BF299B5C520054C3D1 /* ViewController.swift */; };
@@ -81,6 +88,9 @@
 		E82C8E2829E67A5300424E0C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		E82C8E2A29E691DF00424E0C /* UIControls2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UIControls2.storyboard; sourceTree = "<group>"; };
 		E82C8E2C29E6922400424E0C /* ToolBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarViewController.swift; sourceTree = "<group>"; };
+		E82E478F29ED37800066BDAA /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		E830152C29ED25BD00A75CE9 /* OfferCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferCell.swift; sourceTree = "<group>"; };
+		E830152D29ED25BD00A75CE9 /* OfferCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferCell.xib; sourceTree = "<group>"; };
 		E847605429DD8E6600031325 /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		E84D2DCA29E3DC4200C4F59C /* Dictionary+byIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+byIndex.swift"; sourceTree = "<group>"; };
 		E84D2DCC29E41AA000C4F59C /* ImageDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDemoViewController.swift; sourceTree = "<group>"; };
@@ -103,10 +113,14 @@
 		E8BDBE1629DEE6F50094CF21 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		E8C210D229E967F100AC944E /* ContactDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailView.swift; sourceTree = "<group>"; };
 		E8C210D429E9811D00AC944E /* CustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
+		E8C210D729ED021000AC944E /* Product.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
+		E8C210DB29ED03C600AC944E /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		E8C4C6EB29E5376900B4FD58 /* ActivityIndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewController.swift; sourceTree = "<group>"; };
 		E8C4C6ED29E53D4B00B4FD58 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		E8C9A0B329E030AF00F2376C /* GenreHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreHeaderView.swift; sourceTree = "<group>"; };
 		E8C9A0B529E0420500F2376C /* SongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SongModel.swift; path = Demo/UIControls/Models/SongModel.swift; sourceTree = SOURCE_ROOT; };
+		E8CACEE329ED5204000427D9 /* SizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeCell.swift; sourceTree = "<group>"; };
+		E8CACEE529ED58FE000427D9 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		E8DA41B8299B5C520054C3D1 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8DA41BB299B5C520054C3D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8DA41BD299B5C520054C3D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +152,17 @@
 				E84D2DCA29E3DC4200C4F59C /* Dictionary+byIndex.swift */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		E830152B29ED259F00A75CE9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E830152C29ED25BD00A75CE9 /* OfferCell.swift */,
+				E830152D29ED25BD00A75CE9 /* OfferCell.xib */,
+				E82E478F29ED37800066BDAA /* ImageCell.swift */,
+				E8CACEE329ED5204000427D9 /* SizeCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		E880850929DFE4FC008254DC /* ViewControllers */ = {
@@ -174,6 +199,7 @@
 		E8A7C95829DAE99400C91F5B /* UIControls */ = {
 			isa = PBXGroup;
 			children = (
+				E8C210D629ED01A800AC944E /* FlipkartScreen */,
 				E8BDBE0D29DEC4D10094CF21 /* Cells */,
 				E8A7C95629DAE8C000C91F5B /* ContainerView.swift */,
 				E8980CCD29DACC2300EF6999 /* MyButton.swift */,
@@ -216,6 +242,33 @@
 				E822008229E7CBC2008CB9A0 /* FeedCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		E8C210D629ED01A800AC944E /* FlipkartScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E830152B29ED259F00A75CE9 /* Cells */,
+				E8C210DA29ED039C00AC944E /* Models */,
+				E8C210D929ED038D00AC944E /* ViewControllers */,
+				E8C210D729ED021000AC944E /* Product.storyboard */,
+			);
+			path = FlipkartScreen;
+			sourceTree = "<group>";
+		};
+		E8C210D929ED038D00AC944E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E8C210DB29ED03C600AC944E /* ProductViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E8C210DA29ED039C00AC944E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E8CACEE529ED58FE000427D9 /* ProductModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E8DA41AF299B5C520054C3D1 = {
@@ -323,8 +376,10 @@
 			files = (
 				E80DBD1729DD54C60020BB55 /* UIControls.storyboard in Resources */,
 				E8BDBE1129DEC51B0094CF21 /* TableViewCell.xib in Resources */,
+				E8C210D829ED021000AC944E /* Product.storyboard in Resources */,
 				E8BDBE1529DEE65E0094CF21 /* SwitchSettingCell.xib in Resources */,
 				E84D2DD129E432A700C4F59C /* ContentModeCell.xib in Resources */,
+				E830152F29ED25BD00A75CE9 /* OfferCell.xib in Resources */,
 				E8C210D529E9811D00AC944E /* CustomView.xib in Resources */,
 				E82C8E2B29E691DF00424E0C /* UIControls2.storyboard in Resources */,
 				E8DA41C8299B5C540054C3D1 /* LaunchScreen.storyboard in Resources */,
@@ -349,7 +404,10 @@
 				E8C9A0B429E030AF00F2376C /* GenreHeaderView.swift in Sources */,
 				E80DBD1929DD55360020BB55 /* StepperViewController.swift in Sources */,
 				E8DA41C0299B5C520054C3D1 /* ViewController.swift in Sources */,
+				E82E479029ED37800066BDAA /* ImageCell.swift in Sources */,
 				E822008529E805FB008CB9A0 /* PickerViewController.swift in Sources */,
+				E8CACEE629ED58FE000427D9 /* ProductModel.swift in Sources */,
+				E830152E29ED25BD00A75CE9 /* OfferCell.swift in Sources */,
 				E84D2DD029E432A700C4F59C /* ContentModeCell.swift in Sources */,
 				E822008D29E90C32008CB9A0 /* MapViewController.swift in Sources */,
 				E8DA41BC299B5C520054C3D1 /* AppDelegate.swift in Sources */,
@@ -362,6 +420,7 @@
 				E8C4C6EE29E53D4B00B4FD58 /* WebViewController.swift in Sources */,
 				E8BDBE1729DEE6F50094CF21 /* SettingModel.swift in Sources */,
 				E8BDBE1429DEE65E0094CF21 /* SwitchSettingCell.swift in Sources */,
+				E8CACEE429ED5204000427D9 /* SizeCell.swift in Sources */,
 				E8C210D329E967F100AC944E /* ContactDetailView.swift in Sources */,
 				E847605529DD8E6600031325 /* SongCell.swift in Sources */,
 				E8022EA129DE8FA300A7BC9B /* MySegmentedControl.swift in Sources */,
@@ -382,6 +441,7 @@
 				E84D2DCD29E41AA000C4F59C /* ImageDemoViewController.swift in Sources */,
 				E8A01AF929D154B100879A53 /* AutoLayoutViewController.swift in Sources */,
 				E82C8E2929E67A5300424E0C /* TabBarViewController.swift in Sources */,
+				E8C210DC29ED03C600AC944E /* ProductViewController.swift in Sources */,
 				E880850C29DFE647008254DC /* LanguageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -534,8 +594,8 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To show your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = UIControls2;
+				INFOPLIST_KEY_UILaunchStoryboardName = Product;
+				INFOPLIST_KEY_UIMainStoryboardFile = Product;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -563,8 +623,8 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To show your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = UIControls2;
+				INFOPLIST_KEY_UILaunchStoryboardName = Product;
+				INFOPLIST_KEY_UIMainStoryboardFile = Product;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

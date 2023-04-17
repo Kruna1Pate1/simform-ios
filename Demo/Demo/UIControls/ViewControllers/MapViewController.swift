@@ -141,7 +141,14 @@ extension MapViewController: MKMapViewDelegate {
         if let location = locationManager.location, annotation is MyAnnotation {
             mapView.preferredConfiguration.elevationStyle = .flat
             print(location)
-            self.drawRoute(routeData: [initialLocation, location])
+            self.drawRoute(routeData: [
+                initialLocation,
+                CLLocation(latitude: 22.936340, longitude: 72.737064),
+                CLLocation(latitude: 22.767188, longitude: 72.852568),
+                CLLocation(latitude: 22.330731, longitude: 73.269959),
+                CLLocation(latitude: 20.832963, longitude: 73.110449),
+                CLLocation(latitude: 20.414379, longitude: 72.938855),
+                location])
         }
     }
     
