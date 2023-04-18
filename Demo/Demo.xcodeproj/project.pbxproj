@@ -29,11 +29,16 @@
 		E82E479029ED37800066BDAA /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E478F29ED37800066BDAA /* ImageCell.swift */; };
 		E830152E29ED25BD00A75CE9 /* OfferCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E830152C29ED25BD00A75CE9 /* OfferCell.swift */; };
 		E830152F29ED25BD00A75CE9 /* OfferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E830152D29ED25BD00A75CE9 /* OfferCell.xib */; };
+		E84253FE29EEBB5900BFC012 /* MyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84253FD29EEBB5900BFC012 /* MyTextField.swift */; };
+		E842540129EEBDAD00BFC012 /* MyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842540029EEBDAD00BFC012 /* MyTextView.swift */; };
 		E847605529DD8E6600031325 /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E847605429DD8E6600031325 /* SongCell.swift */; };
 		E84D2DCB29E3DC4200C4F59C /* Dictionary+byIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D2DCA29E3DC4200C4F59C /* Dictionary+byIndex.swift */; };
 		E84D2DCD29E41AA000C4F59C /* ImageDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D2DCC29E41AA000C4F59C /* ImageDemoViewController.swift */; };
 		E84D2DD029E432A700C4F59C /* ContentModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D2DCE29E432A700C4F59C /* ContentModeCell.swift */; };
 		E84D2DD129E432A700C4F59C /* ContentModeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E84D2DCF29E432A700C4F59C /* ContentModeCell.xib */; };
+		E86D6DBE29EEA76A0086CD80 /* ScheduleMeeting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E86D6DBD29EEA76A0086CD80 /* ScheduleMeeting.storyboard */; };
+		E86D6DC129EEA7FE0086CD80 /* ScheduleMetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D6DC029EEA7FE0086CD80 /* ScheduleMetingViewController.swift */; };
+		E87B794129EF9E010045C7A5 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87B794029EF9E010045C7A5 /* Utils.swift */; };
 		E880850C29DFE647008254DC /* LanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E880850B29DFE647008254DC /* LanguageModel.swift */; };
 		E880850F29DFE9B8008254DC /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E880850D29DFE9B8008254DC /* LanguageCell.swift */; };
 		E880851029DFE9B8008254DC /* LanguageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E880850E29DFE9B8008254DC /* LanguageCell.xib */; };
@@ -91,11 +96,16 @@
 		E82E478F29ED37800066BDAA /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		E830152C29ED25BD00A75CE9 /* OfferCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferCell.swift; sourceTree = "<group>"; };
 		E830152D29ED25BD00A75CE9 /* OfferCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferCell.xib; sourceTree = "<group>"; };
+		E84253FD29EEBB5900BFC012 /* MyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextField.swift; sourceTree = "<group>"; };
+		E842540029EEBDAD00BFC012 /* MyTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextView.swift; sourceTree = "<group>"; };
 		E847605429DD8E6600031325 /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		E84D2DCA29E3DC4200C4F59C /* Dictionary+byIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+byIndex.swift"; sourceTree = "<group>"; };
 		E84D2DCC29E41AA000C4F59C /* ImageDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDemoViewController.swift; sourceTree = "<group>"; };
 		E84D2DCE29E432A700C4F59C /* ContentModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModeCell.swift; sourceTree = "<group>"; };
 		E84D2DCF29E432A700C4F59C /* ContentModeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentModeCell.xib; sourceTree = "<group>"; };
+		E86D6DBD29EEA76A0086CD80 /* ScheduleMeeting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScheduleMeeting.storyboard; sourceTree = "<group>"; };
+		E86D6DC029EEA7FE0086CD80 /* ScheduleMetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMetingViewController.swift; sourceTree = "<group>"; };
+		E87B794029EF9E010045C7A5 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		E880850B29DFE647008254DC /* LanguageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageModel.swift; sourceTree = "<group>"; };
 		E880850D29DFE9B8008254DC /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
 		E880850E29DFE9B8008254DC /* LanguageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageCell.xib; sourceTree = "<group>"; };
@@ -165,6 +175,34 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		E84253FF29EEBB5F00BFC012 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E84253FD29EEBB5900BFC012 /* MyTextField.swift */,
+				E842540029EEBDAD00BFC012 /* MyTextView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E86D6DBC29EEA74C0086CD80 /* MeetingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E86D6DBF29EEA7DC0086CD80 /* ViewControllers */,
+				E86D6DBD29EEA76A0086CD80 /* ScheduleMeeting.storyboard */,
+				E84253FF29EEBB5F00BFC012 /* View */,
+				E87B794029EF9E010045C7A5 /* Utils.swift */,
+			);
+			path = MeetingScreen;
+			sourceTree = "<group>";
+		};
+		E86D6DBF29EEA7DC0086CD80 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E86D6DC029EEA7FE0086CD80 /* ScheduleMetingViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		E880850929DFE4FC008254DC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +237,7 @@
 		E8A7C95829DAE99400C91F5B /* UIControls */ = {
 			isa = PBXGroup;
 			children = (
+				E86D6DBC29EEA74C0086CD80 /* MeetingScreen */,
 				E8C210D629ED01A800AC944E /* FlipkartScreen */,
 				E8BDBE0D29DEC4D10094CF21 /* Cells */,
 				E8A7C95629DAE8C000C91F5B /* ContainerView.swift */,
@@ -381,6 +420,7 @@
 				E84D2DD129E432A700C4F59C /* ContentModeCell.xib in Resources */,
 				E830152F29ED25BD00A75CE9 /* OfferCell.xib in Resources */,
 				E8C210D529E9811D00AC944E /* CustomView.xib in Resources */,
+				E86D6DBE29EEA76A0086CD80 /* ScheduleMeeting.storyboard in Resources */,
 				E82C8E2B29E691DF00424E0C /* UIControls2.storyboard in Resources */,
 				E8DA41C8299B5C540054C3D1 /* LaunchScreen.storyboard in Resources */,
 				E8DA41C5299B5C540054C3D1 /* Assets.xcassets in Resources */,
@@ -404,6 +444,7 @@
 				E8C9A0B429E030AF00F2376C /* GenreHeaderView.swift in Sources */,
 				E80DBD1929DD55360020BB55 /* StepperViewController.swift in Sources */,
 				E8DA41C0299B5C520054C3D1 /* ViewController.swift in Sources */,
+				E86D6DC129EEA7FE0086CD80 /* ScheduleMetingViewController.swift in Sources */,
 				E82E479029ED37800066BDAA /* ImageCell.swift in Sources */,
 				E822008529E805FB008CB9A0 /* PickerViewController.swift in Sources */,
 				E8CACEE629ED58FE000427D9 /* ProductModel.swift in Sources */,
@@ -415,10 +456,13 @@
 				E8FD9A7029B0CDBD00E2F879 /* AccessDemo.swift in Sources */,
 				E822007F29E7C959008CB9A0 /* StackViewController.swift in Sources */,
 				E8A7C95729DAE8C000C91F5B /* ContainerView.swift in Sources */,
+				E842540129EEBDAD00BFC012 /* MyTextView.swift in Sources */,
+				E84253FE29EEBB5900BFC012 /* MyTextField.swift in Sources */,
 				E8980CCE29DACC2300EF6999 /* MyButton.swift in Sources */,
 				E822008929E812C2008CB9A0 /* StateModel.swift in Sources */,
 				E8C4C6EE29E53D4B00B4FD58 /* WebViewController.swift in Sources */,
 				E8BDBE1729DEE6F50094CF21 /* SettingModel.swift in Sources */,
+				E87B794129EF9E010045C7A5 /* Utils.swift in Sources */,
 				E8BDBE1429DEE65E0094CF21 /* SwitchSettingCell.swift in Sources */,
 				E8CACEE429ED5204000427D9 /* SizeCell.swift in Sources */,
 				E8C210D329E967F100AC944E /* ContactDetailView.swift in Sources */,
@@ -594,8 +638,8 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To show your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = Product;
-				INFOPLIST_KEY_UIMainStoryboardFile = Product;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = ScheduleMeeting;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -623,8 +667,8 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To show your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = Product;
-				INFOPLIST_KEY_UIMainStoryboardFile = Product;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = ScheduleMeeting;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
