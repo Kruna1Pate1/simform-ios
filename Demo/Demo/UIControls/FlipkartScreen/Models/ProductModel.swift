@@ -9,7 +9,7 @@ import UIKit
 
 struct ProductModel {
     var images: [UIImage]?
-    var colors: [String]?
+    var colors: [UIColor]?
     var brandName: String
     var productName: String
     var price: PriceModel
@@ -38,9 +38,9 @@ struct ProductModel {
         var onSelect: ((_ isSelected: Bool) -> ())?
     }
     
-    static func dummyProducts() -> [ProductModel] {
-        return [
-            ProductModel(images: Array(repeating: UIImage(named: "kurta_0")!, count: 5), colors: ["Red", "Yellow", "Pink"], brandName: "Aurelia", productName: "Printed Women's Straight'", price: PriceModel(originalPrice: 1599, discount: 57), rating: 4.3, reviews: Array(repeating: "", count: 9982), isAssured: true, offers: [
+    static func dummyProduct() -> ProductModel {
+        return
+        ProductModel(images: Array(repeating: UIImage(named: "kurta_0")!, count: 5), colors: [.red, .yellow, .systemPink], brandName: "Aurelia", productName: "Printed Women's Straight'", price: PriceModel(originalPrice: 1599, discount: 57), rating: 4.3, reviews: Array(repeating: "", count: 9982), isAssured: true, offers: [
                 "Flat 100 off* with digibank by DBS",
                 "Extra 5% off Axis Bank Buzz credit cards"
             ], sizes: [
@@ -50,6 +50,6 @@ struct ProductModel {
                 SizeModel(name: "XL"),
                 SizeModel(name: "XXL", isDisabled: true)
             ])
-        ]
+        
     }
 }

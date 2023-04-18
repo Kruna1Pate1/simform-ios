@@ -9,35 +9,37 @@ import UIKit
 
 class SizeCell: UICollectionViewCell {
     
-    @IBOutlet weak var sizeButton: UIButton!
+    @IBOutlet weak var sizeLabel: UILabel!
     var selection: Bool {
         get {
-            sizeButton.isSelected
+            self.isSelected
         }
         set {
-            sizeButton.isSelected = newValue
+            self.isSelected = newValue
             if newValue {
-                sizeButton.tintColor = .blue
-                sizeButton.layer.borderColor = UIColor.blue.cgColor
+                sizeLabel.textColor = .systemBlue
+                sizeLabel.backgroundColor = .systemBlue.withAlphaComponent(0.1)
             } else {
-                sizeButton.tintColor = .gray
-                sizeButton.layer.borderColor = UIColor.gray.cgColor
+                sizeLabel.textColor = .black
+                sizeLabel.backgroundColor = .clear
             }
         }
     }
-
+    
+    var isDisabled: Bool = false {
+        didSet {
+            if isDisabled {
+                
+            }
+        }
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
-        sizeButton.clipsToBounds = true
-        sizeButton.layer.borderColor = UIColor.darkGray.cgColor
-        sizeButton.layer.borderWidth = 0.4
-        sizeButton.layer.cornerRadius = sizeButton.bounds.height / 2
-        sizeButton.layer.shadowColor = UIColor.darkGray.cgColor
-        sizeButton.setTitleColor(.gray, for: .normal)
-        sizeButton.setTitleColor(.blue, for: .selected)
-    }
-
-    @IBAction func onSelect(_ sender: UIButton) {
-        selection = sender.isSelected
+        sizeLabel.clipsToBounds = true
+        sizeLabel.layer.borderColor = selection ? UIColor.systemBlue.cgColor : UIColor.lightGray.withAlphaComponent(0.5).cgColor
+        sizeLabel.layer.cornerRadius = sizeLabel.bounds.height / 2
+        sizeLabel.layer.borderWidth = 1.5
+        sizeLabel.layer.shadowColor = UIColor.darkGray.cgColor
     }
 }

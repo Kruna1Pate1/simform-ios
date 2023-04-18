@@ -8,33 +8,40 @@
 import UIKit
 
 class ProductViewController: UIViewController {
+    
+    // MARK: Outlets
+    @IBOutlet private weak var productContainer: UIView!
+    @IBOutlet private weak var sizeContainer: UIStackView!
+    
+    @IBOutlet private weak var likeView: UIView!
+    @IBOutlet private weak var likeButton: UIButton!
+    @IBOutlet private weak var colorContainer: UIStackView!
+    @IBOutlet weak var colorsStackView: UIStackView!
+    @IBOutlet private weak var colorPicker: UIPickerView!
+    @IBOutlet private weak var overlayView: UIView!
+    
+    @IBOutlet private weak var brandLabel: UILabel!
+    @IBOutlet private weak var productName: UILabel!
+    
+    @IBOutlet private weak var ratingView: UIView!
+    @IBOutlet private weak var ratingLabel: UILabel!
+    @IBOutlet private weak var reviewsLabel: UIButton!
+    @IBOutlet private weak var assuredImage: UIImageView!
+    
+    @IBOutlet private weak var imagePageControl: UIPageControl!
+    @IBOutlet private weak var imagesCollectionView: UICollectionView!
+    
+    @IBOutlet private weak var finalPriceLabel: UILabel!
+    @IBOutlet private weak var oldPriceLabel: UILabel!
+    @IBOutlet private weak var discountLabel: UILabel!
+    @IBOutlet private weak var offersTabelView: UITableView!
+    @IBOutlet weak var offerTableViewHeight: NSLayoutConstraint!
 
-    @IBOutlet weak var productContainer: UIStackView!
-    @IBOutlet weak var sizeContainer: UIStackView!
-    
-    @IBOutlet weak var likeView: UIView!
-    @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet weak var colorContainer: UIStackView!
-    @IBOutlet weak var colorPicker: UIPickerView!
-    
-    @IBOutlet weak var brandLabel: UILabel!
-    @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var reviewsLabel: UIButton!
-    @IBOutlet weak var assuredImage: UIImageView!
-    
-    @IBOutlet weak var imagePageControl: UIPageControl!
-    @IBOutlet weak var imagesCollectionView: UICollectionView!
+    @IBOutlet private weak var sizeCollectionView: UICollectionView!
     
     
-    @IBOutlet weak var finalPriceLabel: UILabel!
-    @IBOutlet weak var oldPriceLabel: UILabel!
-    @IBOutlet weak var discountLabel: UILabel!
-    
-    @IBOutlet weak var offersTabelView: UITableView!
-    
-    @IBOutlet weak var sizeCollectionView: UICollectionView!
-    
-    var product: ProductModel = ProductModel.dummyProducts()[0]
+    // MARK: Private variables
+    private var product: ProductModel = ProductModel.dummyProduct()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +50,13 @@ class ProductViewController: UIViewController {
         registerCells()
     }
     
+    // MARK: Setup methods
     private func setupUI() {
         setupContainers()
         setupOverlayView()
 
-        ratingLabel.clipsToBounds = true
-        ratingLabel.layer.cornerRadius = ratingLabel.bounds.height / 2
+        ratingView.clipsToBounds = true
+        ratingView.layer.cornerRadius = ratingView.bounds.height / 2
         
         colorPicker.isHidden = true
         
@@ -64,6 +72,8 @@ class ProductViewController: UIViewController {
         sizeContainer.layer.cornerRadius = 10
         sizeContainer.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         
+        offerTableViewHeight.constant = offerTableViewHeight.constant * CGFloat(product.offers?.count ?? 0)
+        
         let tapGesture = UITapGestureRecognizer()
         tapGesture.addTarget(self, action: #selector(toggleColorPickerVisibility))
         colorContainer.addGestureRecognizer(tapGesture)
@@ -75,6 +85,12 @@ class ProductViewController: UIViewController {
     }
     
     private func setupOverlayView() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.darkGray.withAlphaComponent(0.15).cgColor]
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.frame = overlayView.bounds
+        overlayView.layer.insertSublayer(gradientLayer, at: 0)
+        
         likeView.clipsToBounds = true
         likeView.layer.cornerRadius = likeView.bounds.height / 2
         likeView.layer.borderWidth = 0.5
@@ -91,16 +107,42 @@ class ProductViewController: UIViewController {
     }
     
     private func setupData() {
+        productName.text = product.productName
+        brandLabel.text = product.brandName
         finalPriceLabel.text = "₹\(product.price.finalPrice)"
+        
         let strikePrice = NSAttributedString(string: "\(product.price.originalPrice)", attributes: [
             .strikethroughStyle: NSUnderlineStyle.single.rawValue
         ])
         oldPriceLabel.attributedText = strikePrice
-        discountLabel.text = "\(product.price.discount)% off"
+        discountLabel.text = "\(Int(product.price.discount))% off"
         ratingLabel.text = "\(product.rating) ★"
         reviewsLabel.titleLabel?.text = "\(product.reviews?.count ?? 0) reviews >"
         assuredImage.isHidden = !product.isAssured
         imagePageControl.numberOfPages = product.images?.count ?? 0
+        
+        setupColors()
+    }
+    
+    private func setupColors() {
+        guard let colors = product.colors else { return }
+//        colorsStackView.removeArrangedSubview(colorsStackView.arrangedSubviews[0])
+        for color in colors {
+            print("c: \(color)")
+            let colorView = UILabel(frame: CGRectMake(0, 0, 24, 24))
+            colorView.backgroundColor = color
+            print(colorView.backgroundColor)
+            colorView.clipsToBounds = true
+            colorView.layer.cornerRadius = colorView.bounds.height / 2
+            colorView.layer.borderWidth = 0.5
+            colorView.layer.borderColor = UIColor.white.cgColor
+            colorsStackView.addArrangedSubview(colorView)
+        }
+        print("count: \(colorsStackView.arrangedSubviews.count)")
+        colorsStackView.updateConstraints()
+        colorsStackView.layoutIfNeeded()
+        colorContainer.updateConstraints()
+        colorContainer.layoutIfNeeded()
     }
     
     private func registerCells() {
@@ -121,6 +163,7 @@ class ProductViewController: UIViewController {
     }
 }
 
+// MARK: TableView
 extension ProductViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return product.offers?.count ?? 0
@@ -129,7 +172,7 @@ extension ProductViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == offersTabelView {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "OfferCell", for: indexPath) as? OfferCell {
-                cell.offerDescriptionTabel.text = product.offers?[indexPath.item]
+                cell.offerDescriptionTabel.text = "\(product.offers?[indexPath.item] ?? "N/A") >"
                 return cell
             }
         }
@@ -138,9 +181,12 @@ extension ProductViewController: UITableViewDataSource {
 }
 
 extension ProductViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 }
 
+// MARK: CollectionView
 extension ProductViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (collectionView == imagesCollectionView ? product.images?.count : product.sizes?.count) ?? 0
@@ -156,11 +202,13 @@ extension ProductViewController: UICollectionViewDataSource {
         
         if collectionView == sizeCollectionView {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SizeCell", for: indexPath) as? SizeCell {
+                if product.sizes?[indexPath.item].isDisabled {
+                    cell.isDisabled = true
+                }
                 product.sizes?[indexPath.item].onSelect = { isSelected in
                     cell.selection = isSelected
                 }
-                cell.sizeButton.setTitle(product.sizes?[indexPath.item].name, for: .normal)
-                cell.sizeButton.setTitle(product.sizes?[indexPath.item].name, for: .selected)
+                cell.sizeLabel.text = product.sizes?[indexPath.item].name
                 return cell
             }
         }
@@ -203,7 +251,7 @@ extension ProductViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return collectionView == imagesCollectionView ? 0 : 14
+        return collectionView == imagesCollectionView ? 0 : 5
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -211,6 +259,7 @@ extension ProductViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: PickerView
 extension ProductViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
@@ -223,10 +272,11 @@ extension ProductViewController: UIPickerViewDataSource {
 
 extension ProductViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        product.colors?[row]
+        product.colors?[row].accessibilityName
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("Selected color: \(product.colors?[row])")
+        print("Selected color: \(product.colors?[row].accessibilityName)")
+        pickerView.isHidden = true
     }
 }
