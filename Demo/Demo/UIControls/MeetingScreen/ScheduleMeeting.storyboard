@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -507,21 +506,21 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addButton" destination="G6Y-Z6-TVP" id="iBt-NN-EJn"/>
-                        <outlet property="attendeesStackView" destination="J3a-1n-15g" id="djj-ry-rTB"/>
-                        <outlet property="dateTextField" destination="7Hv-u9-lZ8" id="vaB-G0-sJI"/>
-                        <outlet property="descriptionTextView" destination="eKn-Uz-5p7" id="F2M-wk-n8k"/>
-                        <outlet property="durationTextField" destination="xXV-YI-Osh" id="7NY-p7-Nob"/>
-                        <outlet property="emailTextField" destination="zVr-Xy-WuI" id="rE1-Tv-aUT"/>
+                        <outlet property="btnAdd" destination="G6Y-Z6-TVP" id="iBt-NN-EJn"/>
+                        <outlet property="btnSave" destination="Xr7-oc-r13" id="YyY-Sr-0Ey"/>
                         <outlet property="meetingPaswordContainer" destination="0N4-fi-Kmc" id="AK2-Wm-mhc"/>
-                        <outlet property="meetingTitleTextField" destination="MZ3-dp-tQJ" id="cTy-Ns-Fi1"/>
-                        <outlet property="passwordTextField" destination="bR0-51-6pq" id="Hrh-w0-e1t"/>
-                        <outlet property="reminderTextField" destination="m76-CD-zhL" id="OKA-kl-F0y"/>
-                        <outlet property="requiredPasswordSwitch" destination="Llb-d7-vL4" id="XmD-ks-GRF"/>
-                        <outlet property="saveButton" destination="Xr7-oc-r13" id="YyY-Sr-0Ey"/>
                         <outlet property="scrollView" destination="7Vl-PR-eYm" id="j6V-dr-oQH"/>
-                        <outlet property="timeTextField" destination="6WO-uc-6z2" id="1Nd-zB-9Mr"/>
-                        <outlet property="timezoneTextField" destination="YMu-VU-1Jo" id="BcC-gv-1hB"/>
+                        <outlet property="svAttendees" destination="J3a-1n-15g" id="djj-ry-rTB"/>
+                        <outlet property="switchRequiredPassword" destination="Llb-d7-vL4" id="XmD-ks-GRF"/>
+                        <outlet property="tfDate" destination="7Hv-u9-lZ8" id="vaB-G0-sJI"/>
+                        <outlet property="tfDuration" destination="xXV-YI-Osh" id="7NY-p7-Nob"/>
+                        <outlet property="tfEmail" destination="zVr-Xy-WuI" id="rE1-Tv-aUT"/>
+                        <outlet property="tfMmeetingTitle" destination="MZ3-dp-tQJ" id="cTy-Ns-Fi1"/>
+                        <outlet property="tfPassword" destination="bR0-51-6pq" id="Hrh-w0-e1t"/>
+                        <outlet property="tfReminder" destination="m76-CD-zhL" id="OKA-kl-F0y"/>
+                        <outlet property="tfTime" destination="6WO-uc-6z2" id="1Nd-zB-9Mr"/>
+                        <outlet property="tfTimezone" destination="YMu-VU-1Jo" id="BcC-gv-1hB"/>
+                        <outlet property="tvDescription" destination="eKn-Uz-5p7" id="F2M-wk-n8k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -113,21 +113,21 @@ extension TimeInterval {
 extension UIViewController {
     
     func showToast(message : String, backgroundColor: UIColor = .red) {
-        
-        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: 400, width: 150, height: 35))
+        let toastLabel = UILabel(frame: CGRect(x: view.frame.size.width/2 - 75, y: 400, width: 150, height: 35))
         toastLabel.backgroundColor = backgroundColor
         toastLabel.textColor = .white
         toastLabel.textAlignment = .center
         toastLabel.text = message
         toastLabel.layer.cornerRadius = 10;
         toastLabel.clipsToBounds = true
-        self.view.addSubview(toastLabel)
+        view.addSubview(toastLabel)
         UIView.animate(withDuration: 3.0, delay: 0.1, options: .curveEaseOut, animations: {
             toastLabel.alpha = 0.0
         }, completion: {(isCompleted) in
             toastLabel.removeFromSuperview()
         })
-    } }
+    }
+}
 
 func isValidEmail(_ email: String?) -> Bool {
     let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
