@@ -7,38 +7,40 @@
 
 import UIKit
 
-class ScheduleMetingViewController: UIViewController {
     
+class ScheduleMetingViewController: UIViewController {
     // MARK: - Outlets
     
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var meetingTitleTextField: MyTextField!
     @IBOutlet private weak var descriptionTextView: MyTextView!
     @IBOutlet private weak var dateTextField: MyTextField!
     @IBOutlet private weak var timeTextField: MyTextField!
     @IBOutlet private weak var timezoneTextField: MyTextField!
-    @IBOutlet weak var timezonePicker: UIPickerView!
     @IBOutlet private weak var durationTextField: MyTextField!
-    @IBOutlet weak var durationPicker: UIDatePicker!
     @IBOutlet private weak var reminderTextField: MyTextField!
-    @IBOutlet weak var reminderPicker: UIDatePicker!
     @IBOutlet private weak var requiredPasswordSwitch: UISwitch!
     @IBOutlet private weak var passwordTextField: MyTextField!
     @IBOutlet private weak var emailTextField: MyTextField!
     @IBOutlet private weak var addButton: UIButton!
     @IBOutlet private weak var saveButton: UIButton!
     @IBOutlet private weak var meetingPaswordContainer: UIStackView!
-    @IBOutlet weak var attendeesStackView: UIStackView!
+    @IBOutlet private weak var attendeesStackView: UIStackView!
     
-    // MARK: Private constants
+    // MARK: - Private constants
     private let dateFormat = "dd/MM/yyyy"
     private let timeFormat = "hh:mm a"
     private let maxDescriptionCharacters = 50
-    private let maxProfiles = 3
+    private let maxProfiles = 5
+    private let reminders = ["15 minutes before", "30 minutes before", "45 minutes before", "60 minutes before"]
+    private var profileCount = 1
+    
+    // MARK: - Private variables
+    private var reminderPicker: UIPickerView = UIPickerView()
+    private var timezonePicker: UIPickerView = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
         registerNotifications()
     }
@@ -52,16 +54,20 @@ class ScheduleMetingViewController: UIViewController {
         let donebutton = UIBarButtonItem(title: "Done", style:   UIBarButtonItem.Style.done, target: self, action: #selector(hideKeyboard))
         toolbar.setItems([.flexibleSpace(), donebutton], animated: false)
         descriptionTextView.inputAccessoryView = toolbar
+        timezoneTextField.inputAccessoryView = toolbar
+        durationTextField.inputAccessoryView = toolbar
+        reminderTextField.inputAccessoryView = toolbar
+        passwordTextField.inputAccessoryView = toolbar
         
         saveButton.clipsToBounds = true
         saveButton.layer.cornerRadius = 10
-        saveButton.backgroundColor = .lightGray
+        saveButton.layer.opacity = 0.5
     }
     
     private func setupTextFields() {
         let datePicker = UIDatePicker(frame: CGRectMake(0, 0, 30, dateTextField.bounds.height))
         datePicker.datePickerMode = .date
-        datePicker.maximumDate = Date()
+        datePicker.minimumDate = Date()
         datePicker.addTarget(self, action: #selector(changeDate), for: .valueChanged)
         self.dateTextField.insertSubview(datePicker, at: 0)
         dateTextField.text = datePicker.date.formatted(format: dateFormat)
@@ -74,13 +80,27 @@ class ScheduleMetingViewController: UIViewController {
         self.timeTextField.insertSubview(timePicker, at: 0)
         timeTextField.text = timePicker.date.formatted(format: timeFormat)
         
-        timezonePicker.isHidden = true
-        durationPicker.isHidden = true
-        reminderPicker.isHidden = true
+        let durationPicker = UIDatePicker()
+        durationPicker.datePickerMode = .countDownTimer
+        durationPicker.minuteInterval = 15
+        durationPicker.countDownDuration = 15
+        durationPicker.frame.size = CGSize(width: 0, height: 300)
+        durationPicker.addTarget(self, action: #selector(changeDuration), for: .valueChanged)
+        durationTextField.inputView = durationPicker
+        
+        timezonePicker.dataSource = self
+        timezonePicker.delegate = self
+        timezonePicker.frame.size = CGSize(width: 0, height: 300)
+        timezoneTextField.inputView = timezonePicker
+        
+        reminderPicker.delegate = self
+        reminderPicker.delegate = self
+        reminderPicker.frame.size = CGSize(width: 0, height: 300)
+        reminderTextField.inputView = reminderPicker
         
         timezoneTextField.text = timeZones[timezonePicker.selectedRow(inComponent: 0)]
         durationTextField.text = durationPicker.countDownDuration.formatted()
-        reminderTextField.text = "\(reminderPicker.countDownDuration.formatted(units: [.minute])) before"
+        reminderTextField.text = reminders[reminderPicker.selectedRow(inComponent: 0)]
     }
     
     private func registerNotifications() {
@@ -119,42 +139,44 @@ class ScheduleMetingViewController: UIViewController {
     }
     
     private func addUser(email: String?) {
-        if attendeesStackView.arrangedSubviews.count == maxProfiles - 1 {
-            let view = UIView(frame: CGRectMake(0, 0, 40, 40))
-            view.clipsToBounds = true
-            view.layer.cornerRadius = view.bounds.height / 2
+        if profileCount == maxProfiles {
             let label = UILabel()
-            view.backgroundColor = .blue
+            label.translatesAutoresizingMaskIntoConstraints = false
             label.backgroundColor = .blue
+            label.textAlignment = .center
             label.textColor = .white
-            label.text = "\(maxProfiles)+"
-            view.addSubview(label)
-            //            attendeesStackView.addArrangedSubview(view)
-            //            attendeesStackView.insertArrangedSubview(view, at: attendeesStackView.arrangedSubviews.count)
-            print(attendeesStackView.arrangedSubviews.count)
-        } else if  attendeesStackView.arrangedSubviews.count < maxProfiles {
+            label.text = "\(profileCount - maxProfiles + 1)+"
+            label.widthAnchor.constraint(equalToConstant: 40).isActive = true
+            label.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            label.clipsToBounds = true
+            label.layer.cornerRadius = 20
+            attendeesStackView.addArrangedSubview(label)
+        } else if profileCount > maxProfiles {
+            if let label = attendeesStackView.arrangedSubviews.last as? UILabel {
+                label.text = "\(profileCount - maxProfiles + 1)+"
+            }
+        } else {
             let imageView = UIImageView(image: .randomProfileImage()?.resizedImage(to: 40))
             imageView.clipsToBounds = true
             imageView.layer.cornerRadius = 20
             attendeesStackView.addArrangedSubview(imageView)
         }
+        profileCount += 1
         emailTextField.text = ""
     }
     
     private func updateSubmitButton() {
-        saveButton.backgroundColor = checkRequiredFields() ? UIColor(named: "cyan") : .lightGray
-        saveButton.isEnabled = checkRequiredFields()
+        saveButton.layer.opacity = checkRequiredFields() ? 1 : 0.5
     }
     
-    @IBAction func changeDuration(_ sender: UIDatePicker) {
+    @objc func changeDuration(_ sender: UIDatePicker) {
         if sender.countDownDuration > (60 * 60 * 8) {
             sender.countDownDuration = 60 * 60 * 8
         }
         durationTextField.text = sender.countDownDuration.formatted()
-        durationPicker.isHidden = true
     }
     
-    @IBAction func changeReminder(_ sender: UIDatePicker) {
+    @objc func changeReminder(_ sender: UIDatePicker) {
         if sender.countDownDuration > (60 * 60) {
             sender.countDownDuration = 60 * 60
         }
@@ -201,41 +223,25 @@ class ScheduleMetingViewController: UIViewController {
     
     @IBAction func changePasswordVisibility(_ sender: UISwitch) {
         meetingPaswordContainer.isHidden = !sender.isOn
+        updateSubmitButton()
     }
 }
 
 // MARK: - TextField
 extension ScheduleMetingViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        hideKeyboard()
-        
         if textField == emailTextField {
-            addUser(email: textField.text)
+            if isValidEmail(textField.text) {
+                addUser(email: textField.text)
+            } else {
+                showToast(message: "Invalid Email")
+            }
+        } else if textField == meetingTitleTextField {
+            descriptionTextView.becomeFirstResponder()
+        } else {
+            hideKeyboard()
         }
-        
         return true
-    }
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        switch textField {
-        case dateTextField:
-            return false
-        case timeTextField:
-            return false
-        case timezoneTextField:
-            timezonePicker.isHidden.toggle()
-            durationPicker.isHidden = true
-            return false
-        case durationTextField:
-            durationPicker.isHidden.toggle()
-            timezonePicker.isHidden = true
-            return false
-        case reminderTextField:
-            reminderPicker.isHidden.toggle()
-            return false
-        default:
-            return true
-        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -249,7 +255,6 @@ extension ScheduleMetingViewController: UITextFieldDelegate {
                 if isValidEmail(emailTextField.text) {
                     addUser(email: textField.text)
                 } else {
-                    print("invalid email")
                     showToast(message: "Invalid Email")
                 }
                 return false
@@ -275,17 +280,20 @@ extension ScheduleMetingViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return timeZones.count
+        return pickerView == timezonePicker ? timeZones.count : reminders.count
     }
 }
 
 extension ScheduleMetingViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return timeZones[row]
+        return pickerView == timezonePicker ? timeZones[row] : reminders[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        timezoneTextField.text = timeZones[row]
-        pickerView.isHidden = true
+        if pickerView == timezonePicker {
+            timezoneTextField.text = timeZones[row]
+        } else {
+            reminderTextField.text = reminders[row]
+        }
     }
 }

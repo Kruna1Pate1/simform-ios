@@ -202,7 +202,7 @@ extension ProductViewController: UICollectionViewDataSource {
         
         if collectionView == sizeCollectionView {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SizeCell", for: indexPath) as? SizeCell {
-                if product.sizes?[indexPath.item].isDisabled {
+                if ((product.sizes?[indexPath.item].isDisabled) != nil) {
                     cell.isDisabled = true
                 }
                 product.sizes?[indexPath.item].onSelect = { isSelected in

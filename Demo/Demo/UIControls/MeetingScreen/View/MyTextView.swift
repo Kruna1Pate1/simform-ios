@@ -9,7 +9,7 @@ import UIKit
 
 class MyTextView: UITextView {
     
-    let padding = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
+    let padding = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 15)
 
     override func layoutSubviews() {
         super.layoutSubviews()
