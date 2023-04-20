@@ -33,7 +33,7 @@ class ScheduleMetingViewController: UIViewController {
     private let maxDescriptionCharacters = 50
     private let maxProfiles = 5
     private let reminders = ["15 minutes before", "30 minutes before", "45 minutes before", "60 minutes before"]
-    private var profileCount = 1
+    private var profileCount = 0
     
     // MARK: - Private variables
     private var reminderPicker: UIPickerView = UIPickerView()

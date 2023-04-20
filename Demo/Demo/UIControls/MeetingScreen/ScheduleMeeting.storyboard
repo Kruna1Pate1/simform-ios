@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,14 +21,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LcQ-FH-Qrc" userLabel="Header">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="65.333333333333329"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.backward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UoE-FD-f2Z">
-                                        <rect key="frame" x="16" y="24.666666666666671" width="20" height="16.333333333333329"/>
-                                        <color key="tintColor" red="0.18690421360000001" green="0.027959152880000001" blue="0.001614811945" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K39-2a-sD7">
+                                        <rect key="frame" x="16" y="22.666666666666671" width="20" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="UoE-FD-f2Z" secondAttribute="height" multiplier="1:1" id="0lB-iH-eEK"/>
-                                            <constraint firstAttribute="width" constant="20" id="rz9-GP-fAD"/>
+                                            <constraint firstAttribute="width" secondItem="K39-2a-sD7" secondAttribute="height" multiplier="1:1" id="3YU-7f-9Ug"/>
+                                            <constraint firstAttribute="height" constant="20" id="Uez-K6-nfI"/>
                                         </constraints>
-                                    </imageView>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="arrow-left" imagePlacement="leading">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                        </buttonConfiguration>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule Meeting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Atw-9Q-btN" userLabel="Title">
                                         <rect key="frame" x="139" y="23" width="136.33333333333337" height="19.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
@@ -47,10 +51,10 @@
                                     <constraint firstAttribute="bottom" secondItem="4Pp-se-7Jc" secondAttribute="bottom" id="Fu8-6z-Pia"/>
                                     <constraint firstItem="Atw-9Q-btN" firstAttribute="centerX" secondItem="LcQ-FH-Qrc" secondAttribute="centerX" id="N4v-Ap-M69"/>
                                     <constraint firstItem="Atw-9Q-btN" firstAttribute="top" secondItem="LcQ-FH-Qrc" secondAttribute="top" constant="23" id="Nbs-k2-Vgn"/>
-                                    <constraint firstItem="UoE-FD-f2Z" firstAttribute="leading" secondItem="LcQ-FH-Qrc" secondAttribute="leading" constant="16" id="bek-4a-lMU"/>
                                     <constraint firstItem="4Pp-se-7Jc" firstAttribute="top" secondItem="Atw-9Q-btN" secondAttribute="bottom" constant="22" id="cAP-TY-uWu"/>
+                                    <constraint firstItem="K39-2a-sD7" firstAttribute="centerY" secondItem="LcQ-FH-Qrc" secondAttribute="centerY" id="rhk-9H-Gcb"/>
+                                    <constraint firstItem="K39-2a-sD7" firstAttribute="leading" secondItem="LcQ-FH-Qrc" secondAttribute="leading" constant="16" id="tEu-vn-RNQ"/>
                                     <constraint firstItem="4Pp-se-7Jc" firstAttribute="leading" secondItem="LcQ-FH-Qrc" secondAttribute="leading" id="vdM-PN-q4x"/>
-                                    <constraint firstItem="UoE-FD-f2Z" firstAttribute="centerY" secondItem="LcQ-FH-Qrc" secondAttribute="centerY" id="xa7-7M-3il"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vl-PR-eYm">
@@ -431,13 +435,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7R1-8T-ifF" userLabel="Attendes Container">
                                                 <rect key="frame" x="16" y="792" width="382" height="40"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="J3a-1n-15g" userLabel="Attendes Stack">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="top" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="J3a-1n-15g" userLabel="Attendes Stack">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="40"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" translatesAutoresizingMaskIntoConstraints="NO" id="GW2-k3-L0p">
-                                                                <rect key="frame" x="0.0" y="0.0" width="64" height="40"/>
-                                                            </imageView>
-                                                        </subviews>
                                                     </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -530,37 +529,36 @@
     </scenes>
     <designables>
         <designable name="6WO-uc-6z2">
-            <size key="intrinsicContentSize" width="48" height="42.666666666666664"/>
+            <size key="intrinsicContentSize" width="73" height="42.666666666666664"/>
         </designable>
         <designable name="7Hv-u9-lZ8">
-            <size key="intrinsicContentSize" width="48" height="42.666666666666664"/>
+            <size key="intrinsicContentSize" width="73" height="42.666666666666664"/>
         </designable>
         <designable name="MZ3-dp-tQJ">
-            <size key="intrinsicContentSize" width="163" height="42.666666666666664"/>
+            <size key="intrinsicContentSize" width="187.66666666666666" height="42.666666666666664"/>
         </designable>
         <designable name="YMu-VU-1Jo">
-            <size key="intrinsicContentSize" width="48" height="42.666666666666664"/>
+            <size key="intrinsicContentSize" width="73" height="42.666666666666664"/>
         </designable>
         <designable name="bR0-51-6pq">
-            <size key="intrinsicContentSize" width="106.33333333333333" height="41"/>
+            <size key="intrinsicContentSize" width="131.33333333333334" height="41"/>
         </designable>
         <designable name="m76-CD-zhL">
-            <size key="intrinsicContentSize" width="160" height="42.666666666666664"/>
+            <size key="intrinsicContentSize" width="185" height="42.666666666666664"/>
         </designable>
         <designable name="xXV-YI-Osh">
-            <size key="intrinsicContentSize" width="48" height="42.666666666666664"/>
+            <size key="intrinsicContentSize" width="73" height="42.666666666666664"/>
         </designable>
         <designable name="zVr-Xy-WuI">
-            <size key="intrinsicContentSize" width="78.666666666666671" height="42.666666666666664"/>
+            <size key="intrinsicContentSize" width="103.66666666666667" height="42.666666666666664"/>
         </designable>
     </designables>
     <resources>
         <image name="arrow-down" width="32" height="32"/>
+        <image name="arrow-left" width="20" height="20"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="calendar" width="32" height="32"/>
-        <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="clock" width="32" height="32"/>
-        <image name="person" width="64" height="64"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="cyan">
             <color red="0.2196078431372549" green="0.65098039215686276" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
