@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Combined Screen-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController title="Combined Screen" id="Y6W-OH-hqX" customClass="CombinedScreenViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="J5P-c6-fUc" userLabel="Header Container">
+                                <rect key="frame" x="0.0" y="59" width="393" height="42"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="240" verticalHuggingPriority="251" text="UIComponents" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEA-D5-Nzr">
+                                        <rect key="frame" x="16" y="10.999999999999998" width="341" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QVW-Zf-T9m" userLabel="Edit Button">
+                                        <rect key="frame" x="357" y="11" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="QVW-Zf-T9m" secondAttribute="height" multiplier="1:1" id="0Nf-2u-hmf"/>
+                                            <constraint firstAttribute="height" constant="20" id="pTi-Bp-ZB1"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button" image="edit">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                        </state>
+                                        <state key="selected" image="stop_edit"/>
+                                        <connections>
+                                            <action selector="toogleEdit:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Yuc-Uv-dTa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="fwr-XJ-u91"/>
+                                </constraints>
+                                <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nXE-1V-tOk" userLabel="Seprator">
+                                <rect key="frame" x="0.0" y="101" width="393" height="1"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="wAj-Pf-fMW"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2WS-kW-QJN">
+                                <rect key="frame" x="0.0" y="102" width="393" height="716"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="9Zo-kQ-cb4"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="cgJ-aC-MNI"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="J5P-c6-fUc" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="0vB-Xz-rEB"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="2WS-kW-QJN" secondAttribute="trailing" id="FvK-dr-dy8"/>
+                            <constraint firstItem="2WS-kW-QJN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="GlW-ic-Rau"/>
+                            <constraint firstItem="J5P-c6-fUc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="H4W-LP-7Rw"/>
+                            <constraint firstItem="nXE-1V-tOk" firstAttribute="top" secondItem="J5P-c6-fUc" secondAttribute="bottom" id="SIK-Gy-p8B"/>
+                            <constraint firstItem="2WS-kW-QJN" firstAttribute="top" secondItem="nXE-1V-tOk" secondAttribute="bottom" id="g73-xC-QvX"/>
+                            <constraint firstItem="nXE-1V-tOk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="iZl-mk-dqC"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2WS-kW-QJN" secondAttribute="bottom" id="v1A-fX-Vqi"/>
+                            <constraint firstItem="nXE-1V-tOk" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="wXn-Bd-KiK"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="J5P-c6-fUc" secondAttribute="trailing" id="yhN-dr-rjI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnEdit" destination="QVW-Zf-T9m" id="Ref-61-VMx"/>
+                        <outlet property="tblComponents" destination="2WS-kW-QJN" id="ayB-Fw-sW8"/>
+                        <segue destination="Nh9-O8-Aoh" kind="presentation" identifier="UIStepper" id="4Ux-Q4-RfI"/>
+                        <segue destination="zvZ-zv-RRm" kind="presentation" identifier="UISegmentedControl" id="VEn-bU-CuY"/>
+                        <segue destination="GPB-Gb-Yst" kind="presentation" identifier="UITableView" id="kuf-H2-LYd"/>
+                        <segue destination="AFb-C4-1cx" kind="presentation" identifier="UICollectionView, Pull refresh &amp; UISearchBar" id="BnC-cx-MJm"/>
+                        <segue destination="qfY-fz-1gf" kind="presentation" identifier="UIImageView &amp; Picker" id="4Ik-Ej-XlK"/>
+                        <segue destination="Hc8-w9-nkK" kind="presentation" identifier="UIActivityIndicator" id="GCg-Qy-rDb"/>
+                        <segue destination="TiZ-ik-bst" kind="show" identifier="WKWebView &amp; UIToolBar" id="YCW-8e-5Kt"/>
+                        <segue destination="CHW-ep-I2j" kind="presentation" identifier="UITabBar" id="DZp-uA-Wdh"/>
+                        <segue destination="D4C-xK-N4s" kind="presentation" identifier="Stack view" id="hXZ-M1-zSg"/>
+                        <segue destination="4lf-bT-Tqi" kind="presentation" identifier="UIPickerView" id="RI1-Mg-3Up"/>
+                        <segue destination="Qy3-pC-wuF" kind="presentation" identifier="UIDatePicker" id="BkN-h3-AoX"/>
+                        <segue destination="EQ8-NH-6d6" kind="presentation" identifier="UIMapView &amp; CLLocation" modalPresentationStyle="fullScreen" id="76R-gP-4jw"/>
+                        <segue destination="5MR-lu-yyv" kind="presentation" identifier="UIScrollView" modalPresentationStyle="fullScreen" id="3OA-bj-ync"/>
+                        <segue destination="v3X-4o-rTe" kind="presentation" identifier="UILabel, UIButton, UITextField, UITextView, UISwitch, UISlider, UIProgressView, UIPageControl" id="PQu-Gt-I0d"/>
+                        <segue destination="8jI-Iu-c7S" kind="presentation" identifier="Schedule Meeting" modalPresentationStyle="fullScreen" id="SgM-DL-jae"/>
+                        <segue destination="1Yr-Ai-esh" kind="presentation" identifier="Dynamic TextView" id="XZr-FC-COF"/>
+                        <segue destination="xUz-g9-Du1" kind="presentation" identifier="Flipkart Screen" id="fK4-yv-hRW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="74" y="-49"/>
+        </scene>
+        <!--StepperViewController-->
+        <scene sceneID="QFT-tI-mRu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UIControls" referencedIdentifier="StepperViewController" id="Nh9-O8-Aoh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g6i-ig-klG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="761" y="-323"/>
+        </scene>
+        <!--SegmantedControlViewController-->
+        <scene sceneID="tyR-hw-BfE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UIControls" referencedIdentifier="SegmantedControlViewController" id="zvZ-zv-RRm" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bJJ-ug-ftk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="760" y="-290"/>
+        </scene>
+        <!--SettingsViewController-->
+        <scene sceneID="Swg-IM-Eae">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UIControls" referencedIdentifier="SettingsViewController" id="GPB-Gb-Yst" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uXh-CT-Hf9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="769" y="-261"/>
+        </scene>
+        <!--CollectionViewController-->
+        <scene sceneID="YD9-zd-qWT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UIControls" referencedIdentifier="CollectionViewController" id="AFb-C4-1cx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qfj-eE-Taj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="769" y="-223"/>
+        </scene>
+        <!--ImageDemoViewController-->
+        <scene sceneID="8qt-dd-gng">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UIControls" referencedIdentifier="ImageDemoViewController" id="qfY-fz-1gf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4YV-3g-fBU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="769" y="-185"/>
+        </scene>
+        <!--ActivityIndicatorViewController-->
+        <scene sceneID="wiT-cg-IuF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UIControls" referencedIdentifier="ActivityIndicatorViewController" id="Hc8-w9-nkK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kSA-nM-P6A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="769" y="-150"/>
+        </scene>
+        <!--WebViewController-->
+        <scene sceneID="3u2-G4-INA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UIControls" referencedIdentifier="WebViewController" id="TiZ-ik-bst" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="l9z-7v-z8p"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uuV-k2-PXm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="769" y="-110"/>
+        </scene>
+        <!--TabBarViewController-->
+        <scene sceneID="Sgr-uj-Ere">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UIControls2" referencedIdentifier="TabBarViewController" id="CHW-ep-I2j" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eU0-pW-vKB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="741" y="-20"/>
+        </scene>
+        <!--StackViewController-->
+        <scene sceneID="bw9-Fh-NCg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UIControls2" referencedIdentifier="StackViewController" id="D4C-xK-N4s" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gc8-ue-m3X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="724" y="32"/>
+        </scene>
+        <!--PickerViewController-->
+        <scene sceneID="LAq-Uk-bmi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UIControls2" referencedIdentifier="PickerViewController" id="4lf-bT-Tqi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r5F-ZC-oz6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="718" y="69"/>
+        </scene>
+        <!--DatePickerViewController-->
+        <scene sceneID="ZA6-5q-PpW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UIControls2" referencedIdentifier="DatePickerViewController" id="Qy3-pC-wuF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ma-ql-V5M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="701" y="124"/>
+        </scene>
+        <!--MapViewController-->
+        <scene sceneID="0Yg-tZ-uZD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UIControls2" referencedIdentifier="MapViewController" id="EQ8-NH-6d6" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="BkX-bk-uDi"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qlg-wa-mp0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="710" y="167"/>
+        </scene>
+        <!--ScrollViewController-->
+        <scene sceneID="JEm-k9-wgV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UIControls" referencedIdentifier="ScrollViewController" id="5MR-lu-yyv" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t76-jZ-WCS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="708" y="232"/>
+        </scene>
+        <!--UIControlsViewController-->
+        <scene sceneID="smp-cx-0jV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UIControls" referencedIdentifier="UIControlsViewController" id="v3X-4o-rTe" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZlY-rF-hK8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="720" y="271"/>
+        </scene>
+        <!--ScheduleMeetingViewController-->
+        <scene sceneID="Tnq-f8-K1N">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ScheduleMeeting" referencedIdentifier="ScheduleMeetingViewController" id="8jI-Iu-c7S" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="oLw-68-t8t"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ycy-Tp-8y7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="698" y="327"/>
+        </scene>
+        <!--DynamicTextView-->
+        <scene sceneID="jML-21-HXs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UIControls2" referencedIdentifier="DynamicTextView" id="1Yr-Ai-esh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="w5V-HH-6zu"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zud-qY-lLF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="567" y="378"/>
+        </scene>
+        <!--Product-->
+        <scene sceneID="ylm-bg-aLe">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Product" referencedIdentifier="Product" id="xUz-g9-Du1" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="urC-aM-nFt"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5c1-Zk-34Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="491" y="434"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="edit" width="64" height="64"/>
+        <image name="stop_edit" width="64" height="64"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
