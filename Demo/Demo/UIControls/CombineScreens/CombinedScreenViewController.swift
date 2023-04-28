@@ -49,8 +49,9 @@ class CombinedScreenViewController: UIViewController {
     }
     
     private func setupTableView() {
-        tblComponents.dragDelegate = self
-        tblComponents.dropDelegate = self
+        // Long press to reorder delegates lead to crash while reordering
+//        tblComponents.dragDelegate = self
+//        tblComponents.dropDelegate = self
         tblComponents.sectionHeaderTopPadding = 0
         registerCells()
     }
