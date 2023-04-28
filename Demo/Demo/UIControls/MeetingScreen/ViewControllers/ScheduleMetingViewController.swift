@@ -51,6 +51,7 @@ class ScheduleMetingViewController: UIViewController {
     
     private func setupUI() {
         setupTextFields()
+        setupNavigationBar()
         
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
@@ -110,6 +111,11 @@ class ScheduleMetingViewController: UIViewController {
         tfTimezone.text = timeZones[timezonePicker.selectedRow(inComponent: 0)]
         tfDuration.text = durations[durationPicker.selectedRow(inComponent: 0)]
         tfReminder.text = reminders[reminderPicker.selectedRow(inComponent: 0)]
+    }
+    
+    private func setupNavigationBar() {
+        title = "Schedule Meeting"
+        navigationController?.navigationBar.topItem?.backButtonDisplayMode = .minimal
     }
     
     private func registerNotifications() {

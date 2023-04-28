@@ -373,66 +373,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HlR-um-ntq">
-                                <rect key="frame" x="0.0" y="125" width="393" height="693"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                                 <connections>
                                     <outlet property="delegate" destination="2Cs-5f-urV" id="fbN-lR-uSG"/>
                                 </connections>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x1m-7E-IAA" userLabel="Header">
-                                <rect key="frame" x="0.0" y="59" width="393" height="66"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COi-gJ-OXg">
-                                        <rect key="frame" x="6" y="13" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="COi-gJ-OXg" secondAttribute="height" multiplier="1:1" id="MGp-ur-6B4"/>
-                                            <constraint firstAttribute="height" constant="40" id="k5U-2h-3ds"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="arrow-left" imagePlacement="leading">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="navigateBack:" destination="2Cs-5f-urV" eventType="touchUpOutside" id="1JO-yC-BDK"/>
-                                            <action selector="navigateBack:" destination="2Cs-5f-urV" eventType="touchUpInside" id="gz7-Pl-IyR"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WKMap &amp; CLLocation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOU-Mo-zPS" userLabel="Title">
-                                        <rect key="frame" x="114.66666666666667" y="23" width="163.66666666666663" height="20"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R95-fO-XBj" userLabel="Seprator">
-                                        <rect key="frame" x="0.0" y="65" width="393" height="1"/>
-                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="COi-gJ-OXg" firstAttribute="leading" secondItem="x1m-7E-IAA" secondAttribute="leading" constant="6" id="4E2-S2-8Ht"/>
-                                    <constraint firstItem="R95-fO-XBj" firstAttribute="leading" secondItem="x1m-7E-IAA" secondAttribute="leading" id="4ut-0q-gj7"/>
-                                    <constraint firstAttribute="bottom" secondItem="YOU-Mo-zPS" secondAttribute="bottom" constant="23" id="4z9-LS-vEm"/>
-                                    <constraint firstItem="COi-gJ-OXg" firstAttribute="centerY" secondItem="x1m-7E-IAA" secondAttribute="centerY" id="PH0-hW-iXE"/>
-                                    <constraint firstAttribute="bottom" secondItem="R95-fO-XBj" secondAttribute="bottom" id="Ppk-ta-rXy"/>
-                                    <constraint firstItem="R95-fO-XBj" firstAttribute="top" secondItem="YOU-Mo-zPS" secondAttribute="bottom" constant="22" id="cPv-wK-89e"/>
-                                    <constraint firstItem="YOU-Mo-zPS" firstAttribute="centerY" secondItem="x1m-7E-IAA" secondAttribute="centerY" id="fkL-yr-ZPr"/>
-                                    <constraint firstItem="YOU-Mo-zPS" firstAttribute="top" secondItem="x1m-7E-IAA" secondAttribute="top" constant="23" id="gtp-Ru-opO"/>
-                                    <constraint firstAttribute="trailing" secondItem="R95-fO-XBj" secondAttribute="trailing" id="mr4-8v-iU8"/>
-                                    <constraint firstItem="YOU-Mo-zPS" firstAttribute="centerX" secondItem="x1m-7E-IAA" secondAttribute="centerX" id="s01-nO-xQN"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OXq-8Y-s6D"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="x1m-7E-IAA" firstAttribute="leading" secondItem="OXq-8Y-s6D" secondAttribute="leading" id="2y3-6H-FAf"/>
                             <constraint firstItem="OXq-8Y-s6D" firstAttribute="bottom" secondItem="HlR-um-ntq" secondAttribute="bottom" id="L61-qa-NbF"/>
-                            <constraint firstItem="HlR-um-ntq" firstAttribute="top" secondItem="x1m-7E-IAA" secondAttribute="bottom" id="PQZ-d0-1K5"/>
+                            <constraint firstItem="HlR-um-ntq" firstAttribute="top" secondItem="OXq-8Y-s6D" secondAttribute="top" id="Rvw-R1-10H"/>
                             <constraint firstItem="HlR-um-ntq" firstAttribute="leading" secondItem="OXq-8Y-s6D" secondAttribute="leading" id="XCJ-gv-e9M"/>
                             <constraint firstItem="OXq-8Y-s6D" firstAttribute="trailing" secondItem="HlR-um-ntq" secondAttribute="trailing" id="Zfd-Hr-tRj"/>
-                            <constraint firstAttribute="trailing" secondItem="x1m-7E-IAA" secondAttribute="trailing" id="d9H-xc-gF1"/>
-                            <constraint firstItem="x1m-7E-IAA" firstAttribute="top" secondItem="OXq-8Y-s6D" secondAttribute="top" id="xhs-K5-zgi"/>
                         </constraints>
                     </view>
                     <connections>
@@ -487,11 +441,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1dY-8A-F3b" customClass="MyTextView" customModule="Demo" customModuleProvider="target">
-                                <rect key="frame" x="10" y="234.33333333333334" width="373" height="383.66666666666663"/>
+                                <rect key="frame" x="10" y="215.66666666666663" width="373" height="421"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                                <string key="text">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
 
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</mutableString>
+The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -609,11 +563,15 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
             <point key="canvasLocation" x="1704.5801526717557" y="48.591549295774648"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="1dY-8A-F3b">
+            <size key="intrinsicContentSize" width="4940" height="70.333333333333329"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="SVj-yO-W1t"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="arrow-left" width="20" height="20"/>
         <image name="arrowshape.turn.up.backward" catalog="system" width="128" height="104"/>
         <image name="bookmark" catalog="system" width="110" height="128"/>
         <image name="heart" catalog="system" width="128" height="107"/>

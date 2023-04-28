@@ -10,12 +10,10 @@ import MapKit
 
 class MapViewController: UIViewController {
     
-    // MARK: - Outlets
-    
+    // MARK: - Outlets    
     @IBOutlet private weak var mapView: MKMapView!
     
-    // MARK: - Private Variables
-    
+    // MARK: - Private Variables    
     private let locationManager = CLLocationManager()
     private let initialLocation = CLLocation(latitude: 23.0281, longitude: 72.4994)
     private var routeOverlay : MKOverlay?
@@ -25,8 +23,7 @@ class MapViewController: UIViewController {
         checkLocationAuth()
     }
     
-    // MARK: - Private Methods
-    
+    // MARK: - Private Methods    
     private func checkLocationPermission() {
         if CLLocationManager.locationServicesEnabled() {
             print("Location enabled")
@@ -74,10 +71,6 @@ class MapViewController: UIViewController {
         let annotation = MyAnnotation()
         annotation.coordinate = initialLocation.coordinate
         mapView.addAnnotation(annotation)
-    }
-    
-    @IBAction private func navigateBack(_ sender: UIButton) {
-        dismiss(animated: true)
     }
     
     private func drawRoute(routeData: [CLLocation]) {

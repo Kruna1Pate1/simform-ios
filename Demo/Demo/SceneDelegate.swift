@@ -18,7 +18,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         print("SceneDelegate \(#function) State: \(UIApplication.shared.applicationState.toString())")
 
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+
+        window = UIWindow(windowScene: windowScene)
+        let rootVC = UserDetails.isLoggedIn() ? UIStoryboard(name: "CombinedScreen", bundle: nil).instantiateViewController(withIdentifier: "CombinedVC") : UIStoryboard(name: "NavigationExercise", bundle: nil).instantiateViewController(withIdentifier: "LoginVC")
+        let navigationController = UINavigationController(rootViewController: rootVC)
+        navigationController.setNavigationBarHidden(true, animated: true)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
