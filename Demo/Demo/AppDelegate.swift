@@ -46,6 +46,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         print("AppDelegate \(#function) State: \(UIApplication.shared.applicationState.toString())")
     }
+    
+    var backgroundSessionCompletionHandler: (() -> Void)?
+    
+    func application(
+      _ application: UIApplication,
+      handleEventsForBackgroundURLSession
+        handleEventsForBackgroundURLSessionidentifier: String,
+      completionHandler: @escaping () -> Void) {
+        backgroundSessionCompletionHandler = completionHandler
+    }
 
 }
 
