@@ -50,7 +50,9 @@ struct Component {
             Component(name: "Download File", stroyboardName: "WebServices", vcName: "DownloadViewController"),
                       
             // Alamofire
-            Component(name: "Alamofire Demo", stroyboardName: "AlamofireDemo", vcName: "AFLoginVC")
+            Component(name: "Alamofire Demo", stroyboardName: "AlamofireDemo", vcName: "AFLoginVC"),
+            Component(name: "Alamofire Structe Login", stroyboardName: "AlamofireStructure", vcName: "AFSLoginVC"),
+            Component(name: "Alamofire Structe Register", stroyboardName: "AlamofireStructure", vcName: "AFSRegisterVC")
         ]
     }
 }

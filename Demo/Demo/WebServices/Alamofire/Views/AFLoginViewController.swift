@@ -10,7 +10,6 @@ import UIKit
 class AFLoginViewController: UIViewController {
     
     // MARK: - Outlets
-    
     @IBOutlet private weak var container: UIView!
     @IBOutlet private weak var txtUsername: MyTextField!
     @IBOutlet private weak var txtPassword: MyTextField!

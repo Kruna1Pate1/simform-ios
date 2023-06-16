@@ -28,7 +28,9 @@ class AFProductViewController: UIViewController {
         setupUI()
     }
     
+    // MARK: - Methods
     private func setupUI() {
+        title = "E-Commerce App"
         collectionViewFilter.dataSource = self
         collectionViewFilter.delegate = self
         collectionViewProduct.dataSource = self
@@ -84,7 +86,7 @@ extension AFProductViewController: UICollectionViewDelegate {
 
 extension AFProductViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width / 2 - 40, height: collectionView.bounds.height / 2 - 20)
+        return CGSize(width: collectionView.bounds.width / 2 - 30, height: collectionView.bounds.height / 2 - 20)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

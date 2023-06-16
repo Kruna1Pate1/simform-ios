@@ -14,9 +14,18 @@ class ProductCell: UICollectionViewCell {
     @IBOutlet private weak var imgProduct: UIImageView!
     @IBOutlet private weak var txtTitle: UILabel!
     @IBOutlet private weak var txtPrice: UILabel!
+    @IBOutlet weak var container: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupView()
+    }
+    
+    // MARK: - Methods
+    private func setupView() {
+        container.layer.cornerRadius = 5
+        container.layer.borderColor = UIColor(named: "LightGray")?.cgColor
+        container.layer.borderWidth = 0.5
     }
 
     func configCell(product: Product) {

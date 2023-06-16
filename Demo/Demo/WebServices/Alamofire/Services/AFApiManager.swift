@@ -14,9 +14,9 @@ class AFApiManager {
     
     static let shared: AFApiManager = AFApiManager()
     
-    func call<Response>(url: String, params: Parameters? = nil, method: HTTPMethod = .get, headers: HTTPHeaders? = nil, completion: @escaping (Result<Response, ApiError>) -> ()) where Response: Codable {
+    func call<Response>(url: String, params: Parameters? = nil, method: HTTPMethod = .get, encoding: ParameterEncoding = JSONEncoding.default, headers: HTTPHeaders? = nil, completion: @escaping (Result<Response, ApiError>) -> ()) where Response: Codable {
         
-        AF.request(url, method: method, parameters: params, encoding: JSONEncoding.default, headers: headers).responseDecodable(of: Response.self) { response in
+        AF.request(url, method: method, parameters: params, encoding: encoding, headers: headers).responseDecodable(of: Response.self) { response in
             
             guard let urlResponse = response.response, response.error == nil else {
                 completion(.failure(.unknownError(response.error?.localizedDescription ?? "Unknown error")))

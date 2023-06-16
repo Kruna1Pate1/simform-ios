@@ -14,20 +14,25 @@ class FilterCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        setupView()
+    }
+
+    // MARK: - Methods
+    private func setupView() {
         layer.cornerRadius = bounds.height / 2
+        layer.borderWidth = 0.5
+        layer.borderColor = isSelected ? UIColor(named: "Secondary")?.cgColor : UIColor(named: "LightGray")?.cgColor
         
         let transparentView = UIView(frame: bounds)
-        transparentView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        transparentView.backgroundColor = UIColor.clear
         backgroundView = transparentView
 
 
         let blueView = UIView(frame: bounds)
-        blueView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 1, alpha: 0.5270390795)
+        blueView.backgroundColor = UIColor(named: "Secondary")
         selectedBackgroundView = blueView
     }
-
-    // MARK: - Methods
+    
     func configCell(filter: String) {
         txtFilterName.text = filter
     }

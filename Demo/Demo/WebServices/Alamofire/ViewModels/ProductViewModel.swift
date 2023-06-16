@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class ProductViewModel {
     
@@ -62,7 +63,13 @@ class ProductViewModel {
     
     func filterProducts(filter: String) {
         let filterUrl = "\(filterUrl)/\(filter)"
-        AFApiManager.shared.call(url: filterUrl) { [weak self] (result: Result<[Product], ApiError>) in
+        
+        guard let encodedURL = filterUrl.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) else {
+            //Invalid URL
+            return
+        }
+        
+        AFApiManager.shared.call(url: encodedURL) { [weak self] (result: Result<[Product], ApiError>) in
             guard let self = self else { return }
             
             switch result {
