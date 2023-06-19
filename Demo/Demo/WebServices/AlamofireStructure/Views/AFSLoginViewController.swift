@@ -46,16 +46,4 @@ class AFSLoginViewController: UIViewController {
     @IBAction func onLoginClicked(_ sender: UIButton) {
         viewModel.validateData(email: txtEmail.text ?? "", password: txtPassword.text ?? "")
     }
-    
-    private func showAlert(title: String, message: String = "", completion: (() -> ())? = nil) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
-            completion?()
-            alertController.dismiss(animated: true)
-        }
-        
-        alertController.addAction(okAction)
-        
-        present(alertController, animated: true)
-    }
 }

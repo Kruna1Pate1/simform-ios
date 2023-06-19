@@ -7,5 +7,6 @@ target 'Demo' do
 
   # Pods for Demo
   pod 'Alamofire'
+  pod 'ReachabilitySwift'
 
 end

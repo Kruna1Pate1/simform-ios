@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0FAB8BA0B419271CBF50C258 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AFC96409AD77520A1CD2B1E /* Pods_Demo.framework */; };
+		E801E3F62A403A4100DCE4EC /* AFSDownloadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E801E3F52A403A4100DCE4EC /* AFSDownloadViewModel.swift */; };
+		E801E3F82A403B4100DCE4EC /* AFSDownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E801E3F72A403B4100DCE4EC /* AFSDownloadViewController.swift */; };
+		E801E3FA2A403C4700DCE4EC /* UIVIewController+extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E801E3F92A403C4700DCE4EC /* UIVIewController+extentions.swift */; };
 		E8022EA129DE8FA300A7BC9B /* MySegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8022EA029DE8FA300A7BC9B /* MySegmentedControl.swift */; };
 		E80DBD1729DD54C60020BB55 /* UIControls.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E80DBD1629DD54C60020BB55 /* UIControls.storyboard */; };
 		E80DBD1929DD55360020BB55 /* StepperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DBD1829DD55360020BB55 /* StepperViewController.swift */; };
@@ -35,6 +38,8 @@
 		E81640AA2A3ABF440073B6C1 /* AlamofireDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E81640A92A3ABF440073B6C1 /* AlamofireDemo.storyboard */; };
 		E81640AC2A3AC3D80073B6C1 /* AlamofireDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81640AB2A3AC3D80073B6C1 /* AlamofireDemoViewController.swift */; };
 		E81640AF2A3AC6BC0073B6C1 /* AFApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81640AE2A3AC6BC0073B6C1 /* AFApiManager.swift */; };
+		E81F94D92A405E2E00A352FB /* CombinedWebServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81F94D82A405E2E00A352FB /* CombinedWebServicesViewController.swift */; };
+		E81F94DB2A405E5C00A352FB /* CombinedWebServices.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E81F94DA2A405E5C00A352FB /* CombinedWebServices.storyboard */; };
 		E822007F29E7C959008CB9A0 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822007E29E7C959008CB9A0 /* StackViewController.swift */; };
 		E822008129E7CBAC008CB9A0 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822008029E7CBAC008CB9A0 /* StoryCell.swift */; };
 		E822008329E7CBC2008CB9A0 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822008229E7CBC2008CB9A0 /* FeedCell.swift */; };
@@ -158,6 +163,9 @@
 		376DF4838418E4BFD6A91ACB /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		7AFC96409AD77520A1CD2B1E /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B874E9E4A58ACB8996FC0C /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
+		E801E3F52A403A4100DCE4EC /* AFSDownloadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFSDownloadViewModel.swift; sourceTree = "<group>"; };
+		E801E3F72A403B4100DCE4EC /* AFSDownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFSDownloadViewController.swift; sourceTree = "<group>"; };
+		E801E3F92A403C4700DCE4EC /* UIVIewController+extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIewController+extentions.swift"; sourceTree = "<group>"; };
 		E8022EA029DE8FA300A7BC9B /* MySegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySegmentedControl.swift; sourceTree = "<group>"; };
 		E80DBD1629DD54C60020BB55 /* UIControls.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UIControls.storyboard; sourceTree = "<group>"; };
 		E80DBD1829DD55360020BB55 /* StepperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +193,8 @@
 		E81640A92A3ABF440073B6C1 /* AlamofireDemo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlamofireDemo.storyboard; sourceTree = "<group>"; };
 		E81640AB2A3AC3D80073B6C1 /* AlamofireDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireDemoViewController.swift; sourceTree = "<group>"; };
 		E81640AE2A3AC6BC0073B6C1 /* AFApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFApiManager.swift; sourceTree = "<group>"; };
+		E81F94D82A405E2E00A352FB /* CombinedWebServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedWebServicesViewController.swift; sourceTree = "<group>"; };
+		E81F94DA2A405E5C00A352FB /* CombinedWebServices.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CombinedWebServices.storyboard; sourceTree = "<group>"; };
 		E822007E29E7C959008CB9A0 /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
 		E822008029E7CBAC008CB9A0 /* StoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
 		E822008229E7CBC2008CB9A0 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
@@ -367,6 +377,7 @@
 				E84D2DCA29E3DC4200C4F59C /* Dictionary+extentions.swift */,
 				E8CBA8CE29F26B2B0074EC7C /* UIView+extentions.swift */,
 				E81640962A3873DD0073B6C1 /* Data+extentions.swift */,
+				E801E3F92A403C4700DCE4EC /* UIVIewController+extentions.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -435,6 +446,15 @@
 				E81640AE2A3AC6BC0073B6C1 /* AFApiManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		E81F94D72A405E1200A352FB /* CombinedWebServices */ = {
+			isa = PBXGroup;
+			children = (
+				E81F94D82A405E2E00A352FB /* CombinedWebServicesViewController.swift */,
+				E81F94DA2A405E5C00A352FB /* CombinedWebServices.storyboard */,
+			);
+			path = CombinedWebServices;
 			sourceTree = "<group>";
 		};
 		E830152B29ED259F00A75CE9 /* Cells */ = {
@@ -545,6 +565,7 @@
 				E8C529C12A3C7FBE002C5A8B /* AFSRegisterViewModel.swift */,
 				E8C529C62A3C8F54002C5A8B /* AFSUpdateViewModel.swift */,
 				E8739FC72A3C59030099D130 /* AFSLoginViewModel.swift */,
+				E801E3F52A403A4100DCE4EC /* AFSDownloadViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -555,6 +576,7 @@
 				E81545472A3C7BF800926971 /* AFSRegisterViewController.swift */,
 				E8C529C82A3C8F91002C5A8B /* AFSUpdateViewController.swift */,
 				E8739FC52A3C569E0099D130 /* AFSLoginViewController.swift */,
+				E801E3F72A403B4100DCE4EC /* AFSDownloadViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -595,6 +617,7 @@
 		E88912B52A36EDF4004E98C3 /* WebServices */ = {
 			isa = PBXGroup;
 			children = (
+				E81F94D72A405E1200A352FB /* CombinedWebServices */,
 				E8739FB12A3C35B90099D130 /* AlamofireStructure */,
 				E81640A52A3ABF140073B6C1 /* Alamofire */,
 				E816409A2A3885360073B6C1 /* ViewModels */,
@@ -904,6 +927,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E80DBD1729DD54C60020BB55 /* UIControls.storyboard in Resources */,
+				E81F94DB2A405E5C00A352FB /* CombinedWebServices.storyboard in Resources */,
 				E8BDBE1129DEC51B0094CF21 /* TableViewCell.xib in Resources */,
 				E84FACCB29FA71A0005B162A /* CoordinatorPattern.storyboard in Resources */,
 				E8C210D829ED021000AC944E /* Product.storyboard in Resources */,
@@ -1013,6 +1037,7 @@
 				E81640862A373C410073B6C1 /* RegistrationViewController.swift in Sources */,
 				E8DA41BC299B5C520054C3D1 /* AppDelegate.swift in Sources */,
 				E8FD9A7229B1B5A400E2F879 /* AccessDemo2.swift in Sources */,
+				E801E3FA2A403C4700DCE4EC /* UIVIewController+extentions.swift in Sources */,
 				E8FD9A7029B0CDBD00E2F879 /* AccessDemo.swift in Sources */,
 				E816408F2A383E0D0073B6C1 /* ImageUploadViewController.swift in Sources */,
 				E822007F29E7C959008CB9A0 /* StackViewController.swift in Sources */,
@@ -1046,11 +1071,14 @@
 				E8E00D5429F689620075C894 /* NavigationViewController.swift in Sources */,
 				E8739FB92A3C45380099D130 /* APIManager+Error.swift in Sources */,
 				E8BDBE1429DEE65E0094CF21 /* SwitchSettingCell.swift in Sources */,
+				E81F94D92A405E2E00A352FB /* CombinedWebServicesViewController.swift in Sources */,
 				E8CACEE429ED5204000427D9 /* SizeCell.swift in Sources */,
 				E88912C62A36F91B004E98C3 /* UserCodableApi.swift in Sources */,
 				E847605529DD8E6600031325 /* SongCell.swift in Sources */,
 				E8022EA129DE8FA300A7BC9B /* MySegmentedControl.swift in Sources */,
 				E81640A22A39A3720073B6C1 /* DownloadViewModel.swift in Sources */,
+				E801E3F62A403A4100DCE4EC /* AFSDownloadViewModel.swift in Sources */,
+				E801E3F82A403B4100DCE4EC /* AFSDownloadViewController.swift in Sources */,
 				E880850F29DFE9B8008254DC /* LanguageCell.swift in Sources */,
 				E82C8E2D29E6922400424E0C /* ToolBarViewController.swift in Sources */,
 				E88912BA2A36EF51004E98C3 /* UserListViewController.swift in Sources */,

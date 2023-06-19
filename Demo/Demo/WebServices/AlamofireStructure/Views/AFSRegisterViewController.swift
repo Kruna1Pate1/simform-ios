@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 class AFSRegisterViewController: UIViewController {
     
@@ -14,6 +15,8 @@ class AFSRegisterViewController: UIViewController {
     @IBOutlet private weak var txtName: MyTextField!
     @IBOutlet private weak var txtEmail: MyTextField!
     @IBOutlet private weak var txtNumber: MyTextField!
+    @IBOutlet private weak var imgProfile: UIImageView!
+    @IBOutlet private weak var progressBar: UIProgressView!
     @IBOutlet private weak var txtContry: MyTextField!
     
     private let viewModel = AFSRegisterViewModel()
@@ -22,6 +25,7 @@ class AFSRegisterViewController: UIViewController {
         super.viewDidLoad()
         bindViewModel()
         bindRegisterUI()
+        bindUploadImage()
     }
     
     // MARK: - Methods
@@ -42,20 +46,66 @@ class AFSRegisterViewController: UIViewController {
         }
     }
     
-    @IBAction func onRegisterClicked(_ sender: UIButton) {
-        viewModel.validateData(name: txtName.text ?? "", email: txtEmail.text ?? "", number: txtNumber.text ?? "", country: txtContry.text ?? "")
+    private func bindUploadImage() {
+        viewModel.progressValue.bind { progress in
+            self.progressBar.isHidden = (progress == 0) || (progress == 1)
+            self.progressBar.progress = progress
+        }
     }
     
+    @IBAction func onRegisterClicked(_ sender: UIButton) {
+        viewModel.validateData(name: txtName.text ?? "", email: txtEmail.text ?? "", number: txtNumber.text ?? "", country: txtContry.text ?? "", image: imgProfile.image)
+    }
     
-    private func showAlert(title: String, message: String = "", completion: (() -> ())? = nil) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
-            completion?()
-            alertController.dismiss(animated: true)
+    @IBAction func setImage(_ sender: UIButton) {
+        if #available(iOS 14, *) {
+            var configuaration = PHPickerConfiguration()
+            configuaration.filter = .images
+            configuaration.selectionLimit = 1
+            configuaration.selection = .ordered
+            
+            let picker = PHPickerViewController(configuration: configuaration)
+            picker.delegate = self
+            present(picker, animated: true)
+        } else {
+            let imagePicker = UIImagePickerController()
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = true
+            imagePicker.delegate = self
+            
+            self.present(imagePicker, animated: true)
         }
+    }
+}
+
+// MARK: - Image Picker
+extension AFSRegisterViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        dismiss(animated: true)
         
-        alertController.addAction(okAction)
+        guard let image = (info[.editedImage] ?? info[.originalImage]) as? UIImage else { return }
+        imgProfile.image = image
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true)
+    }
+}
+
+// MARK: - PHPicker
+extension AFSRegisterViewController: PHPickerViewControllerDelegate, UINavigationControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        dismiss(animated: true)
         
-        present(alertController, animated: true)
+        let itemProvider = results.randomElement()?.itemProvider
+        if let itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+                if let self = self, let image = image as? UIImage {
+                    DispatchQueue.main.async {
+                        self.imgProfile.image = image
+                    }
+                }
+            }
+        }
     }
 }
