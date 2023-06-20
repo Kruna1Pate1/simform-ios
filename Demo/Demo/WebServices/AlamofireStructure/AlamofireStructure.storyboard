@@ -460,34 +460,34 @@
     </scenes>
     <designables>
         <designable name="07y-kD-ejz">
-            <size key="intrinsicContentSize" width="130.5" height="34"/>
+            <size key="intrinsicContentSize" width="171.5" height="42.5"/>
         </designable>
         <designable name="454-vl-FDW">
-            <size key="intrinsicContentSize" width="90.5" height="34"/>
+            <size key="intrinsicContentSize" width="131.5" height="42.5"/>
         </designable>
         <designable name="BaK-mu-wiS">
-            <size key="intrinsicContentSize" width="124.5" height="34"/>
+            <size key="intrinsicContentSize" width="165.5" height="42.5"/>
         </designable>
         <designable name="DpI-tg-nZf">
-            <size key="intrinsicContentSize" width="149" height="34"/>
+            <size key="intrinsicContentSize" width="190" height="42.5"/>
         </designable>
         <designable name="Grw-9b-PGf">
-            <size key="intrinsicContentSize" width="124.5" height="34"/>
+            <size key="intrinsicContentSize" width="165.5" height="42.5"/>
         </designable>
         <designable name="Lds-Pm-CIC">
-            <size key="intrinsicContentSize" width="92.5" height="34"/>
+            <size key="intrinsicContentSize" width="133.5" height="42.5"/>
         </designable>
         <designable name="RQd-ox-cWR">
-            <size key="intrinsicContentSize" width="62.5" height="34"/>
+            <size key="intrinsicContentSize" width="103.5" height="42.5"/>
         </designable>
         <designable name="d2y-O8-puX">
-            <size key="intrinsicContentSize" width="80" height="34"/>
+            <size key="intrinsicContentSize" width="121" height="42.5"/>
         </designable>
         <designable name="jKc-y2-TXa">
-            <size key="intrinsicContentSize" width="80" height="34"/>
+            <size key="intrinsicContentSize" width="121" height="42.5"/>
         </designable>
         <designable name="zdB-sz-8Vq">
-            <size key="intrinsicContentSize" width="160.5" height="34"/>
+            <size key="intrinsicContentSize" width="201.5" height="42.5"/>
         </designable>
     </designables>
     <resources>
