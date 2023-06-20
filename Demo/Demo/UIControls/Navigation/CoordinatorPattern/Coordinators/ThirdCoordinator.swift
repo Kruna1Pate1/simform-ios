@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ThirdCoordinator: Coordinator {
+class ThirdCoordinator: NCoordinator {
     
-    var childCoordinators: [Coordinator] = []
+    var childCoordinators: [NCoordinator] = []
     
     unowned let navigationController: UINavigationController
     

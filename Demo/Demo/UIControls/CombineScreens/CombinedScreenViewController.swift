@@ -110,9 +110,18 @@ extension CombinedScreenViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = components[indexPath.section].viewController
-        vc.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(vc, animated: true)
+        guard let navigationController = navigationController else { return }
+        
+        if indexPath.section == 0 {
+            // Coordinator pattern
+            let appCoordinator = AppCoordinator(navigationController: navigationController)
+            UserManager.shared.sceneDelegate?.appCoordinator = appCoordinator
+            appCoordinator.start()
+        } else {
+            let vc = components[indexPath.section].viewController
+            vc.hidesBottomBarWhenPushed = true
+            navigationController.pushViewController(vc, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
