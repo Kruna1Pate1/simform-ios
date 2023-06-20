@@ -20,7 +20,7 @@ class AFSUpdateViewController: UIViewController {
     
     // MARK: - Vars & Lets
     private let viewModel = AFSUpdateViewModel()
-    var userId: String = "0"
+    var userId: String = "55"
     
     override func viewDidLoad() {
         super.viewDidLoad()

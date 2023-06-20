@@ -31,6 +31,9 @@ struct Component {
     }
     
     private static let uiComponents = [
+        // MVVM & Coordinator pattern
+        Component(name: "MVVM & Coordinator pattern", stroyboardName: "", vcName: ""),
+        
         // UIComponents Storyboard 1
         Component(name: "UILabel, UIButton, UITextField, UITextView, UISwitch, UISlider, UIProgressView, UIPageControl", stroyboardName: "UIControls", vcName: "UIControlsViewController"),
         Component(name: "UISegmentedControl", stroyboardName: "UIControls", vcName: "SegmantedControlViewController"),
