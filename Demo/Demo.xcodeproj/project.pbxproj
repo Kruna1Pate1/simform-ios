@@ -754,6 +754,7 @@
 		E88912B52A36EDF4004E98C3 /* WebServices */ = {
 			isa = PBXGroup;
 			children = (
+				E81F94DC2A41754C00A352FB /* MVVMArchitecture */,
 				E81F94D72A405E1200A352FB /* CombinedWebServices */,
 				E8739FB12A3C35B90099D130 /* AlamofireStructure */,
 				E81640A52A3ABF140073B6C1 /* Alamofire */,
