@@ -156,6 +156,11 @@
 		E8D4971129F66103007D5B91 /* DynamicTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D4971029F66103007D5B91 /* DynamicTextViewController.swift */; };
 		E8D4DB462A41B69A0081252A /* AuthenticationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D4DB452A41B69A0081252A /* AuthenticationModel.swift */; };
 		E8D4DB482A41C0A80081252A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D4DB472A41C0A80081252A /* HomeViewModel.swift */; };
+		E8D4DB4E2A41D0320081252A /* MVPAuthenticationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D4DB4D2A41D0320081252A /* MVPAuthenticationModel.swift */; };
+		E8D4DB502A41D0700081252A /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D4DB4F2A41D0700081252A /* AuthenticationService.swift */; };
+		E8D4DB552A41D26C0081252A /* MVPLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D4DB542A41D26C0081252A /* MVPLoginVC.swift */; };
+		E8D4DB572A41D2840081252A /* MVPAuthentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8D4DB562A41D2840081252A /* MVPAuthentication.storyboard */; };
+		E8D4DB612A41DB3E0081252A /* MVPLoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D4DB602A41DB3E0081252A /* MVPLoginPresenter.swift */; };
 		E8DA41BC299B5C520054C3D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DA41BB299B5C520054C3D1 /* AppDelegate.swift */; };
 		E8DA41BE299B5C520054C3D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DA41BD299B5C520054C3D1 /* SceneDelegate.swift */; };
 		E8DA41C0299B5C520054C3D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DA41BF299B5C520054C3D1 /* ViewController.swift */; };
@@ -326,6 +331,11 @@
 		E8D4971029F66103007D5B91 /* DynamicTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTextViewController.swift; sourceTree = "<group>"; };
 		E8D4DB452A41B69A0081252A /* AuthenticationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationModel.swift; sourceTree = "<group>"; };
 		E8D4DB472A41C0A80081252A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		E8D4DB4D2A41D0320081252A /* MVPAuthenticationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPAuthenticationModel.swift; sourceTree = "<group>"; };
+		E8D4DB4F2A41D0700081252A /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		E8D4DB542A41D26C0081252A /* MVPLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPLoginVC.swift; sourceTree = "<group>"; };
+		E8D4DB562A41D2840081252A /* MVPAuthentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MVPAuthentication.storyboard; sourceTree = "<group>"; };
+		E8D4DB602A41DB3E0081252A /* MVPLoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPLoginPresenter.swift; sourceTree = "<group>"; };
 		E8DA41B8299B5C520054C3D1 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8DA41BB299B5C520054C3D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8DA41BD299B5C520054C3D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -754,7 +764,6 @@
 		E88912B52A36EDF4004E98C3 /* WebServices */ = {
 			isa = PBXGroup;
 			children = (
-				E81F94DC2A41754C00A352FB /* MVVMArchitecture */,
 				E81F94D72A405E1200A352FB /* CombinedWebServices */,
 				E8739FB12A3C35B90099D130 /* AlamofireStructure */,
 				E81640A52A3ABF140073B6C1 /* Alamofire */,
@@ -919,6 +928,50 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		E8D4DB492A41CFDA0081252A /* MVP */ = {
+			isa = PBXGroup;
+			children = (
+				E8D4DB532A41D2570081252A /* View */,
+				E8D4DB4C2A41D0060081252A /* Presenter */,
+				E8D4DB4B2A41CFFA0081252A /* DataSource */,
+				E8D4DB4A2A41CFEF0081252A /* Model */,
+			);
+			path = MVP;
+			sourceTree = "<group>";
+		};
+		E8D4DB4A2A41CFEF0081252A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E8D4DB4D2A41D0320081252A /* MVPAuthenticationModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E8D4DB4B2A41CFFA0081252A /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				E8D4DB4F2A41D0700081252A /* AuthenticationService.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		E8D4DB4C2A41D0060081252A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E8D4DB602A41DB3E0081252A /* MVPLoginPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E8D4DB532A41D2570081252A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E8D4DB542A41D26C0081252A /* MVPLoginVC.swift */,
+				E8D4DB562A41D2840081252A /* MVPAuthentication.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E8DA41AF299B5C520054C3D1 = {
 			isa = PBXGroup;
 			children = (
@@ -940,6 +993,7 @@
 		E8DA41BA299B5C520054C3D1 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				E8D4DB492A41CFDA0081252A /* MVP */,
 				E81F94DC2A41754C00A352FB /* MVVMArchitecture */,
 				E88912B52A36EDF4004E98C3 /* WebServices */,
 				E814A31B29DE81C200C772C3 /* Extentions */,
@@ -1079,6 +1133,7 @@
 				E8CBA8CD29F117070074EC7C /* indian_cities.json in Resources */,
 				E81F95012A419E9600A352FB /* Home.storyboard in Resources */,
 				E86D6DBE29EEA76A0086CD80 /* ScheduleMeeting.storyboard in Resources */,
+				E8D4DB572A41D2840081252A /* MVPAuthentication.storyboard in Resources */,
 				E82C8E2B29E691DF00424E0C /* UIControls2.storyboard in Resources */,
 				E80E996D29F01B04005313C9 /* CombinedScreen.storyboard in Resources */,
 				E88912B72A36EF07004E98C3 /* WebServices.storyboard in Resources */,
@@ -1177,6 +1232,7 @@
 				E8CBA8D329F26BD70074EC7C /* UIDatePicker+extentions.swift in Sources */,
 				E8A2786F2A3AE1EC0016360A /* AFDemoConstants.swift in Sources */,
 				E816408D2A383BBF0073B6C1 /* ImageUploadApi.swift in Sources */,
+				E8D4DB612A41DB3E0081252A /* MVPLoginPresenter.swift in Sources */,
 				E81640862A373C410073B6C1 /* RegistrationViewController.swift in Sources */,
 				E8DA41BC299B5C520054C3D1 /* AppDelegate.swift in Sources */,
 				E8FD9A7229B1B5A400E2F879 /* AccessDemo2.swift in Sources */,
@@ -1189,6 +1245,7 @@
 				E8403A5429F8F1C500DB6B6B /* FirstPresentViewController.swift in Sources */,
 				E8A7C95729DAE8C000C91F5B /* ContainerView.swift in Sources */,
 				E842540129EEBDAD00BFC012 /* MyTextView.swift in Sources */,
+				E8D4DB502A41D0700081252A /* AuthenticationService.swift in Sources */,
 				E8E00D5F29F69A710075C894 /* FourthViewController.swift in Sources */,
 				E84FACD229FA72FB005B162A /* ThirdCoordinatorViewController.swift in Sources */,
 				E84FACC829FA6B1C005B162A /* UserDetails.swift in Sources */,
@@ -1228,6 +1285,7 @@
 				E8022EA129DE8FA300A7BC9B /* MySegmentedControl.swift in Sources */,
 				E81640A22A39A3720073B6C1 /* DownloadViewModel.swift in Sources */,
 				E81F94F12A417BDF00A352FB /* SignupVC.swift in Sources */,
+				E8D4DB4E2A41D0320081252A /* MVPAuthenticationModel.swift in Sources */,
 				E801E3F62A403A4100DCE4EC /* AFSDownloadViewModel.swift in Sources */,
 				E801E3F82A403B4100DCE4EC /* AFSDownloadViewController.swift in Sources */,
 				E880850F29DFE9B8008254DC /* LanguageCell.swift in Sources */,
@@ -1277,6 +1335,7 @@
 				E82C8E2929E67A5300424E0C /* TabBarViewController.swift in Sources */,
 				E80E997529F01C78005313C9 /* ComponentCell.swift in Sources */,
 				E8C210DC29ED03C600AC944E /* ProductViewController.swift in Sources */,
+				E8D4DB552A41D26C0081252A /* MVPLoginVC.swift in Sources */,
 				E880850C29DFE647008254DC /* LanguageModel.swift in Sources */,
 				E84FACD029FA72F3005B162A /* SecondCoordinatorViewController.swift in Sources */,
 				E8C861FD2A3B1C0B0011DC0F /* AFProductViewController.swift in Sources */,

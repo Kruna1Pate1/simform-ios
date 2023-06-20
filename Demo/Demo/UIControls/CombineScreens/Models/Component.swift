@@ -34,6 +34,11 @@ struct Component {
         // MVVM & Coordinator pattern
         Component(name: "MVVM & Coordinator pattern", stroyboardName: "", vcName: ""),
         
+        // MVP
+        Component(name: "MVP", stroyboardName: "MVPAuthentication", vcName: "MVPLoginVC"),
+        
+        
+        
         // UIComponents Storyboard 1
         Component(name: "UILabel, UIButton, UITextField, UITextView, UISwitch, UISlider, UIProgressView, UIPageControl", stroyboardName: "UIControls", vcName: "UIControlsViewController"),
         Component(name: "UISegmentedControl", stroyboardName: "UIControls", vcName: "SegmantedControlViewController"),
