@@ -161,6 +161,13 @@
 		E8D4DB552A41D26C0081252A /* MVPLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D4DB542A41D26C0081252A /* MVPLoginVC.swift */; };
 		E8D4DB572A41D2840081252A /* MVPAuthentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8D4DB562A41D2840081252A /* MVPAuthentication.storyboard */; };
 		E8D4DB612A41DB3E0081252A /* MVPLoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D4DB602A41DB3E0081252A /* MVPLoginPresenter.swift */; };
+		E8D4DB692A41DC9E0081252A /* ViperLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D4DB682A41DC9E0081252A /* ViperLoginVC.swift */; };
+		E8D4DB6B2A41DCB10081252A /* ViperAuthentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8D4DB6A2A41DCB10081252A /* ViperAuthentication.storyboard */; };
+		E8D4DB6E2A42B6800081252A /* ViperAuthenticationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D4DB6D2A42B6800081252A /* ViperAuthenticationInteractor.swift */; };
+		E8D4DB712A42C3960081252A /* AuthenticationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D4DB702A42C3960081252A /* AuthenticationRouter.swift */; };
+		E8D4DB732A42C4470081252A /* ViperHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D4DB722A42C4470081252A /* ViperHomeVC.swift */; };
+		E8D4DB752A42C8CA0081252A /* ViperLoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D4DB742A42C8CA0081252A /* ViperLoginPresenter.swift */; };
+		E8D4DB772A42C9CB0081252A /* AuthenticationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D4DB762A42C9CB0081252A /* AuthenticationEntity.swift */; };
 		E8DA41BC299B5C520054C3D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DA41BB299B5C520054C3D1 /* AppDelegate.swift */; };
 		E8DA41BE299B5C520054C3D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DA41BD299B5C520054C3D1 /* SceneDelegate.swift */; };
 		E8DA41C0299B5C520054C3D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DA41BF299B5C520054C3D1 /* ViewController.swift */; };
@@ -336,6 +343,13 @@
 		E8D4DB542A41D26C0081252A /* MVPLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPLoginVC.swift; sourceTree = "<group>"; };
 		E8D4DB562A41D2840081252A /* MVPAuthentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MVPAuthentication.storyboard; sourceTree = "<group>"; };
 		E8D4DB602A41DB3E0081252A /* MVPLoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPLoginPresenter.swift; sourceTree = "<group>"; };
+		E8D4DB682A41DC9E0081252A /* ViperLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperLoginVC.swift; sourceTree = "<group>"; };
+		E8D4DB6A2A41DCB10081252A /* ViperAuthentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ViperAuthentication.storyboard; sourceTree = "<group>"; };
+		E8D4DB6D2A42B6800081252A /* ViperAuthenticationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperAuthenticationInteractor.swift; sourceTree = "<group>"; };
+		E8D4DB702A42C3960081252A /* AuthenticationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRouter.swift; sourceTree = "<group>"; };
+		E8D4DB722A42C4470081252A /* ViperHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperHomeVC.swift; sourceTree = "<group>"; };
+		E8D4DB742A42C8CA0081252A /* ViperLoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperLoginPresenter.swift; sourceTree = "<group>"; };
+		E8D4DB762A42C9CB0081252A /* AuthenticationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationEntity.swift; sourceTree = "<group>"; };
 		E8DA41B8299B5C520054C3D1 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8DA41BB299B5C520054C3D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8DA41BD299B5C520054C3D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -972,6 +986,60 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E8D4DB622A41DC180081252A /* VIPER */ = {
+			isa = PBXGroup;
+			children = (
+				E8D4DB672A41DC840081252A /* Router */,
+				E8D4DB662A41DC7C0081252A /* Entity */,
+				E8D4DB652A41DC5A0081252A /* Presenter */,
+				E8D4DB642A41DC530081252A /* Interactor */,
+				E8D4DB632A41DC4E0081252A /* View */,
+			);
+			path = VIPER;
+			sourceTree = "<group>";
+		};
+		E8D4DB632A41DC4E0081252A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E8D4DB682A41DC9E0081252A /* ViperLoginVC.swift */,
+				E8D4DB722A42C4470081252A /* ViperHomeVC.swift */,
+				E8D4DB6A2A41DCB10081252A /* ViperAuthentication.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E8D4DB642A41DC530081252A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				E8D4DB6D2A42B6800081252A /* ViperAuthenticationInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		E8D4DB652A41DC5A0081252A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E8D4DB742A42C8CA0081252A /* ViperLoginPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E8D4DB662A41DC7C0081252A /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				E8D4DB762A42C9CB0081252A /* AuthenticationEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		E8D4DB672A41DC840081252A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E8D4DB702A42C3960081252A /* AuthenticationRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		E8DA41AF299B5C520054C3D1 = {
 			isa = PBXGroup;
 			children = (
@@ -993,6 +1061,7 @@
 		E8DA41BA299B5C520054C3D1 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				E8D4DB622A41DC180081252A /* VIPER */,
 				E8D4DB492A41CFDA0081252A /* MVP */,
 				E81F94DC2A41754C00A352FB /* MVVMArchitecture */,
 				E88912B52A36EDF4004E98C3 /* WebServices */,
@@ -1145,6 +1214,7 @@
 				E880851029DFE9B8008254DC /* LanguageCell.xib in Resources */,
 				E8DA41C3299B5C520054C3D1 /* Main.storyboard in Resources */,
 				E8A01AF729D1545700879A53 /* AutoLayout.storyboard in Resources */,
+				E8D4DB6B2A41DCB10081252A /* ViperAuthentication.storyboard in Resources */,
 				E80E997629F01C78005313C9 /* ComponentCell.xib in Resources */,
 				E8E00D5629F689700075C894 /* Navigation.storyboard in Resources */,
 			);
@@ -1203,17 +1273,20 @@
 				E80DBD1D29DD8BE10020BB55 /* CollectionViewController.swift in Sources */,
 				E8C4C6EC29E5376900B4FD58 /* ActivityIndicatorViewController.swift in Sources */,
 				E84FACD529FA736A005B162A /* NCoordinator.swift in Sources */,
+				E8D4DB732A42C4470081252A /* ViperHomeVC.swift in Sources */,
 				E84FACD729FA73F3005B162A /* FirstCoordinator.swift in Sources */,
 				E816409E2A3983DA0073B6C1 /* BaseResponse.swift in Sources */,
 				E81F94E72A4176CA00A352FB /* AppCoordinator.swift in Sources */,
 				E81F94FC2A419E1800A352FB /* HomeVC.swift in Sources */,
 				E8403A5829F8F1E100DB6B6B /* ThirdPresentViewController.swift in Sources */,
 				E81545482A3C7BF800926971 /* AFSRegisterViewController.swift in Sources */,
+				E8D4DB692A41DC9E0081252A /* ViperLoginVC.swift in Sources */,
 				E8A3A16D29F91C9A00F5BF70 /* LoginViewController.swift in Sources */,
 				E8CF4D2329F8E2E500EFE6AF /* DataDelegate.swift in Sources */,
 				E81640AF2A3AC6BC0073B6C1 /* AFApiManager.swift in Sources */,
 				E8C9A0B429E030AF00F2376C /* GenreHeaderView.swift in Sources */,
 				E8D4971129F66103007D5B91 /* DynamicTextViewController.swift in Sources */,
+				E8D4DB752A42C8CA0081252A /* ViperLoginPresenter.swift in Sources */,
 				E8C529C72A3C8F54002C5A8B /* AFSUpdateViewModel.swift in Sources */,
 				E80DBD1929DD55360020BB55 /* StepperViewController.swift in Sources */,
 				E8739FB72A3C42890099D130 /* APIManager+EndPointType.swift in Sources */,
@@ -1276,6 +1349,7 @@
 				E87B794129EF9E010045C7A5 /* Utils.swift in Sources */,
 				E8E00D5429F689620075C894 /* NavigationViewController.swift in Sources */,
 				E8739FB92A3C45380099D130 /* APIManager+Error.swift in Sources */,
+				E8D4DB712A42C3960081252A /* AuthenticationRouter.swift in Sources */,
 				E8BDBE1429DEE65E0094CF21 /* SwitchSettingCell.swift in Sources */,
 				E81F94EB2A4178AC00A352FB /* UserManager.swift in Sources */,
 				E81F94D92A405E2E00A352FB /* CombinedWebServicesViewController.swift in Sources */,
@@ -1291,6 +1365,7 @@
 				E880850F29DFE9B8008254DC /* LanguageCell.swift in Sources */,
 				E82C8E2D29E6922400424E0C /* ToolBarViewController.swift in Sources */,
 				E88912BA2A36EF51004E98C3 /* UserListViewController.swift in Sources */,
+				E8D4DB772A42C9CB0081252A /* AuthenticationEntity.swift in Sources */,
 				E822008329E7CBC2008CB9A0 /* FeedCell.swift in Sources */,
 				E8CBA8D529F26CB70074EC7C /* UIColor+extentions.swift in Sources */,
 				E8739FC82A3C59030099D130 /* AFSLoginViewModel.swift in Sources */,
@@ -1338,6 +1413,7 @@
 				E8D4DB552A41D26C0081252A /* MVPLoginVC.swift in Sources */,
 				E880850C29DFE647008254DC /* LanguageModel.swift in Sources */,
 				E84FACD029FA72F3005B162A /* SecondCoordinatorViewController.swift in Sources */,
+				E8D4DB6E2A42B6800081252A /* ViperAuthenticationInteractor.swift in Sources */,
 				E8C861FD2A3B1C0B0011DC0F /* AFProductViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

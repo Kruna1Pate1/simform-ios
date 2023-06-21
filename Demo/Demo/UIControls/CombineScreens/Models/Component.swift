@@ -37,7 +37,9 @@ struct Component {
         // MVP
         Component(name: "MVP", stroyboardName: "MVPAuthentication", vcName: "MVPLoginVC"),
         
-        
+             
+        // VIPER
+        Component(name: "VIPER", stroyboardName: "ViperAuthentication", vcName: "ViperLoginVC"),
         
         // UIComponents Storyboard 1
         Component(name: "UILabel, UIButton, UITextField, UITextView, UISwitch, UISlider, UIProgressView, UIPageControl", stroyboardName: "UIControls", vcName: "UIControlsViewController"),
