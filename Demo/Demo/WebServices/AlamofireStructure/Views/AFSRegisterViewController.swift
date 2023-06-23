@@ -30,13 +30,15 @@ class AFSRegisterViewController: UIViewController {
     
     // MARK: - Methods
     private func bindViewModel() {
-        viewModel.errorMessage.bind { message in
-            self.showAlert(title: "Registration failed", message: message)
+        viewModel.errorMessage.bind { [weak self] message in
+            self?.showAlert(title: "Registration failed", message: message)
         }
     }
     
     private func bindRegisterUI() {
-        viewModel.registerSuccess.bind { userId in
+        viewModel.registerSuccess.bind {  [weak self] userId in
+            guard let self = self else { return }
+            
             self.showAlert(title: "Login successful", message: "Id: \(userId)") {
                 if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AFSUpdateVC") as? AFSUpdateViewController {
                     vc.userId = userId
@@ -47,7 +49,9 @@ class AFSRegisterViewController: UIViewController {
     }
     
     private func bindUploadImage() {
-        viewModel.progressValue.bind { progress in
+        viewModel.progressValue.bind {  [weak self] progress in
+            guard let self = self else { return }
+            
             self.progressBar.isHidden = (progress == 0) || (progress == 1)
             self.progressBar.progress = progress
         }
@@ -73,7 +77,7 @@ class AFSRegisterViewController: UIViewController {
             imagePicker.allowsEditing = true
             imagePicker.delegate = self
             
-            self.present(imagePicker, animated: true)
+            present(imagePicker, animated: true)
         }
     }
 }

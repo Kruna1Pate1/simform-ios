@@ -11,7 +11,7 @@ class UserListViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet private weak var tblUsers: UITableView!
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    @IBOutlet private weak var indicator: UIActivityIndicatorView!
     
     // MARK: - Variables
     private var users: [User] = []
@@ -81,7 +81,9 @@ extension UserListViewController: UITableViewDelegate {
                     message = error.localizedDescription
                 }
                 
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    
                     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
                     alertController.addAction(UIAlertAction(title: "Ok", style: .default) {_ in
                         alertController.dismiss(animated: true)

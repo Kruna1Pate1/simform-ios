@@ -26,19 +26,19 @@ class AFSDownloadViewController: UIViewController {
     
     // MARK: - Methods
     private func bindViewModel() {
-        viewModel.errorMessage.bind { message in
-            self.showAlert(title: "Download failed", message: message)
+        viewModel.errorMessage.bind { [weak self] message in
+            self?.showAlert(title: "Download failed", message: message)
         }
     }
     
     private func bindDownloadUI() {
-        viewModel.progressValue.bind { progress in
-            self.progressBar.isHidden = (progress == 0) || (progress == 1)
-            self.progressBar.progress = progress
+        viewModel.progressValue.bind { [weak self] progress in
+            self?.progressBar.isHidden = (progress == 0) || (progress == 1)
+            self?.progressBar.progress = progress
         }
         
-        viewModel.downloadSuccess.bind { path in
-            self.txtDownloadPath.text = path
+        viewModel.downloadSuccess.bind { [weak self] path in
+            self?.txtDownloadPath.text = path
         }
     }
    

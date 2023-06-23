@@ -31,14 +31,14 @@ class AFSLoginViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        viewModel.errorMessage.bind { message in
-            self.showAlert(title: "Login failed", message: message)
+        viewModel.errorMessage.bind { [weak self] message in
+            self?.showAlert(title: "Login failed", message: message)
         }
     }
     
     private func bindSignInUI() {
-        viewModel.loginSuccess.bind { token in
-            self.showAlert(title: "Login successful", message: "Token: \(token)")
+        viewModel.loginSuccess.bind { [weak self] token in
+            self?.showAlert(title: "Login successful", message: "Token: \(token)")
         }
     }
     

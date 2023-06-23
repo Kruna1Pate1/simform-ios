@@ -20,7 +20,7 @@ class AFSUpdateViewController: UIViewController {
     
     // MARK: - Vars & Lets
     private let viewModel = AFSUpdateViewModel()
-    var userId: String = "0"
+    var userId: String = "55"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,20 +51,21 @@ class AFSUpdateViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        viewModel.errorMessage.bind { message in
-            self.showAlert(title: "Details update failed", message: message)
+        viewModel.errorMessage.bind {  [weak self] message in
+            self?.showAlert(title: "Details update failed", message: message)
         }
     }
     
     private func bindUpdateUI() {
-        viewModel.registerSuccess.bind { userId in
-            self.showAlert(title: "Details updated successful", message: "Id: \(userId)") {
-            }
+        viewModel.registerSuccess.bind {  [weak self] userId in
+            self?.showAlert(title: "Details updated successful", message: "Id: \(userId)")
         }
     }
     
     private func bindUploadImage() {
-        viewModel.progressValue.bind { progress in
+        viewModel.progressValue.bind { [weak self] progress in
+            guard let self = self else { return }
+            
             self.progressBar.isHidden = (progress == 0) || (progress == 1)
             self.progressBar.progress = progress
         }
@@ -94,7 +95,7 @@ class AFSUpdateViewController: UIViewController {
             imagePicker.allowsEditing = true
             imagePicker.delegate = self
             
-            self.present(imagePicker, animated: true)
+            present(imagePicker, animated: true)
         }
     }
 }

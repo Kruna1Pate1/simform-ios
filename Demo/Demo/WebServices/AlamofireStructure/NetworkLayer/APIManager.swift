@@ -14,9 +14,7 @@ class APIManager {
     // MARK: Vars & Lets
     let reachability = try? Reachability()
     private let sessionManager: Session
-    static var shared: APIManager {
-        return APIManager()
-    }
+    static var shared: APIManager = APIManager()
     
     typealias ResponseHandeler<T> = ((Result<T, CustomError>) -> Void)
     
@@ -70,10 +68,10 @@ class APIManager {
             return
         }
         
-        AF.request(type.url,
-                   method: type.httpMethod,
-                   parameters: params,
-                   encoding: type.encoding).validate().responseData { (data) in
+        sessionManager.request(type.url,
+                               method: type.httpMethod,
+                               parameters: params,
+                               encoding: type.encoding).validate().responseData { (data) in
             guard let imageData = data.data, let image = UIImage(data: imageData) else {
                 handler(.failure(CustomError(title: APIError.errorAlertTitle, body: APIError.unprocessableEntity)))
                 return
@@ -88,7 +86,7 @@ class APIManager {
             return
         }
         
-        AF.download(type.url,
+        sessionManager.download(type.url,
                                 method: type.httpMethod,
                                 parameters: params,
                                 encoding: type.encoding, to: destination)

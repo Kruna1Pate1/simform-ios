@@ -29,7 +29,6 @@ struct User: Decodable {
     var email: String = ""
     var firstName: String = ""
     var lastName: String = ""
-//    var avtar: URL?
     var avatar: String = ""
     
     enum CodingKeys: String, CodingKey {
@@ -47,7 +46,4 @@ struct UserRegister: Codable {
 struct RegisterResponse: Codable {
     var id: Int = 0
     var token: String = ""
-}
-
-class UserDeleteResponse: BaseResponse<DefaultCodable> {
 }

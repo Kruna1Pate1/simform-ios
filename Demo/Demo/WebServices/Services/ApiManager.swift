@@ -7,12 +7,21 @@
 
 import Foundation
 
-
 enum ApiError: Error {
     case invalidUrl
     case timeOut
     case unsuccessful(code: Int)
     case unknownError(_ error: String? = nil)
+}
+
+enum RequestMethod: String {
+    case get     = "GET"
+    case post    = "POST"
+    case put     = "PUT"
+    case patch   = "PATCH"
+    case delete  = "DELETE"
+    case options = "OPTIONS"
+    case head    = "HEAD"
 }
 
 class ApiManager {
@@ -30,7 +39,7 @@ class ApiManager {
     
     static let shared: ApiManager = ApiManager()
     
-    func call<Response>(url: String, method: String = "GET", body: Codable? = nil, completion: @escaping (Result<Response, ApiError>) -> ()) where Response: Codable {
+    func call<Response>(url: String, method: RequestMethod = .get, body: Codable? = nil, completion: @escaping (Result<Response, ApiError>) -> ()) where Response: Codable {
         
         guard let url = URL(string: url) else {
             completion(.failure(.invalidUrl))
@@ -38,13 +47,13 @@ class ApiManager {
         }
         
         var request = URLRequest(url: url)
-        request.httpMethod = method
+        request.httpMethod = method.rawValue
         
         switch method {
-        case "GET":
+        case .get:
             break
             
-        case "POST", "PUT", "PATCH":
+        case .post, .put, .patch:
             let encoder = JSONEncoder()
             encoder.keyEncodingStrategy = .convertToSnakeCase
             if let body = body, let jsonBody = try? encoder.encode(body) {
@@ -81,7 +90,7 @@ class ApiManager {
             
             do {
                 let decoder = JSONDecoder()
-                // TODO: - decoder.keyDecodingStrategy = .convertFromSnakeCase fix not working
+                // decoder.keyDecodingStrategy = .convertFromSnakeCase fix not working since manual CodingKey is implemented.
                 let response = try decoder.decode(Response.self, from: data)
                 completion(.success(response))
             } catch let error {
