@@ -21,6 +21,17 @@ class MyTextField: UITextField {
         }
     }
     
+    @IBInspectable var leftImage: UIImage? {
+        didSet {
+            leftViewMode = .always
+            let imageView = UIImageView(image: leftImage?.resizedImage(to: CGSizeMake(22, 22)))
+            imageView.tintColor = .lightGray
+            imageView.contentMode = .left
+            leftView = imageView
+            leftView?.tintColor = .lightGray
+        }
+    }
+    
     let textPadding = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 40)
     
     required init?(coder: NSCoder) {

@@ -46,6 +46,7 @@ class ImageUploadViewController: UIViewController {
         viewModel.callToUploadImage(image: image, delegate: self)
     }
     
+    // MARK: - IBActions
     @IBAction func pickImage(_ sender: UIButton) {
         if #available(iOS 14, *) {
             var configuaration = PHPickerConfiguration()

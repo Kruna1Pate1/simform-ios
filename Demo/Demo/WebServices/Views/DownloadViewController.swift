@@ -31,6 +31,7 @@ class DownloadViewController: UIViewController {
         txtLastDownload.text = lastDownload?.absoluteString
     }
     
+    // MARK: - IBActions
     @IBAction func startDownload(_ sender: UIButton) {
         guard let text = txtUrl.text, let url = URL(string: text) else {
             txtError.text = "Invalid url"
