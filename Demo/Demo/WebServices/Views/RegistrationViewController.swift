@@ -15,14 +15,9 @@ class RegistrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
     }
     
-    private func setupUI() {
-        
-        
-    }
-    
+    // MARK: - IBActions
     @IBAction func register(_ sender: UIButton) {
         
         guard let email = txtEmail.text, let password = txtPassword.text else {

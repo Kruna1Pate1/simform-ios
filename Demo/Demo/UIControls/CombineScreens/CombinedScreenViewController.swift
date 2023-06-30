@@ -16,7 +16,7 @@ class CombinedScreenViewController: UIViewController {
     
     // MARK: - Private Variables
     private let componentCellName = "ComponentCell"
-    private var components = Component.getComponents()
+    private var components = Component.getComponents(type: .uiComponent)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,7 +110,9 @@ extension CombinedScreenViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(components[indexPath.section].viewController, animated: true)
+        let vc = components[indexPath.section].viewController
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

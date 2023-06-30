@@ -43,10 +43,10 @@ class UserCodableApi {
     }
     
     func registerUser(user: UserRegister, completion: @escaping (Result<RegisterResponse, ApiError>) -> ()) {
-        ApiManager.shared.call(url: registerUrl, method: "POST", body: user, completion: completion)
+        ApiManager.shared.call(url: registerUrl, method: .post, body: user, completion: completion)
     }
     
     func deleteUser(userId: Int, completion: @escaping (Result<BaseResponse<DefaultCodable>, ApiError>) -> ()) {
-        ApiManager.shared.call(url: "\(usersUrl)/\(userId)", method: "DELETE", completion: completion)
+        ApiManager.shared.call(url: "\(usersUrl)/\(userId)", method: .delete, completion: completion)
     }
 }
