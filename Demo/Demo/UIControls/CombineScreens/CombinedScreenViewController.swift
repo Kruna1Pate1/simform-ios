@@ -14,28 +14,9 @@ class CombinedScreenViewController: UIViewController {
     @IBOutlet private weak var tblComponents: UITableView!
     @IBOutlet private weak var btnEdit: UIButton!
     
-    // MARK: - Private Constants
-    
+    // MARK: - Private Variables
     private let componentCellName = "ComponentCell"
-    private var components = [
-        "UILabel, UIButton, UITextField, UITextView, UISwitch, UISlider, UIProgressView, UIPageControl",
-        "UISegmentedControl",
-        "UIStepper",
-        "UIScrollView",
-        "UITableView",
-        "UICollectionView, Pull refresh & UISearchBar",
-        "UIImageView & Picker",
-        "UIActivityIndicator",
-        "WKWebView & UIToolBar",
-        "Stack view",
-        "UITabBar",
-        "UIPickerView",
-        "UIDatePicker",
-        "UIMapView & CLLocation",
-        "Schedule Meeting",
-        "Flipkart Screen",
-        "Dynamic TextView"
-    ]
+    private var components = Component.getComponents()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +61,7 @@ extension CombinedScreenViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: componentCellName, for: indexPath) as? ComponentCell {
-            cell.lblTitle.text = components[indexPath.section]
+            cell.lblTitle.text = components[indexPath.section].name
             return cell
         }
         return TableViewCell()
@@ -106,7 +87,7 @@ extension CombinedScreenViewController: UITableViewDataSource {
 extension CombinedScreenViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return components[indexPath.section].contains("UILabel") ? 70 : 50
+        return components[indexPath.section].name.contains("UILabel") ? 70 : 50
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -129,7 +110,7 @@ extension CombinedScreenViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: components[indexPath.section], sender: nil)
+        navigationController?.pushViewController(components[indexPath.section].viewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
