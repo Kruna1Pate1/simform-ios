@@ -58,6 +58,9 @@ struct Component {
         
         // Flipkar Screen
         Component(name: "Flipkart Screen", stroyboardName: "Product", vcName: "Product"),
+        
+        // Flipkar Screen
+        Component(name: "Notification Center", stroyboardName: "NotificationCenterDemo", vcName: "NCOneVC"),
     ]
     
     private static let webServicesComponents = [

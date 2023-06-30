@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import Kingfisher
 
 class ProductCell: UICollectionViewCell {
 
@@ -29,13 +30,18 @@ class ProductCell: UICollectionViewCell {
     }
 
     func configCell(product: Product) {
-        if let imgUrl = product.image {
-            AF.request(imgUrl).responseData { data in
-                if let imgData = data.data {
-                    self.imgProduct.image = UIImage(data: imgData)
-                }
-            }
+        if let image = product.image {
+            imgProduct.kf.setImage(with: URL(string: image))
         }
+        
+        // Mannual loading of image
+//        if let imgUrl = product.image {
+//            AF.request(imgUrl).responseData { data in
+//                if let imgData = data.data {
+//                    self.imgProduct.image = UIImage(data: imgData)
+//                }
+//            }
+//        }
         
         txtTitle.text = product.title
         txtPrice.text = "$\(product.price ?? -1)"

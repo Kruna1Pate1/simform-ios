@@ -113,6 +113,9 @@
 		E88B7E5729FA517900BA8A30 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E88B7E5629FA517900BA8A30 /* HeaderView.xib */; };
 		E88B7E5B29FA532F00BA8A30 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88B7E5A29FA532F00BA8A30 /* HeaderView.swift */; };
 		E8980CCE29DACC2300EF6999 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8980CCD29DACC2300EF6999 /* MyButton.swift */; };
+		E89928522A495D87005221EA /* NCTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89928512A495D87005221EA /* NCTwoViewController.swift */; };
+		E89928542A495E29005221EA /* NCThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89928532A495E29005221EA /* NCThreeViewController.swift */; };
+		E89928572A49611E005221EA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E89928562A49611E005221EA /* Kingfisher */; };
 		E8A01AF729D1545700879A53 /* AutoLayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8A01AF629D1545700879A53 /* AutoLayout.storyboard */; };
 		E8A01AF929D154B100879A53 /* AutoLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A01AF829D154B100879A53 /* AutoLayoutViewController.swift */; };
 		E8A2786A2A3ADE530016360A /* AFLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A278692A3ADE530016360A /* AFLoginViewController.swift */; };
@@ -151,6 +154,8 @@
 		E8CBA8D129F26BA80074EC7C /* WKWebView+extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CBA8D029F26BA80074EC7C /* WKWebView+extentions.swift */; };
 		E8CBA8D329F26BD70074EC7C /* UIDatePicker+extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CBA8D229F26BD70074EC7C /* UIDatePicker+extentions.swift */; };
 		E8CBA8D529F26CB70074EC7C /* UIColor+extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CBA8D429F26CB70074EC7C /* UIColor+extentions.swift */; };
+		E8CEC0352A4955D9007AEF33 /* NotificationCenterDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8CEC0342A4955D9007AEF33 /* NotificationCenterDemo.storyboard */; };
+		E8CEC0372A49561F007AEF33 /* NCOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CEC0362A49561F007AEF33 /* NCOneViewController.swift */; };
 		E8CF4D2129F7FDBC00EFE6AF /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CF4D2029F7FDBC00EFE6AF /* FifthViewController.swift */; };
 		E8CF4D2329F8E2E500EFE6AF /* DataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CF4D2229F8E2E500EFE6AF /* DataDelegate.swift */; };
 		E8D4971129F66103007D5B91 /* DynamicTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D4971029F66103007D5B91 /* DynamicTextViewController.swift */; };
@@ -282,6 +287,8 @@
 		E88B7E5629FA517900BA8A30 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		E88B7E5A29FA532F00BA8A30 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		E8980CCD29DACC2300EF6999 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
+		E89928512A495D87005221EA /* NCTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCTwoViewController.swift; sourceTree = "<group>"; };
+		E89928532A495E29005221EA /* NCThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCThreeViewController.swift; sourceTree = "<group>"; };
 		E8A01AF629D1545700879A53 /* AutoLayout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AutoLayout.storyboard; sourceTree = "<group>"; };
 		E8A01AF829D154B100879A53 /* AutoLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutViewController.swift; sourceTree = "<group>"; };
 		E8A278692A3ADE530016360A /* AFLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFLoginViewController.swift; sourceTree = "<group>"; };
@@ -321,6 +328,8 @@
 		E8CBA8D029F26BA80074EC7C /* WKWebView+extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+extentions.swift"; sourceTree = "<group>"; };
 		E8CBA8D229F26BD70074EC7C /* UIDatePicker+extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDatePicker+extentions.swift"; sourceTree = "<group>"; };
 		E8CBA8D429F26CB70074EC7C /* UIColor+extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extentions.swift"; sourceTree = "<group>"; };
+		E8CEC0342A4955D9007AEF33 /* NotificationCenterDemo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationCenterDemo.storyboard; sourceTree = "<group>"; };
+		E8CEC0362A49561F007AEF33 /* NCOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCOneViewController.swift; sourceTree = "<group>"; };
 		E8CF4D2029F7FDBC00EFE6AF /* FifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthViewController.swift; sourceTree = "<group>"; };
 		E8CF4D2229F8E2E500EFE6AF /* DataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDelegate.swift; sourceTree = "<group>"; };
 		E8D4971029F66103007D5B91 /* DynamicTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTextViewController.swift; sourceTree = "<group>"; };
@@ -350,6 +359,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E89928572A49611E005221EA /* Kingfisher in Frameworks */,
 				0FAB8BA0B419271CBF50C258 /* Pods_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -754,6 +764,7 @@
 		E88912B52A36EDF4004E98C3 /* WebServices */ = {
 			isa = PBXGroup;
 			children = (
+				E8CEC0322A495598007AEF33 /* KT */,
 				E81F94D72A405E1200A352FB /* CombinedWebServices */,
 				E8739FB12A3C35B90099D130 /* AlamofireStructure */,
 				E81640A52A3ABF140073B6C1 /* Alamofire */,
@@ -918,6 +929,25 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		E8CEC0322A495598007AEF33 /* KT */ = {
+			isa = PBXGroup;
+			children = (
+				E8CEC0332A4955A5007AEF33 /* NotificationCenterDemo */,
+			);
+			path = KT;
+			sourceTree = "<group>";
+		};
+		E8CEC0332A4955A5007AEF33 /* NotificationCenterDemo */ = {
+			isa = PBXGroup;
+			children = (
+				E89928512A495D87005221EA /* NCTwoViewController.swift */,
+				E8CEC0342A4955D9007AEF33 /* NotificationCenterDemo.storyboard */,
+				E8CEC0362A49561F007AEF33 /* NCOneViewController.swift */,
+				E89928532A495E29005221EA /* NCThreeViewController.swift */,
+			);
+			path = NotificationCenterDemo;
+			sourceTree = "<group>";
+		};
 		E8DA41AF299B5C520054C3D1 = {
 			isa = PBXGroup;
 			children = (
@@ -1022,6 +1052,9 @@
 			dependencies = (
 			);
 			name = Demo;
+			packageProductDependencies = (
+				E89928562A49611E005221EA /* Kingfisher */,
+			);
 			productName = Demo;
 			productReference = E8DA41B8299B5C520054C3D1 /* Demo.app */;
 			productType = "com.apple.product-type.application";
@@ -1050,6 +1083,9 @@
 				Base,
 			);
 			mainGroup = E8DA41AF299B5C520054C3D1;
+			packageReferences = (
+				E89928552A49611E005221EA /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = E8DA41B9299B5C520054C3D1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1083,6 +1119,7 @@
 				E88912B72A36EF07004E98C3 /* WebServices.storyboard in Resources */,
 				E8DA41C8299B5C540054C3D1 /* LaunchScreen.storyboard in Resources */,
 				E88B7E5729FA517900BA8A30 /* HeaderView.xib in Resources */,
+				E8CEC0352A4955D9007AEF33 /* NotificationCenterDemo.storyboard in Resources */,
 				E8403A5D29F9089E00DB6B6B /* NavigationExercise.storyboard in Resources */,
 				E8DA41C5299B5C540054C3D1 /* Assets.xcassets in Resources */,
 				E82C8E2729E591D800424E0C /* DescriptionCell.xib in Resources */,
@@ -1243,6 +1280,7 @@
 				E88B7E5229FA311E00BA8A30 /* TimeZonesViewController.swift in Sources */,
 				E822008129E7CBAC008CB9A0 /* StoryCell.swift in Sources */,
 				E84D2DCB29E3DC4200C4F59C /* Dictionary+extentions.swift in Sources */,
+				E8CEC0372A49561F007AEF33 /* NCOneViewController.swift in Sources */,
 				E8BDBE0C29DEBCA70094CF21 /* TableViewController.swift in Sources */,
 				E8E00D5B29F6909F0075C894 /* SecondViewController.swift in Sources */,
 				E8C529C92A3C8F91002C5A8B /* AFSUpdateViewController.swift in Sources */,
@@ -1252,6 +1290,8 @@
 				E8403A5629F8F1DA00DB6B6B /* SecondPresentViewController.swift in Sources */,
 				E8CBA8D129F26BA80074EC7C /* WKWebView+extentions.swift in Sources */,
 				E8A278712A3AE9760016360A /* AFDemoModel.swift in Sources */,
+				E89928542A495E29005221EA /* NCThreeViewController.swift in Sources */,
+				E89928522A495D87005221EA /* NCTwoViewController.swift in Sources */,
 				E88912BE2A36F041004E98C3 /* UserCell.swift in Sources */,
 				E8C9A0B629E0420500F2376C /* SongModel.swift in Sources */,
 				E84FACDC29FA78B8005B162A /* SecondCoordinator.swift in Sources */,
@@ -1500,6 +1540,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E89928552A49611E005221EA /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E89928562A49611E005221EA /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E89928552A49611E005221EA /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E8DA41B0299B5C520054C3D1 /* Project object */;
 }
