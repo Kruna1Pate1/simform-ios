@@ -148,8 +148,15 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xrb-Rp-XhX" userLabel="Container">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Qrb-tE-1E4">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="fWc-Di-Kvk" id="3f9-m7-zbg"/>
+                                        </connections>
+                                    </searchBar>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IU3-07-Cmy" userLabel="Filter Collection View">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
+                                        <rect key="frame" x="0.0" y="56" width="393" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="ybq-fg-cwe"/>
                                         </constraints>
@@ -188,7 +195,7 @@
                                         </cells>
                                     </collectionView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8Tm-Gq-GsV" userLabel="Product Collection View">
-                                        <rect key="frame" x="0.0" y="60" width="393" height="699"/>
+                                        <rect key="frame" x="0.0" y="116" width="393" height="643"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1tt-6X-rhT">
                                             <size key="itemSize" width="128" height="128"/>
@@ -256,6 +263,7 @@
                     <connections>
                         <outlet property="collectionViewFilter" destination="IU3-07-Cmy" id="v3r-eq-9b3"/>
                         <outlet property="collectionViewProduct" destination="8Tm-Gq-GsV" id="Fkv-Nv-QkN"/>
+                        <outlet property="searchBar" destination="Qrb-tE-1E4" id="1sa-yQ-cAZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TAu-8J-UFl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

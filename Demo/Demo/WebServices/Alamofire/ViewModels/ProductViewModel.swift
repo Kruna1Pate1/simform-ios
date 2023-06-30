@@ -22,11 +22,20 @@ class ProductViewModel {
         }
     }
     
+    private var originalProducts: [Product] = [] {
+        didSet {
+            products = originalProducts
+        }
+    }
+    
     private (set) var products: [Product] = [] {
         didSet {
             delegate?.product(productsDidChange: products)
         }
     }
+    
+    private var timer: Timer? = nil
+    private let delay: TimeInterval = 2 // Second
     
     init() {
         getFilters()
@@ -53,7 +62,7 @@ class ProductViewModel {
             
             switch result {
             case .success(let products):
-                self.products = products
+                self.originalProducts = products
                 break
             case .failure(let error):
                 break
@@ -74,10 +83,21 @@ class ProductViewModel {
             
             switch result {
             case .success(let products):
-                self.products = products
+                self.originalProducts = products
                 break
             case .failure(let error):
                 break
+            }
+        }
+    }
+    
+    func searchFilter(keyword: String) {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: delay, repeats: false) { _ in
+            if keyword.isEmpty {
+                self.products = self.originalProducts
+            } else {
+                self.products = self.originalProducts.filter { $0.title?.contains(keyword) == true }
             }
         }
     }

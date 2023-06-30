@@ -15,6 +15,7 @@ protocol AFProductViewControllerDelegate: AnyObject {
 class AFProductViewController: UIViewController {
     
     // MARK: - Outlets
+    @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var collectionViewFilter: UICollectionView!
     @IBOutlet private weak var collectionViewProduct: UICollectionView!
     
@@ -94,5 +95,14 @@ extension AFProductViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 20
+    }
+}
+
+// MARK: - Search Bar
+extension AFProductViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        viewModel.searchFilter(keyword: searchText)
     }
 }
