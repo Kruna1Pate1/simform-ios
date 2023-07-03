@@ -61,6 +61,9 @@ struct Component {
         
         // Flipkar Screen
         Component(name: "Notification Center", stroyboardName: "NotificationCenterDemo", vcName: "NCOneVC"),
+        
+        // Custom Controls
+        Component(name: "Custom Controls", stroyboardName: "CustomControls", vcName: "CustomControlsVC")
     ]
     
     private static let webServicesComponents = [
