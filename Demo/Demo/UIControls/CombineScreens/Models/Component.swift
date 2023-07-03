@@ -63,7 +63,10 @@ struct Component {
         Component(name: "Notification Center", stroyboardName: "NotificationCenterDemo", vcName: "NCOneVC"),
         
         // Custom Controls
-        Component(name: "Custom Controls", stroyboardName: "CustomControls", vcName: "CustomControlsVC")
+        Component(name: "Custom Controls", stroyboardName: "CustomControls", vcName: "CustomControlsVC"),
+        
+        // Keychain Demo
+        Component(name: "Keychain Demo", stroyboardName: "KeychainDemo", vcName: "KeychainDemoVC")
     ]
     
     private static let webServicesComponents = [

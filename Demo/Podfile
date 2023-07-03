@@ -8,5 +8,6 @@ target 'Demo' do
   # Pods for Demo
   pod 'Alamofire'
   pod 'ReachabilitySwift'
+  pod 'SwiftKeychainWrapper'
 
 end
