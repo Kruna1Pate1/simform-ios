@@ -94,6 +94,10 @@
 		E84FACD729FA73F3005B162A /* FirstCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84FACD629FA73F3005B162A /* FirstCoordinator.swift */; };
 		E84FACDC29FA78B8005B162A /* SecondCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84FACDB29FA78B8005B162A /* SecondCoordinator.swift */; };
 		E84FACDE29FA7A3C005B162A /* ThirdCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84FACDD29FA7A3C005B162A /* ThirdCoordinator.swift */; };
+		E86C56272A52E085000EA682 /* KeychainDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E86C56262A52E085000EA682 /* KeychainDemo.storyboard */; };
+		E86C56292A52E0AB000EA682 /* KeychainDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C56282A52E0AB000EA682 /* KeychainDemoVC.swift */; };
+		E86C562E2A52E42B000EA682 /* KeychainDemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C562D2A52E42B000EA682 /* KeychainDemoViewModel.swift */; };
+		E86C56312A52E4F8000EA682 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C56302A52E4F8000EA682 /* KeychainHelper.swift */; };
 		E86D6DBE29EEA76A0086CD80 /* ScheduleMeeting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E86D6DBD29EEA76A0086CD80 /* ScheduleMeeting.storyboard */; };
 		E86D6DC129EEA7FE0086CD80 /* ScheduleMetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D6DC029EEA7FE0086CD80 /* ScheduleMetingViewController.swift */; };
 		E8739FB52A3C42270099D130 /* APIManager+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8739FB42A3C42270099D130 /* APIManager+Request.swift */; };
@@ -275,6 +279,10 @@
 		E84FACD629FA73F3005B162A /* FirstCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCoordinator.swift; sourceTree = "<group>"; };
 		E84FACDB29FA78B8005B162A /* SecondCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCoordinator.swift; sourceTree = "<group>"; };
 		E84FACDD29FA7A3C005B162A /* ThirdCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdCoordinator.swift; sourceTree = "<group>"; };
+		E86C56262A52E085000EA682 /* KeychainDemo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KeychainDemo.storyboard; sourceTree = "<group>"; };
+		E86C56282A52E0AB000EA682 /* KeychainDemoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainDemoVC.swift; sourceTree = "<group>"; };
+		E86C562D2A52E42B000EA682 /* KeychainDemoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainDemoViewModel.swift; sourceTree = "<group>"; };
+		E86C56302A52E4F8000EA682 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		E86D6DBD29EEA76A0086CD80 /* ScheduleMeeting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScheduleMeeting.storyboard; sourceTree = "<group>"; };
 		E86D6DC029EEA7FE0086CD80 /* ScheduleMetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMetingViewController.swift; sourceTree = "<group>"; };
 		E8739FB42A3C42270099D130 /* APIManager+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIManager+Request.swift"; sourceTree = "<group>"; };
@@ -707,6 +715,38 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
+		E86C562A2A52E3F9000EA682 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E86C56262A52E085000EA682 /* KeychainDemo.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E86C562B2A52E407000EA682 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E86C56282A52E0AB000EA682 /* KeychainDemoVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E86C562C2A52E416000EA682 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E86C562D2A52E42B000EA682 /* KeychainDemoViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E86C562F2A52E4DE000EA682 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E86C56302A52E4F8000EA682 /* KeychainHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		E86D6DBC29EEA74C0086CD80 /* MeetingScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -880,6 +920,17 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		E896BBF32A52DFDC00065D3C /* KeychainDemo */ = {
+			isa = PBXGroup;
+			children = (
+				E86C562F2A52E4DE000EA682 /* Helpers */,
+				E86C562C2A52E416000EA682 /* ViewModels */,
+				E86C562B2A52E407000EA682 /* Controllers */,
+				E86C562A2A52E3F9000EA682 /* Views */,
+			);
+			path = KeychainDemo;
+			sourceTree = "<group>";
+		};
 		E8A2786D2A3AE1DC0016360A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1021,6 +1072,7 @@
 		E8DA41BA299B5C520054C3D1 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				E896BBF32A52DFDC00065D3C /* KeychainDemo */,
 				E82E8D192A4EAC2A000B2485 /* CustomControls */,
 				E81F94DC2A41754C00A352FB /* MVVMArchitecture */,
 				E88912B52A36EDF4004E98C3 /* WebServices */,
@@ -1158,6 +1210,7 @@
 				E81F94ED2A417BAD00A352FB /* Authentication.storyboard in Resources */,
 				E8BDBE1129DEC51B0094CF21 /* TableViewCell.xib in Resources */,
 				E84FACCB29FA71A0005B162A /* CoordinatorPattern.storyboard in Resources */,
+				E86C56272A52E085000EA682 /* KeychainDemo.storyboard in Resources */,
 				E8C210D829ED021000AC944E /* Product.storyboard in Resources */,
 				E8BDBE1529DEE65E0094CF21 /* SwitchSettingCell.xib in Resources */,
 				E8739FC22A3C56060099D130 /* AlamofireStructure.storyboard in Resources */,
@@ -1354,11 +1407,13 @@
 				E8C9A0B629E0420500F2376C /* SongModel.swift in Sources */,
 				E84FACDC29FA78B8005B162A /* SecondCoordinator.swift in Sources */,
 				E84FACDE29FA7A3C005B162A /* ThirdCoordinator.swift in Sources */,
+				E86C562E2A52E42B000EA682 /* KeychainDemoViewModel.swift in Sources */,
 				E816408B2A38293F0073B6C1 /* ApiManager.swift in Sources */,
 				E814A31D29DE81E800C772C3 /* UIImage+extentions.swift in Sources */,
 				E81640912A38485D0073B6C1 /* ImageModel.swift in Sources */,
 				E8A7C95A29DAEA5B00C91F5B /* BackgroundColorDelegate.swift in Sources */,
 				E8BDBE1029DEC51B0094CF21 /* TableViewCell.swift in Sources */,
+				E86C56292A52E0AB000EA682 /* KeychainDemoVC.swift in Sources */,
 				E82C8E2629E591D800424E0C /* DescriptionCell.swift in Sources */,
 				E81640AC2A3AC3D80073B6C1 /* AlamofireDemoViewController.swift in Sources */,
 				E81640892A381C710073B6C1 /* Component.swift in Sources */,
@@ -1371,6 +1426,7 @@
 				E8A01AF929D154B100879A53 /* AutoLayoutViewController.swift in Sources */,
 				E8D4DB462A41B69A0081252A /* AuthenticationModel.swift in Sources */,
 				E81640972A3873DD0073B6C1 /* Data+extentions.swift in Sources */,
+				E86C56312A52E4F8000EA682 /* KeychainHelper.swift in Sources */,
 				E8CBA8CF29F26B2B0074EC7C /* UIView+extentions.swift in Sources */,
 				E82C8E2929E67A5300424E0C /* TabBarViewController.swift in Sources */,
 				E82E8D222A4EB060000B2485 /* CustomButton.swift in Sources */,
