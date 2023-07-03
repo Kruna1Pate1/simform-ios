@@ -30,7 +30,6 @@
 		E81640912A38485D0073B6C1 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81640902A38485D0073B6C1 /* ImageModel.swift */; };
 		E81640972A3873DD0073B6C1 /* Data+extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81640962A3873DD0073B6C1 /* Data+extentions.swift */; };
 		E81640992A3878BB0073B6C1 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81640982A3878BB0073B6C1 /* MultipartFormData.swift */; };
-		E816409C2A38854C0073B6C1 /* ImageUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E816409B2A38854C0073B6C1 /* ImageUploadViewModel.swift */; };
 		E816409E2A3983DA0073B6C1 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E816409D2A3983DA0073B6C1 /* BaseResponse.swift */; };
 		E81640A02A39A35F0073B6C1 /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E816409F2A39A35F0073B6C1 /* DownloadViewController.swift */; };
 		E81640A22A39A3720073B6C1 /* DownloadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81640A12A39A3720073B6C1 /* DownloadViewModel.swift */; };
@@ -119,6 +118,7 @@
 		E88B7E5529FA322800BA8A30 /* TimeZoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88B7E5429FA322800BA8A30 /* TimeZoneCell.swift */; };
 		E88B7E5729FA517900BA8A30 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E88B7E5629FA517900BA8A30 /* HeaderView.xib */; };
 		E88B7E5B29FA532F00BA8A30 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88B7E5A29FA532F00BA8A30 /* HeaderView.swift */; };
+		E896BBF22A5286CE00065D3C /* ImageUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E896BBF12A5286CE00065D3C /* ImageUploadViewModel.swift */; };
 		E8980CCE29DACC2300EF6999 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8980CCD29DACC2300EF6999 /* MyButton.swift */; };
 		E89928522A495D87005221EA /* NCTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89928512A495D87005221EA /* NCTwoViewController.swift */; };
 		E89928542A495E29005221EA /* NCThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89928532A495E29005221EA /* NCThreeViewController.swift */; };
@@ -211,7 +211,6 @@
 		E81640902A38485D0073B6C1 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		E81640962A3873DD0073B6C1 /* Data+extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+extentions.swift"; sourceTree = "<group>"; };
 		E81640982A3878BB0073B6C1 /* MultipartFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormData.swift; sourceTree = "<group>"; };
-		E816409B2A38854C0073B6C1 /* ImageUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageUploadViewModel.swift; path = ../../../../../../ImageUploadViewModel.swift; sourceTree = "<group>"; };
 		E816409D2A3983DA0073B6C1 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		E816409F2A39A35F0073B6C1 /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		E81640A12A39A3720073B6C1 /* DownloadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewModel.swift; sourceTree = "<group>"; };
@@ -300,6 +299,7 @@
 		E88B7E5429FA322800BA8A30 /* TimeZoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneCell.swift; sourceTree = "<group>"; };
 		E88B7E5629FA517900BA8A30 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		E88B7E5A29FA532F00BA8A30 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		E896BBF12A5286CE00065D3C /* ImageUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadViewModel.swift; sourceTree = "<group>"; };
 		E8980CCD29DACC2300EF6999 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		E89928512A495D87005221EA /* NCTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCTwoViewController.swift; sourceTree = "<group>"; };
 		E89928532A495E29005221EA /* NCThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCThreeViewController.swift; sourceTree = "<group>"; };
@@ -445,7 +445,7 @@
 		E816409A2A3885360073B6C1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				E816409B2A38854C0073B6C1 /* ImageUploadViewModel.swift */,
+				E896BBF12A5286CE00065D3C /* ImageUploadViewModel.swift */,
 				E81640A12A39A3720073B6C1 /* DownloadViewModel.swift */,
 			);
 			path = ViewModels;
@@ -1299,6 +1299,7 @@
 				E8739FBB2A3C45960099D130 /* APIManager.swift in Sources */,
 				E8C861FB2A3B18C00011DC0F /* Product.swift in Sources */,
 				E8A2786C2A3ADE770016360A /* LoginViewModel.swift in Sources */,
+				E896BBF22A5286CE00065D3C /* ImageUploadViewModel.swift in Sources */,
 				E822008929E812C2008CB9A0 /* StateModel.swift in Sources */,
 				E8C4C6EE29E53D4B00B4FD58 /* WebViewController.swift in Sources */,
 				E8A3A16F29F9247B00F5BF70 /* ProfileViewController.swift in Sources */,
@@ -1365,7 +1366,6 @@
 				E82E8D202A4EAC99000B2485 /* CustomControlsVC.swift in Sources */,
 				E82E8D292A4EF0F4000B2485 /* CheckBox.swift in Sources */,
 				E81F94E92A4176DC00A352FB /* Coordinator.swift in Sources */,
-				E816409C2A38854C0073B6C1 /* ImageUploadViewModel.swift in Sources */,
 				E8DA41BE299B5C520054C3D1 /* SceneDelegate.swift in Sources */,
 				E84D2DCD29E41AA000C4F59C /* ImageDemoViewController.swift in Sources */,
 				E8A01AF929D154B100879A53 /* AutoLayoutViewController.swift in Sources */,

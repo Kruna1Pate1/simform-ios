@@ -9,7 +9,7 @@ import UIKit
 import PhotosUI
 
 // MARK: - Image Upload View Controller Delegate
-protocol ImageUploadViewControllerDelegate {
+protocol ImageUploadViewControllerDelegate: AnyObject {
     
     func imageUploadViewController(imageDidChange image: UIImage)
     
@@ -43,7 +43,7 @@ class ImageUploadViewController: UIViewController {
     }
     
     func uploadImage(image: UIImage) {
-        viewModel.callToUploadImage(image: image, delegate: self)
+        viewModel.callToUploadImage(image: image, taskDelegate: self)
     }
     
     // MARK: - IBActions
@@ -123,8 +123,8 @@ extension ImageUploadViewController: PHPickerViewControllerDelegate, UINavigatio
 extension ImageUploadViewController: URLSessionTaskDelegate {
     func urlSession(_ session: URLSession, task: URLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
         print("total: \(totalBytesExpectedToSend), send: \(totalBytesSent)")
-        DispatchQueue.main.async {
-            self.progressBarImage.progress = Float(totalBytesSent) / Float(totalBytesExpectedToSend)
+        DispatchQueue.main.async { [weak self] in
+            self?.progressBarImage.progress = Float(totalBytesSent) / Float(totalBytesExpectedToSend)
         }
     }
 }
