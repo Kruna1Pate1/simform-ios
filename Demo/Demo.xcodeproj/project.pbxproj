@@ -100,6 +100,11 @@
 		E86C56312A52E4F8000EA682 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C56302A52E4F8000EA682 /* KeychainHelper.swift */; };
 		E86D6DBE29EEA76A0086CD80 /* ScheduleMeeting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E86D6DBD29EEA76A0086CD80 /* ScheduleMeeting.storyboard */; };
 		E86D6DC129EEA7FE0086CD80 /* ScheduleMetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D6DC029EEA7FE0086CD80 /* ScheduleMetingViewController.swift */; };
+		E86FEB632A53E6000098A548 /* SpotifyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86FEB622A53E6000098A548 /* SpotifyCoordinator.swift */; };
+		E86FEB692A53E69D0098A548 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86FEB682A53E69D0098A548 /* AuthCoordinator.swift */; };
+		E86FEB6B2A53E7890098A548 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E86FEB6A2A53E7890098A548 /* Auth.storyboard */; };
+		E86FEB6E2A53E7BC0098A548 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86FEB6D2A53E7BC0098A548 /* AuthVC.swift */; };
+		E86FEB702A53EC1D0098A548 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86FEB6F2A53EC1D0098A548 /* AuthViewModel.swift */; };
 		E8739FB52A3C42270099D130 /* APIManager+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8739FB42A3C42270099D130 /* APIManager+Request.swift */; };
 		E8739FB72A3C42890099D130 /* APIManager+EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8739FB62A3C42890099D130 /* APIManager+EndPointType.swift */; };
 		E8739FB92A3C45380099D130 /* APIManager+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8739FB82A3C45380099D130 /* APIManager+Error.swift */; };
@@ -285,6 +290,13 @@
 		E86C56302A52E4F8000EA682 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		E86D6DBD29EEA76A0086CD80 /* ScheduleMeeting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScheduleMeeting.storyboard; sourceTree = "<group>"; };
 		E86D6DC029EEA7FE0086CD80 /* ScheduleMetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMetingViewController.swift; sourceTree = "<group>"; };
+		E86FEB622A53E6000098A548 /* SpotifyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyCoordinator.swift; sourceTree = "<group>"; };
+		E86FEB682A53E69D0098A548 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		E86FEB6A2A53E7890098A548 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		E86FEB6D2A53E7BC0098A548 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
+		E86FEB6F2A53EC1D0098A548 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		E86FEB722A53ED870098A548 /* APIManager+SpotifyEndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIManager+SpotifyEndPointType.swift"; sourceTree = "<group>"; };
+		E86FEB732A53ED870098A548 /* APIManager+SpotifyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIManager+SpotifyRequest.swift"; sourceTree = "<group>"; };
 		E8739FB42A3C42270099D130 /* APIManager+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIManager+Request.swift"; sourceTree = "<group>"; };
 		E8739FB62A3C42890099D130 /* APIManager+EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIManager+EndPointType.swift"; sourceTree = "<group>"; };
 		E8739FB82A3C45380099D130 /* APIManager+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIManager+Error.swift"; sourceTree = "<group>"; };
@@ -766,6 +778,76 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		E86FEB5F2A53E4710098A548 /* Spotify */ = {
+			isa = PBXGroup;
+			children = (
+				E86FEB712A53ED5C0098A548 /* NetworkLayer */,
+				E86FEB612A53E5D40098A548 /* Coordinator */,
+				E86FEB602A53E4820098A548 /* Auth */,
+			);
+			path = Spotify;
+			sourceTree = "<group>";
+		};
+		E86FEB602A53E4820098A548 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				E86FEB6C2A53E7A80098A548 /* Controllers */,
+				E86FEB672A53E6570098A548 /* ViewModels */,
+				E86FEB662A53E64C0098A548 /* Models */,
+				E86FEB652A53E6460098A548 /* Views */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		E86FEB612A53E5D40098A548 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E86FEB682A53E69D0098A548 /* AuthCoordinator.swift */,
+				E86FEB622A53E6000098A548 /* SpotifyCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		E86FEB652A53E6460098A548 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E86FEB6A2A53E7890098A548 /* Auth.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E86FEB662A53E64C0098A548 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E86FEB672A53E6570098A548 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E86FEB6F2A53EC1D0098A548 /* AuthViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E86FEB6C2A53E7A80098A548 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E86FEB6D2A53E7BC0098A548 /* AuthVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E86FEB712A53ED5C0098A548 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				E86FEB732A53ED870098A548 /* APIManager+SpotifyRequest.swift */,
+				E86FEB722A53ED870098A548 /* APIManager+SpotifyEndPointType.swift */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
 		E8739FB12A3C35B90099D130 /* AlamofireStructure */ = {
 			isa = PBXGroup;
 			children = (
@@ -1072,6 +1154,7 @@
 		E8DA41BA299B5C520054C3D1 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				E86FEB5F2A53E4710098A548 /* Spotify */,
 				E896BBF32A52DFDC00065D3C /* KeychainDemo */,
 				E82E8D192A4EAC2A000B2485 /* CustomControls */,
 				E81F94DC2A41754C00A352FB /* MVVMArchitecture */,
@@ -1210,6 +1293,7 @@
 				E81F94ED2A417BAD00A352FB /* Authentication.storyboard in Resources */,
 				E8BDBE1129DEC51B0094CF21 /* TableViewCell.xib in Resources */,
 				E84FACCB29FA71A0005B162A /* CoordinatorPattern.storyboard in Resources */,
+				E86FEB6B2A53E7890098A548 /* Auth.storyboard in Resources */,
 				E86C56272A52E085000EA682 /* KeychainDemo.storyboard in Resources */,
 				E8C210D829ED021000AC944E /* Product.storyboard in Resources */,
 				E8BDBE1529DEE65E0094CF21 /* SwitchSettingCell.xib in Resources */,
@@ -1298,6 +1382,7 @@
 				E8403A5829F8F1E100DB6B6B /* ThirdPresentViewController.swift in Sources */,
 				E81545482A3C7BF800926971 /* AFSRegisterViewController.swift in Sources */,
 				E8A3A16D29F91C9A00F5BF70 /* LoginViewController.swift in Sources */,
+				E86FEB692A53E69D0098A548 /* AuthCoordinator.swift in Sources */,
 				E8CF4D2329F8E2E500EFE6AF /* DataDelegate.swift in Sources */,
 				E81640AF2A3AC6BC0073B6C1 /* AFApiManager.swift in Sources */,
 				E8C9A0B429E030AF00F2376C /* GenreHeaderView.swift in Sources */,
@@ -1330,6 +1415,7 @@
 				E816408F2A383E0D0073B6C1 /* ImageUploadViewController.swift in Sources */,
 				E822007F29E7C959008CB9A0 /* StackViewController.swift in Sources */,
 				E8C861FF2A3B1D910011DC0F /* ProductViewModel.swift in Sources */,
+				E86FEB702A53EC1D0098A548 /* AuthViewModel.swift in Sources */,
 				E8403A5429F8F1C500DB6B6B /* FirstPresentViewController.swift in Sources */,
 				E8A7C95729DAE8C000C91F5B /* ContainerView.swift in Sources */,
 				E82E8D252A4EBC57000B2485 /* RangeSlider.swift in Sources */,
@@ -1375,6 +1461,7 @@
 				E8022EA129DE8FA300A7BC9B /* MySegmentedControl.swift in Sources */,
 				E81640A22A39A3720073B6C1 /* DownloadViewModel.swift in Sources */,
 				E81F94F12A417BDF00A352FB /* SignupVC.swift in Sources */,
+				E86FEB632A53E6000098A548 /* SpotifyCoordinator.swift in Sources */,
 				E801E3F62A403A4100DCE4EC /* AFSDownloadViewModel.swift in Sources */,
 				E801E3F82A403B4100DCE4EC /* AFSDownloadViewController.swift in Sources */,
 				E880850F29DFE9B8008254DC /* LanguageCell.swift in Sources */,
@@ -1429,6 +1516,7 @@
 				E86C56312A52E4F8000EA682 /* KeychainHelper.swift in Sources */,
 				E8CBA8CF29F26B2B0074EC7C /* UIView+extentions.swift in Sources */,
 				E82C8E2929E67A5300424E0C /* TabBarViewController.swift in Sources */,
+				E86FEB6E2A53E7BC0098A548 /* AuthVC.swift in Sources */,
 				E82E8D222A4EB060000B2485 /* CustomButton.swift in Sources */,
 				E80E997529F01C78005313C9 /* ComponentCell.swift in Sources */,
 				E8C210DC29ED03C600AC944E /* ProductViewController.swift in Sources */,
