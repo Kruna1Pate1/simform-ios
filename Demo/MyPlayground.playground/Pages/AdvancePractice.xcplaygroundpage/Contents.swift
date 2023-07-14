@@ -94,9 +94,10 @@ print("after a: \(a), b: \(b)")
 
 // Variadic Parameters
 func vari<N>(e: N...) {
+//    print(nil)
     e.forEach { print($0) }
 }
-vari(e: "a", "b", "c")
+vari(e: "a", "b", "c", nil)
 vari(e: 1.5, 7, 0, -5)
 vari(e: true)
 
@@ -344,6 +345,7 @@ print("string num:", strNumArr)
 // Compact map
 let mixArr: [Any?] = ["1", 2, true, "Hello", 5, 1, 2, nil, 4, 7]
 let iArr = mixArr.compactMap { $0 as? Int }
+//let iArr = mixArr.flatMap { $0 as? Int} // deprecated
 print(iArr)
 
 // Flat map
@@ -468,32 +470,41 @@ change(&book51.name)
 
 
 /**
- Propertt wrapper
+ Property wrapper
  */
 
 @propertyWrapper
 struct EvenOnly {
     private var num = 0
+    private(set) var projectedValue: Bool
     var wrappedValue: Int {
         get { num }
         set {
             if(newValue%2 != 0) {
                 print("can't use odd numbers")
+                projectedValue = true
                 return
             }
             num = newValue
+            projectedValue = false
         }
+    }
+    
+    init(wrappedValue val: Int) {
+        self.num = val % 2 == 0 ? val : 0
+        projectedValue = false
     }
 }
 
 class Lift {
-    @EvenOnly var floors: Int
+    @EvenOnly var floors: Int = 5
 }
 
 let lift = Lift()
 lift.floors = 6
+print(lift.$floors)
 lift.floors = 5
-print(lift.floors)
+print(lift.$floors)
 
 class Counter {
     var count: Int
@@ -1522,3 +1533,444 @@ player.swap(start: MediaPlayer.Point(x: 40, y: 400), end: MediaPlayer.Point(x: 4
 player.swap(start: MediaPlayer.Point(x: 800, y: 900), end: MediaPlayer.Point(x: 800, y: 100))
 player.swap(start: MediaPlayer.Point(x: 400, y: 800), end: MediaPlayer.Point(x: 400, y: 1000))
 player.swap(start: MediaPlayer.Point(x: 800, y: 900), end: MediaPlayer.Point(x: 800, y: 100))
+
+
+/**
+ Store and Pass function
+ */
+func add(_ n1: Int, _ n2: Int) -> Int {
+    n1 + n2
+}
+
+//let myAdd = add // myAdd: Expression
+let myAdd: (Int, Int) -> Int = add
+
+func cal(a: Int, b: Int, fun: (Int, Int) -> Int) {
+    print(fun(a, b))
+}
+
+cal(a: 5, b: 10, fun: myAdd)
+
+
+/**
+ Create a car class with a property model which value cannot be set outside of class. print the model property.
+ */
+struct Car {
+    private(set) var model: String
+}
+
+let car = Car(model: "SUV")
+print(car.model)
+
+
+/**
+ Modify value using property observer
+ */
+struct Name2 {
+    var fname: String {
+        didSet {
+            fname = fname.uppercased()
+        }
+    }
+}
+
+var name2 = Name2(fname: "krunal")
+print(name2.fname)
+name2.fname = "harry"
+print(name2.fname)
+
+
+/**
+ Extention of enum
+ */
+enum Direction: String {
+    case north, east
+}
+
+extension Direction {
+    static var south: String {
+        "south"
+    }
+    static var west: String {
+        "west"
+    }
+}
+let direction = Direction.west
+
+
+/**
+ Auto clouser
+ */
+func greet(msg: @autoclosure () -> String) {
+    print(msg())
+}
+
+func hello() -> String {
+    "Hello"
+}
+
+greet(msg: hello())
+
+
+/**
+ Error without enum
+ */
+
+class MyError: Error {
+    let message: String
+    
+    init(_ message: String = "") {
+        self.message = message
+    }
+    
+    public var localizedDescription: String {
+        message
+    }
+}
+
+func validatePassword(pass: String) throws {
+    if pass.isEmpty {
+        throw MyError("password can't be empty")
+    }
+    print("valid password")
+}
+
+do {
+    try validatePassword(pass: "")
+} catch let error {
+    print((error as? MyError)?.message)
+} catch {
+    print("in catch")
+}
+
+
+/**
+ Synchronous vs Asynchronous
+ */
+
+func table(num: Int, delay: Int, fun: @escaping (Int) -> ()) {
+    print("printing table of", num)
+    
+    DispatchQueue.global().asyncAfter(deadline: .now() + Double(delay)) {
+        fun(num)
+    }
+}
+
+table(num: 5, delay: 2, fun: { n in
+    for i in 1...10 {
+        print("\(n) * \(i) = \(n * i)")
+    }
+})
+
+
+/**
+ Private var in extension and inheritance
+ */
+
+class BaseA {
+    private var name: String = "Krunal Patel"
+}
+
+extension BaseA {
+    func capName() -> String {
+        name.uppercased()
+    }
+}
+
+class ChildB: BaseA {
+//    'name' is inaccessible due to 'private' protection level
+//    func lowName() -> String {
+//        name?.lowercased()
+//    }
+}
+
+
+/**
+ guard-let multiple conditions
+ */
+
+var ag: Int?
+var bg: Int? = 5
+
+func check() {
+    guard let ag, let bg, bg > 4 else {
+        print("nil")
+        return
+    }
+    print(ag, bg)
+}
+check()
+
+
+/**
+ Default value in assosiated value
+ */
+
+enum ErrorEn {
+    case client(msg: String = "Not found")
+}
+
+let error = ErrorEn.client()
+
+switch error {
+case .client(let msg):
+    print(msg)
+}
+
+
+/**
+ Recursive enum
+ */
+
+enum Expression {
+    case number(Int)
+    indirect case addition(Expression, Expression)
+    indirect case multiplication(Expression, Expression)
+}
+
+// Expression: (5 + 4) * 2
+let five = Expression.number(5)
+let four = Expression.number(4)
+let add = Expression.addition(five, four)
+let mul = Expression.multiplication(add, Expression.number(2))
+
+func evaluate(_ exp: Expression) -> Int {
+    switch exp {
+    case .number(let val):
+        return val
+    case .addition(let exp1, let exp2):
+        return evaluate(exp1) + evaluate(exp2)
+    case .multiplication(let exp1, let exp2):
+        return evaluate(exp1) * evaluate(exp2)
+    }
+}
+
+print("(5 + 4) * 2 =", evaluate(mul))
+
+
+/**
+ Stride
+ */
+
+for i in stride(from: 1, to: 10, by: 1) {
+    print(i, terminator: " ")
+}
+print()
+
+for i in stride(from: 10, through: 1, by: -1) {
+    print(i, terminator: " ")
+}
+print()
+
+
+/**
+ Class vs Static
+ */
+
+class Demo1 {
+    class func classFunc1() {
+        print("Demo1 class func")
+    }
+    
+    final class func classFunc2() {
+        print("Demo1 final class func")
+    }
+    
+    static func staticFunc() {
+        print("Demo1 static func")
+    }
+}
+
+class Demo2: Demo1 {
+    
+//    make classFunc1 non overridable by child
+//    way 1
+//    override final class func classFunc1() {
+//        print("Demo2 class func")
+//    }
+    
+//    way 2
+    override static func classFunc1() {
+        print("Demo2 class func")
+    }
+    
+    
+//    error: Cannot override static method
+//    override final class func classFunc2() {
+//        print("Demo2 final class func")
+//    }
+//
+//    error: Cannot override static method
+//    override static func staticFunc() {
+//        print("Demo2 static func")
+//    }
+}
+ 
+ 
+
+/**
+ Revision
+ */
+
+// Array
+let rArr1 = [String]()
+var rArr2 = [""]
+var rArr3: [String] = []
+var rArr4 = Array<String>()
+
+
+// Set
+let rSet1: Set<Int> = [1, 2, 3, 4, 5, 3, 4, 5]
+let rSet2: Set<Int> = [4, 5, 6, 7, 8]
+
+print(rSet1)
+print("intersection:", rSet1.intersection(rSet2))
+print("union:", rSet1.union(rSet2))
+print("symmetricDifference:", rSet1.symmetricDifference(rSet2))
+print("subtracting:", rSet1.subtracting(rSet2))
+
+print(rSet1[rSet1.startIndex]) // gives random value
+print(rSet1, rSet1.reversed())
+
+
+// Dictionary
+//var rDict = [1: "one", 2: "two", 2: "two2", 3: "three"]  Fatal error: Dictionary literal contains duplicate keys
+var rDict = [1: "one", 2: "two", 3: "three"]
+print(rDict)
+
+var revDict = Dictionary(uniqueKeysWithValues: zip(rDict.values, rDict.keys))
+print(revDict)
+
+
+// Functions
+
+func rSwap<T>(_ a: inout T, _ b: inout T) {
+    let temp = a
+    a = b
+    b = temp
+}
+
+var ra = 5
+var rb = 10
+rSwap(&ra, &rb)
+print(ra, rb)
+
+
+// Operator method
+
+extension Int {
+    static postfix func ++ (val: Int) -> Int {
+        return val + 1
+    }
+}
+
+print(5++)
+
+
+var abc: Int? = nil
+
+abc? = 65
+
+print(type(of: (5)))
+
+typealias tp = (String, Int)
+
+
+// Advance Operator
+struct Num {
+    var value: Int
+    
+    static prefix func -- (num: Num) -> Num {
+        Num(value: num.value - 1)
+    }
+    
+    static postfix func ++ (num: Num) -> Num {
+        Num(value: num.value + 1)
+    }
+    
+    static func == (num1: Num, num2: Num) -> Bool {
+        num1.value == num2.value
+    }
+}
+
+var num1 = Num(value: 5)
+print(num1++)
+print(--num1)
+var num2 = Num(value: 6)
+//print(num1 != --num2)
+print(num1 == --num2)
+
+
+// Make non-escaping optional
+func calculate(_ n1: Int, _ n2: Int, fun: ((Int, Int) -> Int)?) {
+    guard let fun else { return }
+    print("n1:", n1, "n2:", n2, "=", fun(n1, n2))
+}
+
+calculate(5, 10) { $0 * $1 }
+
+// Property observer when initializing
+class PropDemo {
+    var a = 5 {
+        willSet {
+            print("willSet a")
+        }
+        didSet {
+            print("didSet a")
+        }
+    }
+    
+    var b: Int {
+        willSet {
+            print("willSet a")
+        }
+        didSet {
+            print("didSet a")
+        }
+    }
+    
+    init(b: Int = 10) {
+        self.b = b
+    }
+}
+
+let propDemo = PropDemo(b: 11)
+print("chaning manually...")
+propDemo.a = 9
+propDemo.b = 9
+
+
+// Capture list
+class Calc2 {
+    var arr = [1, 2, 3, 4]
+    var sum: (() -> Int)?
+}
+
+class CaptureList {
+    var calc2 = Calc2()
+
+    init() {
+        calc2.sum = { [weak calc2] in
+            guard let calc2 else {
+                print("arr is nil")
+                return 0
+            }
+            return calc2.arr.reduce(0, { $0 + $1 })
+        }
+    }
+}
+
+let captureList = CaptureList()
+print("sum:", captureList.calc2.sum?() ?? 0)
+
+
+// if-case accessing assosiated value
+enum  Nums {
+    case num(Int)
+}
+
+let nEnum = Nums.num(10)
+
+if case .num(let val) = nEnum {
+    print("num:", val)
+}
