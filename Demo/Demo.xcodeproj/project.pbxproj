@@ -20,6 +20,11 @@
 		E80E996F29F01C08005313C9 /* CombinedScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80E996E29F01C08005313C9 /* CombinedScreenViewController.swift */; };
 		E80E997529F01C78005313C9 /* ComponentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80E997329F01C78005313C9 /* ComponentCell.swift */; };
 		E80E997629F01C78005313C9 /* ComponentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E80E997429F01C78005313C9 /* ComponentCell.xib */; };
+		E81186112A725AA800246D5E /* DemoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E811860F2A725AA800246D5E /* DemoModel.xcdatamodeld */; };
+		E81186142A7269F200246D5E /* CoreData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E81186132A7269F200246D5E /* CoreData.storyboard */; };
+		E81186162A726A1500246D5E /* CoreDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81186152A726A1500246D5E /* CoreDataVC.swift */; };
+		E81186182A727A2700246D5E /* UserDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81186172A727A2700246D5E /* UserDetailsVC.swift */; };
+		E811861A2A727B0A00246D5E /* UserDetailItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81186192A727B0A00246D5E /* UserDetailItemCell.swift */; };
 		E814A31D29DE81E800C772C3 /* UIImage+extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E814A31C29DE81E700C772C3 /* UIImage+extentions.swift */; };
 		E81545482A3C7BF800926971 /* AFSRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81545472A3C7BF800926971 /* AFSRegisterViewController.swift */; };
 		E81640862A373C410073B6C1 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81640852A373C410073B6C1 /* RegistrationViewController.swift */; };
@@ -205,6 +210,11 @@
 		E80E996E29F01C08005313C9 /* CombinedScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedScreenViewController.swift; sourceTree = "<group>"; };
 		E80E997329F01C78005313C9 /* ComponentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentCell.swift; sourceTree = "<group>"; };
 		E80E997429F01C78005313C9 /* ComponentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComponentCell.xib; sourceTree = "<group>"; };
+		E81186102A725AA800246D5E /* DemoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DemoModel.xcdatamodel; sourceTree = "<group>"; };
+		E81186132A7269F200246D5E /* CoreData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CoreData.storyboard; sourceTree = "<group>"; };
+		E81186152A726A1500246D5E /* CoreDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataVC.swift; sourceTree = "<group>"; };
+		E81186172A727A2700246D5E /* UserDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsVC.swift; sourceTree = "<group>"; };
+		E81186192A727B0A00246D5E /* UserDetailItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailItemCell.swift; sourceTree = "<group>"; };
 		E814A31C29DE81E700C772C3 /* UIImage+extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extentions.swift"; sourceTree = "<group>"; };
 		E81545472A3C7BF800926971 /* AFSRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFSRegisterViewController.swift; sourceTree = "<group>"; };
 		E81640852A373C410073B6C1 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -424,6 +434,17 @@
 				E80E997429F01C78005313C9 /* ComponentCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		E81186122A72694D00246D5E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				E81186132A7269F200246D5E /* CoreData.storyboard */,
+				E81186172A727A2700246D5E /* UserDetailsVC.swift */,
+				E81186152A726A1500246D5E /* CoreDataVC.swift */,
+				E81186192A727B0A00246D5E /* UserDetailItemCell.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		E814A31B29DE81C200C772C3 /* Extentions */ = {
@@ -1072,6 +1093,7 @@
 		E8DA41BA299B5C520054C3D1 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				E81186122A72694D00246D5E /* CoreData */,
 				E896BBF32A52DFDC00065D3C /* KeychainDemo */,
 				E82E8D192A4EAC2A000B2485 /* CustomControls */,
 				E81F94DC2A41754C00A352FB /* MVVMArchitecture */,
@@ -1089,6 +1111,7 @@
 				E8A01AF629D1545700879A53 /* AutoLayout.storyboard */,
 				E8A7C95829DAE99400C91F5B /* UIControls */,
 				E8A01AF829D154B100879A53 /* AutoLayoutViewController.swift */,
+				E811860F2A725AA800246D5E /* DemoModel.xcdatamodeld */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -1222,6 +1245,7 @@
 				E86D6DBE29EEA76A0086CD80 /* ScheduleMeeting.storyboard in Resources */,
 				E82C8E2B29E691DF00424E0C /* UIControls2.storyboard in Resources */,
 				E80E996D29F01B04005313C9 /* CombinedScreen.storyboard in Resources */,
+				E81186142A7269F200246D5E /* CoreData.storyboard in Resources */,
 				E88912B72A36EF07004E98C3 /* WebServices.storyboard in Resources */,
 				E8DA41C8299B5C540054C3D1 /* LaunchScreen.storyboard in Resources */,
 				E88B7E5729FA517900BA8A30 /* HeaderView.xib in Resources */,
@@ -1291,6 +1315,7 @@
 				E80DBD1D29DD8BE10020BB55 /* CollectionViewController.swift in Sources */,
 				E8C4C6EC29E5376900B4FD58 /* ActivityIndicatorViewController.swift in Sources */,
 				E84FACD529FA736A005B162A /* NCoordinator.swift in Sources */,
+				E811861A2A727B0A00246D5E /* UserDetailItemCell.swift in Sources */,
 				E84FACD729FA73F3005B162A /* FirstCoordinator.swift in Sources */,
 				E816409E2A3983DA0073B6C1 /* BaseResponse.swift in Sources */,
 				E81F94E72A4176CA00A352FB /* AppCoordinator.swift in Sources */,
@@ -1343,6 +1368,7 @@
 				E8D4DB482A41C0A80081252A /* HomeViewModel.swift in Sources */,
 				E88B7E5B29FA532F00BA8A30 /* HeaderView.swift in Sources */,
 				E8739FBE2A3C49950099D130 /* Dynamic.swift in Sources */,
+				E81186112A725AA800246D5E /* DemoModel.xcdatamodeld in Sources */,
 				E81640992A3878BB0073B6C1 /* MultipartFormData.swift in Sources */,
 				E84FACCE29FA72EB005B162A /* FirstCoordinatorViewController.swift in Sources */,
 				E8980CCE29DACC2300EF6999 /* MyButton.swift in Sources */,
@@ -1380,6 +1406,7 @@
 				E880850F29DFE9B8008254DC /* LanguageCell.swift in Sources */,
 				E82C8E2D29E6922400424E0C /* ToolBarViewController.swift in Sources */,
 				E88912BA2A36EF51004E98C3 /* UserListViewController.swift in Sources */,
+				E81186182A727A2700246D5E /* UserDetailsVC.swift in Sources */,
 				E822008329E7CBC2008CB9A0 /* FeedCell.swift in Sources */,
 				E8CBA8D529F26CB70074EC7C /* UIColor+extentions.swift in Sources */,
 				E8739FC82A3C59030099D130 /* AFSLoginViewModel.swift in Sources */,
@@ -1417,6 +1444,7 @@
 				E82C8E2629E591D800424E0C /* DescriptionCell.swift in Sources */,
 				E81640AC2A3AC3D80073B6C1 /* AlamofireDemoViewController.swift in Sources */,
 				E81640892A381C710073B6C1 /* Component.swift in Sources */,
+				E81186162A726A1500246D5E /* CoreDataVC.swift in Sources */,
 				E8CBA8CB29F115F00074EC7C /* ScrollViewController.swift in Sources */,
 				E82E8D202A4EAC99000B2485 /* CustomControlsVC.swift in Sources */,
 				E82E8D292A4EF0F4000B2485 /* CheckBox.swift in Sources */,
@@ -1675,6 +1703,19 @@
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		E811860F2A725AA800246D5E /* DemoModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E81186102A725AA800246D5E /* DemoModel.xcdatamodel */,
+			);
+			currentVersion = E81186102A725AA800246D5E /* DemoModel.xcdatamodel */;
+			path = DemoModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E8DA41B0299B5C520054C3D1 /* Project object */;
 }
