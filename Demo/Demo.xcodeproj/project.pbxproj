@@ -183,6 +183,7 @@
 		E8DA41C3299B5C520054C3D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8DA41C1299B5C520054C3D1 /* Main.storyboard */; };
 		E8DA41C5299B5C540054C3D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8DA41C4299B5C540054C3D1 /* Assets.xcassets */; };
 		E8DA41C8299B5C540054C3D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8DA41C6299B5C540054C3D1 /* LaunchScreen.storyboard */; };
+		E8DA64F72A73B71000F39F2B /* UpdateUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DA64F62A73B71000F39F2B /* UpdateUserVC.swift */; };
 		E8E00D5429F689620075C894 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E00D5329F689620075C894 /* NavigationViewController.swift */; };
 		E8E00D5629F689700075C894 /* Navigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8E00D5529F689700075C894 /* Navigation.storyboard */; };
 		E8E00D5929F690900075C894 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E00D5829F690900075C894 /* FirstViewController.swift */; };
@@ -375,6 +376,7 @@
 		E8DA41C4299B5C540054C3D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8DA41C7299B5C540054C3D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8DA41C9299B5C540054C3D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8DA64F62A73B71000F39F2B /* UpdateUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserVC.swift; sourceTree = "<group>"; };
 		E8E00D5329F689620075C894 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		E8E00D5529F689700075C894 /* Navigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Navigation.storyboard; sourceTree = "<group>"; };
 		E8E00D5829F690900075C894 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 				E81186132A7269F200246D5E /* CoreData.storyboard */,
 				E81186172A727A2700246D5E /* UserDetailsVC.swift */,
 				E81186152A726A1500246D5E /* CoreDataVC.swift */,
+				E8DA64F62A73B71000F39F2B /* UpdateUserVC.swift */,
 				E81186192A727B0A00246D5E /* UserDetailItemCell.swift */,
 			);
 			path = CoreData;
@@ -1361,6 +1364,7 @@
 				E842540129EEBDAD00BFC012 /* MyTextView.swift in Sources */,
 				E8E00D5F29F69A710075C894 /* FourthViewController.swift in Sources */,
 				E84FACD229FA72FB005B162A /* ThirdCoordinatorViewController.swift in Sources */,
+				E8DA64F72A73B71000F39F2B /* UpdateUserVC.swift in Sources */,
 				E84FACC829FA6B1C005B162A /* UserDetails.swift in Sources */,
 				E81F94F52A417FC400A352FB /* LoginVC.swift in Sources */,
 				E81F94F32A417E0D00A352FB /* AuthenticationCoordinator.swift in Sources */,

@@ -11,9 +11,10 @@ import CoreData
 class UserDetailsVC: UIViewController {
     
     // MARK: - Outlets
-    private var userDetails = [UserItem]()
+    @IBOutlet private weak var tblUsers: UITableView!
     
     // MARK: - Vars & Lets
+    private var userDetails = [UserItem]()
     //We need to create a context from this container
     private let managedContext: NSManagedObjectContext! =  (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
@@ -44,15 +45,20 @@ class UserDetailsVC: UIViewController {
     }
     
     private func retriveUsers() {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "UserItem")
         do {
-            let result = try managedContext.fetch(fetchRequest)
-            if let userItems = result as? [UserItem] {
-                userDetails.append(contentsOf: userItems)
+            let result = try managedContext.fetch(UserItem.fetchRequest())
+            userDetails.append(contentsOf: result)
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.tblUsers.reloadData()
             }
         } catch {
             debugPrint(error)
         }
+    }
+    
+    private func deleteUser(user: UserItem) {
+        managedContext.delete(user)
     }
 }
 
@@ -68,5 +74,26 @@ extension UserDetailsVC: UITableViewDataSource {
         
         cell.configCell(user: userDetails[indexPath.row])
         return cell
+    }
+}
+
+extension UserDetailsVC: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            deleteUser(user: userDetails[indexPath.row])
+            userDetails.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .left)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "UpdateUserVC") as? UpdateUserVC {
+            vc.userItem = userDetails[indexPath.row]
+            vc.onDismiss = {
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+            navigationController?.present(vc, animated: true)
+        }
     }
 }
